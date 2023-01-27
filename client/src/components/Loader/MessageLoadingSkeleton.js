@@ -1,8 +1,14 @@
 import { StyledMessageLoadingSkeleton } from './Loader.styled';
 
-const LoadingFrame = () => {
+const MessageLoadingSkeleton = ({ index }) => {
    return (
-      <StyledMessageLoadingSkeleton>
+      <StyledMessageLoadingSkeleton
+         style={{
+            display: 'flex',
+            alignSelf: `${index % 2 === 0 ? 'end' : 'start'}`,
+            flexDirection: `${index % 2 === 0 ? 'row-reverse' : 'row'}`,
+         }}
+      >
          <div className="user-image"></div>
          <div className="content-wrapper">
             <p></p>
@@ -13,4 +19,4 @@ const LoadingFrame = () => {
    );
 };
 
-export default LoadingFrame;
+export default MessageLoadingSkeleton;

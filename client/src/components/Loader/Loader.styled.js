@@ -34,9 +34,9 @@ export const StyledMessageLoadingSkeleton = styled.section.attrs({
       height: 1.4rem;
       background: linear-gradient(
          105deg,
-         #868686 10%,
-         #9e9e9e 20%,
-         #868686 30%
+         #444444 10%,
+         #6d6d6d 20%,
+         #444444 30%
       );
       border-radius: 50%;
    }
@@ -48,19 +48,33 @@ export const StyledMessageLoadingSkeleton = styled.section.attrs({
    p {
       height: 1.3rem;
       width: 20rem;
-      background: linear-gradient(110deg, #868686 2%, #9e9e9e 6%, #868686 10%);
+      background: linear-gradient(110deg, #444444 2%, #6d6d6d 6%, #444444 10%);
       border-radius: 0.6rem;
    }
 
    .user-image,
    p {
       background-size: 200% 100%;
-      animation: 2s shine linear infinite;
+      animation: 2s shine linear infinite, 2s fade-away linear infinite;
    }
 
    @keyframes shine {
-      to {
+      100% {
          background-position-x: -200%;
+      }
+   }
+
+   @keyframes fade-away {
+      0% {
+         opacity: 0.8;
+      }
+
+      50% {
+         opacity: 0.4;
+      }
+
+      100% {
+         opacity: 0.8;
       }
    }
 `;

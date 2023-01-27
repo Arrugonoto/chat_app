@@ -88,6 +88,7 @@ const MessageForm = ({ socket }) => {
                name="text"
                onKeyDown={handleKeyDown}
                onKeyUp={handleKeyUp}
+               maxRows={4}
             />
             <SendMessageBtn
                disabled={text && !containsWhitespace ? false : true}

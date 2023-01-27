@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const StyledChatWindow = styled.div`
+export const StyledChatWindow = styled.div.attrs({
+   className: 'btn-scroll-bottom',
+})`
    display: flex;
    position: relative;
    flex-direction: column;
@@ -10,6 +12,27 @@ export const StyledChatWindow = styled.div`
    width: 100%;
    max-width: 1240px;
    background-color: hsl(0, 0%, 18%);
+
+   .btn-scroll-bottom {
+      position: absolute;
+      bottom: 7rem;
+      left: 50%;
+      translate: -50%;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      font-family: 'Roboto';
+      padding: 0.5rem 1.4rem;
+      border-radius: 0.6rem;
+      background-color: #464646;
+      color: #fafafa;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s linear;
+      &:hover {
+         background-color: #353535;
+         border: 2px solid #616161;
+      }
+   }
 `;
 
 export const StyledHeader = styled.header`

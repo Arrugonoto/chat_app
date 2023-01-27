@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const MessagesContainer = styled.div`
    display: flex;
+   position: relative;
    flex-direction: column-reverse;
    align-items: flex-start;
    width: 100%;

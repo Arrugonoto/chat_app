@@ -19,6 +19,7 @@ const ChatWindow = () => {
          <StyledChatWindow>
             <Header></Header>
             <MessageWindow socket={socket} />
+            <button className="btn-scroll-bottom">Jump to newest </button>
             <MessageForm socket={socket} />
          </StyledChatWindow>
          {openModal && <DeleteModal />}
