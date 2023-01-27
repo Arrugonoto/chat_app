@@ -18,6 +18,7 @@
       "react-router-dom": "^6.3.0",
       "react-scripts": "5.0.1",
       "react-textarea-autosize": "^8.3.4",
+      "react-transition-group": "^4.4.5",
       "smooth-scrollbar": "^8.8.1",
       "socket.io-client": "^4.5.4",
       "styled-components": "^5.3.5",
