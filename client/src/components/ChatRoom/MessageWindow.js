@@ -15,12 +15,11 @@ const MessageWindow = ({ socket }) => {
    const { user } = useAuthContext();
    const { messages, dispatch } = useMessageContext();
    const [loading, setLoading] = useState(true);
-   const [pageNumber, setPageNumber] = useState(0);
 
    const fetchMessages = async () => {
       setLoading(true);
 
-      const response = await fetch(`${MESSAGES_URL}?page=0`, {
+      const response = await fetch(MESSAGES_URL, {
          headers: { Authorization: `Bearer ${user.token}` },
       });
       const result = await response.json();
@@ -28,7 +27,7 @@ const MessageWindow = ({ socket }) => {
       if (response.ok) {
          dispatch({
             type: MSG_ACTIONS.SET,
-            payload: [...new Set([...messages, ...result])],
+            payload: result,
          });
          setLoading(false);
       }

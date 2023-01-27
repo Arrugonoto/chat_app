@@ -5,13 +5,12 @@ const mongoose = require('mongoose');
 // @route GET /api/messages
 // @access Private
 const getMessages = async (req, res, next) => {
-   const pageNumber = req.query.page || 0;
-   const resultsPerPage = 30;
+   // const pageNumber = req.query.page || 0;
+   // const resultsPerPage = 30;
 
-   const messages = await Message.find()
-      .sort({ createdAt: -1 })
-      .skip(pageNumber * resultsPerPage)
-      .limit(resultsPerPage);
+   const messages = await Message.find().sort({ createdAt: -1 });
+   // .skip(pageNumber * resultsPerPage)
+   // .limit(resultsPerPage);
 
    res.status(200).json(messages);
 };
