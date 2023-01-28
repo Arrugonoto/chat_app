@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 
 // components
 import { MessagesContainer } from './MessageWindow.styled';
@@ -11,7 +11,7 @@ import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
 
 const MESSAGES_URL = 'http://localhost:5000/api/messages';
 
-const MessageWindow = ({ socket }) => {
+const MessageWindow = forwardRef(({ socket, setChatWindowHeight }, ref) => {
    const { user } = useAuthContext();
    const { messages, dispatch } = useMessageContext();
    const [loading, setLoading] = useState(true);
@@ -43,12 +43,13 @@ const MessageWindow = ({ socket }) => {
    useEffect(() => {
       socket.on('resend_messages', () => {
          fetchMessages();
+         setChatWindowHeight(ref.current.scrollHeight);
       });
       // eslint-disable-next-line
    }, [socket]);
 
    return (
-      <MessagesContainer>
+      <MessagesContainer ref={ref}>
          {messages?.map((message, index, array) => (
             <Message
                key={message._id}
@@ -75,6 +76,6 @@ const MessageWindow = ({ socket }) => {
             })}
       </MessagesContainer>
    );
-};
+});
 
 export default MessageWindow;

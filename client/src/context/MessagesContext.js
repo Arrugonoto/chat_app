@@ -21,9 +21,9 @@ export const messagesReducer = (state, action) => {
          return { messages: action.payload };
       case MSG_ACTIONS.DELETE:
          return {
-            messages: [
-               state.messages.filter(el => el._id !== action.payload._id),
-            ],
+            messages: state.messages.filter(
+               el => el._id !== action.payload._id
+            ),
          };
       default:
          return state;
