@@ -16,6 +16,7 @@ const socket = io.connect('http://localhost:5000');
 const ChatWindow = () => {
    const { openModal } = useModalContext();
    const [chatWindowHeight, setChatWindowHeight] = useState(0);
+   const [showNewestBtn, setShowNewestBtn] = useState(false);
    const chatWindowRef = useRef(null);
 
    const handleClick = () => {
@@ -23,7 +24,6 @@ const ChatWindow = () => {
          top: chatWindowHeight,
          behavior: 'smooth',
       });
-      console.log('clicked');
    };
 
    return (
@@ -34,10 +34,17 @@ const ChatWindow = () => {
                socket={socket}
                ref={chatWindowRef}
                setChatWindowHeight={setChatWindowHeight}
+               setShowNewestBtn={setShowNewestBtn}
             />
-            <button className="btn-scroll-bottom" onClick={() => handleClick()}>
-               Jump to newest{' '}
-            </button>
+            {showNewestBtn && (
+               <button
+                  className="btn-scroll-bottom"
+                  onPointerDown={() => handleClick()}
+               >
+                  Jump to newest{' '}
+               </button>
+            )}
+
             <MessageForm socket={socket} />
          </StyledChatWindow>
          {openModal && <DeleteModal />}
