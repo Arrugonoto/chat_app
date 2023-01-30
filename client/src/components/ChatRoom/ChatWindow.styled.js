@@ -32,7 +32,6 @@ export const StyledChatWindow = styled.div.attrs({
       &:hover {
          background-color: #353535;
          border: 2px solid #616161;
-         scale: 1.1;
       }
    }
 `;

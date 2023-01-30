@@ -20,11 +20,11 @@ const PASS_REGEX_DIGIT = /^(?=.*\d).*$/;
 const PASS_REGEX_SPECIAL = /^(?=.*\W).*$/;
 
 const TooltipName = forwardRef((props, ref) => {
-   const [startLetter, setStartLetter] = useState(false);
+   const [firstLetter, setFirstLetter] = useState(false);
    const [correctLength, setCorrectLength] = useState(false);
 
    const checkName = () => {
-      setStartLetter(NAME_REGEX_LETTER.test(props.name));
+      setFirstLetter(NAME_REGEX_LETTER.test(props.name));
       setCorrectLength(NAME_REGEX_LENGTH.test(props.name));
    };
 
@@ -38,7 +38,7 @@ const TooltipName = forwardRef((props, ref) => {
          <h1>Name must:</h1>
          <ul>
             <li>
-               {startLetter ? (
+               {firstLetter ? (
                   <FaRegCheckCircle className="correct" />
                ) : (
                   <FontAwesomeIcon
