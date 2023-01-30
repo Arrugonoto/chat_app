@@ -23,7 +23,7 @@ export const StyledChatWindow = styled.div.attrs({
       letter-spacing: 0.5px;
       font-family: 'Roboto';
       padding: 0.5rem 1.4rem;
-      border-radius: 0.6rem;
+      border-radius: 0.5rem;
       background-color: #464646;
       color: #fafafa;
       cursor: pointer;
@@ -33,42 +33,5 @@ export const StyledChatWindow = styled.div.attrs({
          background-color: #353535;
          border: 2px solid #616161;
       }
-   }
-`;
-
-export const StyledHeader = styled.header`
-   display: flex;
-   width: 100%;
-   min-height: 2.4rem;
-   padding: 0.2rem 0.4rem;
-   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-`;
-
-export const MenuContainer = styled.div`
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   width: 100%;
-   padding: 0 1rem;
-   p {
-      font-family: 'Poppins';
-      font-size: 0.9rem;
-      color: ${props => `${props.userColor}`};
-      filter: drop-shadow(0 0 6px ${props => `${props.userColor}`});
-      user-select: none;
-   }
-`;
-
-export const LogoutButton = styled.button`
-   padding: 0.2rem 0.3rem;
-   cursor: pointer;
-   background: transparent;
-   border: none;
-   font-size: 1.4rem;
-   color: rgba(255, 255, 255, 0.6);
-   transition: all 0.2s linear;
-   &:hover {
-      color: rgba(255, 255, 255, 0.8);
-      filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8));
    }
 `;

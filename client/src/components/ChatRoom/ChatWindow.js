@@ -2,8 +2,8 @@ import { useState, useRef } from 'react';
 // components / styled
 import { SectionContainer } from '../styles/SectionContainer.styled';
 import { StyledChatWindow } from '../ChatRoom/ChatWindow.styled';
-import Header from './Header';
-import MessageWindow from './MessageWindow';
+import Header from '../Header.js/Header';
+import MessageWindow from './MessagesWindow';
 import MessageForm from './MessageForm';
 import DeleteModal from '../Modal/DeleteModal';
 import io from 'socket.io-client';

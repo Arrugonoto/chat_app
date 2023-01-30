@@ -7,7 +7,7 @@ export const MessagesContainer = styled.div`
    align-items: flex-start;
    width: 100%;
    height: 100%;
-   padding: 0.2rem 0.3rem;
+   padding: 1rem 0.3rem;
    overflow-y: scroll;
    scrollbar-width: thin;
    scrollbar-color: rgba(86, 204, 255, 0.1) transparent;

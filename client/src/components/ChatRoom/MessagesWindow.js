@@ -1,7 +1,7 @@
 import { useState, useEffect, forwardRef } from 'react';
 
 // components
-import { MessagesContainer } from './MessageWindow.styled';
+import { MessagesContainer } from './MessagesWindow.styled';
 import Message from './Message';
 import MessageLoadingSkeleton from '../Loader/MessageLoadingSkeleton';
 

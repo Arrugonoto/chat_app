@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 // components
-import { StyledMessage, MsgOptionsBtn } from './MessageWindow.styled';
+import { StyledMessage, MsgOptionsBtn } from './MessagesWindow.styled';
 import MessageOptions from './MessageOptions';
 
 // libraries
