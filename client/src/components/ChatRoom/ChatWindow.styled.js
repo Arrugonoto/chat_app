@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledChatWindow = styled.div.attrs({
-   className: 'btn-scroll-bottom',
+   className:
+      'btn-scroll-bottom, btn-show-enter, btn-show-enter-active, btn-show-enter-done, btn-show-exit, btn-show-exit-active, btn-show-exit-done',
 })`
    display: flex;
    position: relative;
@@ -15,7 +16,7 @@ export const StyledChatWindow = styled.div.attrs({
 
    .btn-scroll-bottom {
       position: absolute;
-      bottom: 7rem;
+      bottom: 3rem;
       left: 50%;
       translate: -50%;
       font-size: 1rem;
@@ -27,7 +28,7 @@ export const StyledChatWindow = styled.div.attrs({
       color: #fafafa;
       cursor: pointer;
       border: 2px solid transparent;
-      transition: all 0.2s linear;
+      transition: all 200ms linear;
       &:hover {
          background-color: #353535;
          border: 2px solid #616161;
