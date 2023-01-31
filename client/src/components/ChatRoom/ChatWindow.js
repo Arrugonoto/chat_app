@@ -52,7 +52,6 @@ const ChatWindow = () => {
                in={showNewestBtn}
                timeout={300}
                unmountOnExit={true}
-               appear={true}
             >
                {state => (
                   <button

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { StyledMenu, LogoutButton } from './Header.styled';
+import { StyledMenu } from './Header.styled';
 
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,12 +14,31 @@ const Menu = forwardRef((props, ref) => {
    return (
       <StyledMenu ref={ref}>
          <ul>
-            <li>Customize</li>
-            <li>Placeholder</li>
             <li>
-               <LogoutButton onClick={logout} title="Logout">
-                  <FontAwesomeIcon icon={solid('arrow-right-from-bracket')} />
-               </LogoutButton>
+               <button title="Change colors">
+                  <span>
+                     <FontAwesomeIcon icon={solid('palette')} />
+                  </span>
+                  <p>Customize</p>
+               </button>
+            </li>
+            <li>
+               <button>
+                  <span>
+                     <FontAwesomeIcon icon={solid('toolbox')} />
+                  </span>
+                  <p>Placeholder</p>
+               </button>
+            </li>
+            <li>
+               <button onClick={logout} title="Logout">
+                  <span>
+                     <FontAwesomeIcon
+                        icon={solid('arrow-right-from-bracket')}
+                     />
+                  </span>
+                  <p>Logout</p>
+               </button>
             </li>
          </ul>
       </StyledMenu>

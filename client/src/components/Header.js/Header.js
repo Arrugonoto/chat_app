@@ -19,15 +19,15 @@ const Header = () => {
    return (
       <StyledHeader>
          <MenuContainer userColor={user.color}>
-            <p>Hi {user.name} 😊</p>
+            <p className="header-username">Hi {user.name} 😊</p>
 
-            <button onClick={() => setShowMenu(prev => !prev)}>
-               display menu
-            </button>
+            <MenuButton onClick={() => setShowMenu(prev => !prev)} title="Menu">
+               <FontAwesomeIcon icon={solid('bars')} />
+            </MenuButton>
             <Transition
                nodeRef={menuRef}
                in={showMenu}
-               timeout={100}
+               timeout={200}
                unmountOnExit={true}
             >
                <Menu ref={menuRef} />
