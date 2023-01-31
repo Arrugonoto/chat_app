@@ -63,10 +63,11 @@ export const StyledMenu = styled.div`
    }
 
    button {
+      width: 100%;
+      background-color: transparent;
       display: flex;
       padding: 0.7rem 0.5rem;
       cursor: pointer;
-      background: transparent;
       border: none;
       font-size: 1rem;
       color: rgba(255, 255, 255, 0.6);
