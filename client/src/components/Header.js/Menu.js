@@ -8,11 +8,11 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 // logout function
 import useLogout from '../../hooks/useLogout';
 
-const Menu = forwardRef((props, ref) => {
+const Menu = ({ state }) => {
    const { logout } = useLogout();
 
    return (
-      <StyledMenu ref={ref}>
+      <StyledMenu state={state}>
          <ul>
             <li>
                <button title="Change colors">
@@ -43,6 +43,6 @@ const Menu = forwardRef((props, ref) => {
          </ul>
       </StyledMenu>
    );
-});
+};
 
 export default Menu;

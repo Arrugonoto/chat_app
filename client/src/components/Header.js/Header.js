@@ -10,11 +10,17 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 // context
 import { useAuthContext } from '../../context/AuthContext';
 
+// transition styles
+const fadeTransition = {
+   entering: { oapcity: 1, transform: 'scale(1.05) translateY(-4rem)' },
+   entered: { opacity: 1, transform: 'scale(1.03) translateY(-4rem)' },
+   exiting: { opacity: 0, transform: 'scale(0.8)' },
+   exited: { opacity: 0, transform: 'scale(0.8)' },
+};
+
 const Header = () => {
    const { user } = useAuthContext();
    const [showMenu, setShowMenu] = useState(false);
-
-   const menuRef = useRef(null);
 
    return (
       <StyledHeader>
@@ -25,12 +31,12 @@ const Header = () => {
                <FontAwesomeIcon icon={solid('bars')} />
             </MenuButton>
             <Transition
-               nodeRef={menuRef}
                in={showMenu}
                timeout={200}
+               mountOnEnter={true}
                unmountOnExit={true}
             >
-               <Menu ref={menuRef} />
+               {state => <Menu state={state} />}
             </Transition>
          </MenuContainer>
       </StyledHeader>

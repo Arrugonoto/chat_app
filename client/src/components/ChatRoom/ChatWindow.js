@@ -17,7 +17,7 @@ const socket = io.connect('http://localhost:5000');
 
 // transition styles
 const transitionStyles = {
-   entering: { scale: 1, transform: 'scale(1.05) translateY(-4rem)' },
+   entering: { opacity: 1, transform: 'scale(1.05) translateY(-4rem)' },
    entered: { opacity: 1, transform: 'scale(1.03) translateY(-4rem)' },
    exiting: { opacity: 0, transform: 'scale(0.8)' },
    exited: { opacity: 0, transform: 'scale(0.8)' },

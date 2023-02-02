@@ -43,14 +43,19 @@ export const MenuButton = styled.button`
 export const StyledMenu = styled.div`
    display: flex;
    position: absolute;
-   align-content: start;
+   justify-content: start;
    z-index: 100;
    right: 0;
    top: 2.3rem;
    background-color: rgb(56, 56, 56);
    padding: 0.4rem 0.3rem;
    border-radius: 0.3rem;
-   text-align: start;
+   transition: all 0.2s linear;
+   opacity: ${({ state }) =>
+      state === 'entering' || state === 'entered' ? 1 : 0};
+   scale: ${({ state }) =>
+      state === 'entering' || state === 'entered' ? 1.05 : 0.8};
+
    ul {
       min-width: 11rem;
       li {
