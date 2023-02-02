@@ -54,7 +54,7 @@ export const StyledMenu = styled.div`
    opacity: ${({ state }) =>
       state === 'entering' || state === 'entered' ? 1 : 0};
    scale: ${({ state }) =>
-      state === 'entering' || state === 'entered' ? 1.05 : 0.8};
+      state === 'entering' || state === 'entered' ? 1 : 0.8};
 
    ul {
       min-width: 11rem;
