@@ -26,7 +26,7 @@ export const StyledMenuContainer = styled.div.attrs({
    }
 `;
 
-export const MenuButton = styled.button`
+export const StyledMenuButton = styled.button`
    padding: 0.2rem 0.3rem;
    cursor: pointer;
    background: transparent;

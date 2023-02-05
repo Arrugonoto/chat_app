@@ -48,7 +48,7 @@ const SignupForm = () => {
       if (!name || !email || !password || !confirmPassword) {
          setError('Please fill all fields');
       } else if (!correctName) {
-         setError(`Invalid Name syntax`);
+         setError(`Invalid name syntax`);
       } else if (!correctPassword) {
          setError(`Invalid password syntax`);
       } else if (password !== confirmPassword) {

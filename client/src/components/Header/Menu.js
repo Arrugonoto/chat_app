@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { StyledMenu } from './Header.styled';
 
 // icons
@@ -11,9 +11,27 @@ import useLogout from '../../hooks/useLogout';
 // context
 import { useThemeContext } from '../../context/ThemeContext';
 
-const Menu = forwardRef(({ state }, ref) => {
+const Menu = forwardRef(({ showMenu, setShowMenu, state, menuBtnRef }, ref) => {
    const { setDisplaySettings } = useThemeContext();
    const { logout } = useLogout();
+
+   const handlePointerUp = e => {
+      if (
+         !ref.current.contains(e.target) &&
+         !menuBtnRef.current.contains(e.target)
+      ) {
+         setShowMenu(false);
+      }
+   };
+
+   useEffect(() => {
+      if (showMenu) {
+         window.addEventListener('pointerup', handlePointerUp);
+      } else window.removeEventListener('pointerup', handlePointerUp);
+
+      return () => window.removeEventListener('pointerup', handlePointerUp);
+      //eslint-disable-next-line
+   }, [showMenu, setShowMenu]);
 
    return (
       <StyledMenu ref={ref} state={state}>
@@ -29,14 +47,18 @@ const Menu = forwardRef(({ state }, ref) => {
                   <p>Customize</p>
                </button>
             </li>
-            <li>
-               <button>
-                  <span>
-                     <FontAwesomeIcon icon={solid('toolbox')} />
-                  </span>
-                  <p>Placeholder</p>
-               </button>
-            </li>
+            {[...Array(4).keys()].map(i => {
+               return (
+                  <li key={i}>
+                     <button>
+                        <span>
+                           <FontAwesomeIcon icon={solid('toolbox')} />
+                        </span>
+                        <p>Placeholder</p>
+                     </button>
+                  </li>
+               );
+            })}
             <li>
                <button onClick={logout} title="Logout">
                   <span>

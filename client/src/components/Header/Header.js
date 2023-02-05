@@ -1,5 +1,9 @@
 import { useState, useRef } from 'react';
-import { StyledHeader, StyledMenuContainer, MenuButton } from './Header.styled';
+import {
+   StyledHeader,
+   StyledMenuContainer,
+   StyledMenuButton,
+} from './Header.styled';
 import Menu from './Menu';
 import { Transition } from 'react-transition-group';
 
@@ -14,13 +18,17 @@ const Header = () => {
    const { user } = useAuthContext();
    const [showMenu, setShowMenu] = useState(false);
    const menuRef = useRef(null);
+   const menuBtnRef = useRef(null);
 
    return (
       <StyledHeader>
          <StyledMenuContainer userColor={user.color}>
             <p className="header-username">Hi {user.name} 😊</p>
 
-            <MenuButton onClick={() => setShowMenu(prev => !prev)}>
+            <StyledMenuButton
+               ref={menuBtnRef}
+               onClick={() => setShowMenu(prev => !prev)}
+            >
                {showMenu ? (
                   <FontAwesomeIcon
                      icon={solid('xmark')}
@@ -30,7 +38,7 @@ const Header = () => {
                ) : (
                   <FontAwesomeIcon icon={solid('bars')} title="Open Menu" />
                )}
-            </MenuButton>
+            </StyledMenuButton>
             <Transition
                nodeRef={menuRef}
                in={showMenu}
@@ -38,7 +46,15 @@ const Header = () => {
                mountOnEnter={true}
                unmountOnExit={true}
             >
-               {state => <Menu state={state} ref={menuRef} />}
+               {state => (
+                  <Menu
+                     showMenu={showMenu}
+                     setShowMenu={setShowMenu}
+                     state={state}
+                     ref={menuRef}
+                     menuBtnRef={menuBtnRef}
+                  />
+               )}
             </Transition>
          </StyledMenuContainer>
       </StyledHeader>
