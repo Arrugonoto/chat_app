@@ -2,15 +2,17 @@ import { useState, useRef } from 'react';
 // components / styled
 import { SectionContainer } from '../styles/SectionContainer.styled';
 import { StyledChatWindow } from '../ChatRoom/ChatWindow.styled';
-import Header from '../Header.js/Header';
+import Header from '../Header/Header';
 import MessageWindow from './MessagesWindow';
 import MessageForm from './MessageForm';
 import DeleteModal from '../Modal/DeleteModal';
+import ThemeSettings from '../Theme/ThemeSettings';
 import io from 'socket.io-client';
-import { Transition } from 'react-transition-group';
+import { Transition, CSSTransition } from 'react-transition-group';
 
 // context
 import { useModalContext } from '../../context/ModalContext';
+import { useThemeContext } from '../../context/ThemeContext';
 
 // socket
 const socket = io.connect('http://localhost:5000');
@@ -25,10 +27,12 @@ const transitionStyles = {
 
 const ChatWindow = () => {
    const { openModal } = useModalContext();
+   const { displaySettings } = useThemeContext();
    const [chatWindowHeight, setChatWindowHeight] = useState(0);
    const [showNewestBtn, setShowNewestBtn] = useState(false);
    const chatWindowRef = useRef(null);
    const newestBtnRef = useRef(null);
+   const themeRef = useRef(null);
 
    const handleClick = () => {
       chatWindowRef.current.scrollTo({
@@ -68,6 +72,7 @@ const ChatWindow = () => {
             <MessageForm socket={socket} />
          </StyledChatWindow>
          {openModal && <DeleteModal />}
+         {displaySettings && <ThemeSettings ref={themeRef} />}
       </SectionContainer>
    );
 };

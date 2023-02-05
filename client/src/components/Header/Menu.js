@@ -8,14 +8,21 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 // logout function
 import useLogout from '../../hooks/useLogout';
 
-const Menu = ({ state }) => {
+// context
+import { useThemeContext } from '../../context/ThemeContext';
+
+const Menu = forwardRef(({ state }, ref) => {
+   const { setDisplaySettings } = useThemeContext();
    const { logout } = useLogout();
 
    return (
-      <StyledMenu state={state}>
+      <StyledMenu ref={ref} state={state}>
          <ul>
             <li>
-               <button title="Change colors">
+               <button
+                  title="Change colors"
+                  onClick={() => setDisplaySettings(true)}
+               >
                   <span>
                      <FontAwesomeIcon icon={solid('palette')} />
                   </span>
@@ -43,6 +50,6 @@ const Menu = ({ state }) => {
          </ul>
       </StyledMenu>
    );
-};
+});
 
 export default Menu;
