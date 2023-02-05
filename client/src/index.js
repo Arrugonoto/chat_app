@@ -6,16 +6,19 @@ import App from './App';
 import { AuthContextProvider } from './context/AuthContext';
 import { MessagesContextProvider } from './context/MessagesContext';
 import { ModalContextProvider } from './context/ModalContext';
+import { ThemeContextProvider } from './context/ThemeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <React.StrictMode>
       <AuthContextProvider>
-         <MessagesContextProvider>
-            <ModalContextProvider>
-               <App />
-            </ModalContextProvider>
-         </MessagesContextProvider>
+         <ThemeContextProvider>
+            <MessagesContextProvider>
+               <ModalContextProvider>
+                  <App />
+               </ModalContextProvider>
+            </MessagesContextProvider>
+         </ThemeContextProvider>
       </AuthContextProvider>
    </React.StrictMode>
 );
