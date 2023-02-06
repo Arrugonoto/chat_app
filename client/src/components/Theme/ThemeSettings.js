@@ -6,10 +6,7 @@ const ThemeSettings = forwardRef((props, ref) => {
    const { displaySettings, setDisplaySettings } = useThemeContext();
 
    const handleClose = e => {
-      if (!ref.current.contains(e.target)) {
-         setDisplaySettings(false);
-      }
-      console.log('outside');
+      if (!ref.current.contains(e.target)) setDisplaySettings(false);
    };
 
    useEffect(() => {
@@ -17,8 +14,7 @@ const ThemeSettings = forwardRef((props, ref) => {
          window.addEventListener('pointerup', handleClose);
       } else window.removeEventListener('pointerup', handleClose);
 
-      return window.removeEventListener('pointerup', handleClose);
-
+      return () => window.removeEventListener('pointerup', handleClose);
       // eslint-disable-next-line
    }, [displaySettings, setDisplaySettings]);
 
