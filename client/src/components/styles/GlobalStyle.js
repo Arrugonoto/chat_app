@@ -33,22 +33,22 @@ input, textarea {
 }
 
 h1 {
-   font-size: 2.2rem;
-}
-h2 {
-   font-size: 2rem;
-}
-h3 {
    font-size: 1.8rem;
 }
-h4 {
+h2 {
    font-size: 1.6rem;
 }
-h5 {
+h3 {
    font-size: 1.4rem;
 }
-h6 {
+h4 {
    font-size: 1.2rem;
+}
+h5 {
+   font-size: 1.1rem;
+}
+h6 {
+   font-size: 1rem;
 }
 
 `;

@@ -1,6 +1,8 @@
 import { forwardRef, useEffect } from 'react';
 import { StyledThemeSettings } from './ThemeSettings.styled';
 import { useThemeContext } from '../../context/ThemeContext';
+import RoomColorSettings from './RoomColorSettings';
+import MessageColorSettings from './MessageColorSettings';
 
 const ThemeSettings = forwardRef((props, ref) => {
    const { displaySettings, setDisplaySettings } = useThemeContext();
@@ -20,9 +22,9 @@ const ThemeSettings = forwardRef((props, ref) => {
 
    return (
       <StyledThemeSettings ref={ref}>
-         <section>Background color</section>
-         <section>Message BG Color</section>
-         <section> Font Color </section>
+         <RoomColorSettings />
+         <MessageColorSettings />
+
          <button onPointerUp={() => setDisplaySettings(false)}>
             Close settings
          </button>
