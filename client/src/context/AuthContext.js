@@ -5,37 +5,37 @@ const AuthContext = createContext();
 export const useAuthContext = () => useContext(AuthContext);
 
 export const ACTIONS = {
-  LOGIN: 'LOGIN',
-  LOGOUT: 'LOGOUT',
+   LOGIN: 'LOGIN',
+   LOGOUT: 'LOGOUT',
 };
 
 export const authReducer = (state, action) => {
-  switch (action.type) {
-    case ACTIONS.LOGIN:
-      return { user: action.payload };
-    case ACTIONS.LOGOUT:
-      return { user: null };
-    default:
-      return state;
-  }
+   switch (action.type) {
+      case ACTIONS.LOGIN:
+         return { user: action.payload };
+      case ACTIONS.LOGOUT:
+         return { user: null };
+      default:
+         return state;
+   }
 };
 
 export const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, {
-    user: null,
-  });
+   const [state, dispatch] = useReducer(authReducer, {
+      user: null,
+   });
 
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
+   useEffect(() => {
+      const user = JSON.parse(localStorage.getItem('user'));
 
-    if (user) {
-      dispatch({ type: ACTIONS.LOGIN, payload: user });
-    }
-  }, []);
+      if (user) {
+         dispatch({ type: ACTIONS.LOGIN, payload: user });
+      }
+   }, []);
 
-  return (
-    <AuthContext.Provider value={{ ...state, dispatch }}>
-      {children}
-    </AuthContext.Provider>
-  );
+   return (
+      <AuthContext.Provider value={{ ...state, dispatch }}>
+         {children}
+      </AuthContext.Provider>
+   );
 };

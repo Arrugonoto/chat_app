@@ -25,9 +25,12 @@ const ThemeSettings = forwardRef((props, ref) => {
          <RoomColorSettings />
          <MessageColorSettings />
 
-         <button onPointerUp={() => setDisplaySettings(false)}>
-            Close settings
-         </button>
+         <div>
+            <button onPointerUp={() => setDisplaySettings(false)}>
+               Close settings
+            </button>
+            <button>Save</button>
+         </div>
       </StyledThemeSettings>
    );
 });

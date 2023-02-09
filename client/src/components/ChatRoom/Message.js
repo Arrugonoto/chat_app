@@ -9,9 +9,11 @@ import { FaEllipsisV } from 'react-icons/fa';
 
 // context
 import { useAuthContext } from '../../context/AuthContext';
+import { useThemeContext } from '../../context/ThemeContext';
 
 const Message = ({ message, nextDay, nextId }) => {
    const { user } = useAuthContext();
+   const { themeColors } = useThemeContext();
    const [displayOptions, setDisplayOptions] = useState(false);
    const optionsBtnRef = useRef(null);
    const dayAfter = moment(nextDay).format('Do MMM YYYY');
@@ -41,6 +43,7 @@ const Message = ({ message, nextDay, nextId }) => {
             user={user._id === message.user_id}
             userColor={message.userColor}
             anotherUser={nextId !== message.user_id}
+            messageColor={themeColors.messageBgColor}
          >
             {dayAfter !== sendDate && (
                <div className="date-day">

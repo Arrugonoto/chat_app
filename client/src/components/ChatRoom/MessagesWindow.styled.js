@@ -11,6 +11,8 @@ export const MessagesContainer = styled.div`
    overflow-y: scroll;
    scrollbar-width: thin;
    scrollbar-color: rgba(86, 204, 255, 0.1) transparent;
+   transition: background-color 0.2s linear;
+   background: ${props => `${props.roomColor}`};
 `;
 export const StyledMessage = styled.article.attrs({
    className:
@@ -47,8 +49,8 @@ export const StyledMessage = styled.article.attrs({
          padding: 0.4rem 0.5rem;
          border-radius: 1rem;
          word-break: break-all;
-         background-color: ${props =>
-            props.user ? '#0c8d71' : `${props.userColor}`};
+         background: ${props =>
+            props.user ? `${props.messageColor}` : `${props.userColor}`};
          ::selection {
             background-color: rgb(34, 34, 34);
          }

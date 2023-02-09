@@ -5,7 +5,8 @@ export const StyledHeader = styled.header`
    width: 100%;
    min-height: 2.9rem;
    padding: 0.2rem 0.4rem;
-   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.8);
+   z-index: 10;
 `;
 
 export const StyledMenuContainer = styled.div.attrs({

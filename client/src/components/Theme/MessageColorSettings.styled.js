@@ -5,8 +5,6 @@ export const StyledMessageColorSettings = styled.section.attrs({
 })`
    padding: 0.5rem;
    display: grid;
-   overflow: hidden;
-
    button {
       border: none;
       display: inline-block;

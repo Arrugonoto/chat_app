@@ -1,23 +1,33 @@
-import { useState } from 'react';
 import { StyledMessageColorSettings } from './MessageColorSettings.styled';
 import { messageBgColor, messageBgGradient } from '../../data/colors';
 
+// theme context
+import { useThemeContext } from '../../context/ThemeContext';
+
 const MessageColorSettings = () => {
-   const [colorId, setColorId] = useState(1);
+   const { themeColors, setThemeColors } = useThemeContext();
 
    return (
       <StyledMessageColorSettings>
-         <h1>Message colors</h1>
+         <h1>Message background</h1>
          <div>
             <h2>Basic</h2>
             {messageBgColor.map(el => (
                <button
                   className={`${
-                     el.id === colorId ? 'btn-selected-value' : null
+                     el.id === themeColors.messageBgId
+                        ? 'btn-selected-value'
+                        : null
                   }`}
                   key={el.id}
                   style={{ background: `${el.value}` }}
-                  onPointerDown={() => setColorId(el.id)}
+                  onPointerDown={() =>
+                     setThemeColors(prev => ({
+                        ...prev,
+                        messageBgId: el.id,
+                        messageBgColor: el.value,
+                     }))
+                  }
                ></button>
             ))}
          </div>
@@ -26,13 +36,21 @@ const MessageColorSettings = () => {
             {messageBgGradient.map(el => (
                <button
                   className={`${
-                     el.id === colorId ? 'btn-selected-value' : null
+                     el.id === themeColors.messageBgId
+                        ? 'btn-selected-value'
+                        : null
                   }`}
                   key={el.id}
                   style={{
                      background: `${el.value}`,
                   }}
-                  onPointerDown={() => setColorId(el.id)}
+                  onPointerDown={() => {
+                     setThemeColors(prev => ({
+                        ...prev,
+                        messageBgId: el.id,
+                        messageBgColor: el.value,
+                     }));
+                  }}
                ></button>
             ))}
          </div>

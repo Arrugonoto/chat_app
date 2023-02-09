@@ -1,11 +1,11 @@
 export const roomBgColor = [
    { id: 1, value: `hsl(0, 0%, 18%)` },
-   { id: 2, value: 'hsl(0, 97%, 44%)' },
-   { id: 3, value: 'hsl(152, 96%, 46%)' },
-   { id: 4, value: 'hsl(283, 75%, 51%)' },
-   { id: 5, value: 'hsl(323, 100%, 50%)' },
-   { id: 6, value: 'hsl(54, 80%, 52%)' },
-   { id: 7, value: 'hsl(187, 100%, 50%)' },
+   { id: 2, value: 'hsl(0, 0%, 28%)' },
+   { id: 3, value: 'hsl(152, 96%, 36%)' },
+   { id: 4, value: 'hsl(283, 75%, 35%)' },
+   { id: 5, value: 'hsl(323, 100%, 35%)' },
+   { id: 6, value: 'hsl(54, 80%, 40%)' },
+   { id: 7, value: 'hsl(187, 100%, 36%)' },
    { id: 8, value: 'hsl(0, 0%, 85%)' },
    { id: 9, value: 'hsl(0, 0%, 100%)' },
 ];
@@ -40,7 +40,7 @@ export const roomBgGradient = [
    },
    {
       id: 17,
-      value: `linear-gradient(45deg, #FA8BFF 14%, #2BD2FF 51%, #2BFF88 88%)`,
+      value: `linear-gradient(to right, #dc2424, #4a569d)`,
    },
 ];
 export const messageBgColor = [

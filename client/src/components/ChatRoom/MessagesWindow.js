@@ -8,6 +8,7 @@ import MessageLoadingSkeleton from '../Loader/MessageLoadingSkeleton';
 // context
 import { useAuthContext } from '../../context/AuthContext';
 import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
+import { useThemeContext } from '../../context/ThemeContext';
 
 const MESSAGES_URL = 'http://localhost:5000/api/messages';
 
@@ -15,6 +16,7 @@ const MessageWindow = forwardRef(
    ({ socket, setChatWindowHeight, setShowNewestBtn }, ref) => {
       const { user } = useAuthContext();
       const { messages, dispatch } = useMessageContext();
+      const { themeColors } = useThemeContext();
       const [loading, setLoading] = useState(true);
 
       const fetchMessages = async () => {
@@ -58,7 +60,11 @@ const MessageWindow = forwardRef(
       }, [socket]);
 
       return (
-         <MessagesContainer ref={ref} onScroll={() => handleScroll()}>
+         <MessagesContainer
+            ref={ref}
+            roomColor={themeColors.roomBgColor}
+            onScroll={() => handleScroll()}
+         >
             {messages?.map((message, index, array) => (
                <Message
                   key={message._id}
