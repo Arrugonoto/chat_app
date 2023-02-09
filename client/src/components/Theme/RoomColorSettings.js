@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { StyledRoomColorSettings } from './RoomColorSettings.styled';
 import { roomBgColor, roomBgGradient } from '../../data/colors';
 
 const RoomColorSettings = () => {
+   const [colorId, setColorId] = useState(1);
+
    return (
       <StyledRoomColorSettings>
          <h1>Background colors</h1>
@@ -9,9 +12,14 @@ const RoomColorSettings = () => {
             <h2>Basic</h2>
             {roomBgColor.map(el => (
                <button
-                  className="btn-bg-color"
+                  className={`${
+                     el.id === colorId ? 'btn-selected-value' : null
+                  }`}
                   key={el.id}
-                  style={{ background: `${el.value}` }}
+                  style={{
+                     background: `${el.value}`,
+                  }}
+                  onPointerDown={() => setColorId(el.id)}
                ></button>
             ))}
          </div>
@@ -19,12 +27,14 @@ const RoomColorSettings = () => {
             <h2>Gradient</h2>
             {roomBgGradient.map(el => (
                <button
-                  className="btn-bg-gradient"
+                  className={`${
+                     el.id === colorId ? 'btn-selected-value' : null
+                  }`}
                   key={el.id}
                   style={{
                      background: `${el.value}`,
-                     backgroundRepeat: 'no-repeat',
                   }}
+                  onPointerDown={() => setColorId(el.id)}
                ></button>
             ))}
          </div>
