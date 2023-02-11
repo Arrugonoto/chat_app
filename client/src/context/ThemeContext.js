@@ -21,15 +21,12 @@ export const ThemeContextProvider = ({ children }) => {
 
       if (userTheme) {
          setThemeColors({
-            themeId: userTheme.themeId,
-            themeMode: userTheme.themeMode,
-            roomBgId: userTheme.roomBgId,
-            roomBgColor: userTheme.roomBgColor,
-            messageBgId: userTheme.messageBgId,
-            messageBgColor: userTheme.messageBgColor,
-            messageTextColor: userTheme.messageTextColor,
+            ...userTheme,
          });
+      } else {
+         localStorage.setItem('userTheme', JSON.stringify(themeColors));
       }
+      // eslint-disable-next-line
    }, []);
 
    return (

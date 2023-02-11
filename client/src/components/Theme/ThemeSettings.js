@@ -1,14 +1,26 @@
 import { forwardRef, useEffect } from 'react';
 import { StyledThemeSettings } from './ThemeSettings.styled';
-import { useThemeContext } from '../../context/ThemeContext';
 import RoomColorSettings from './RoomColorSettings';
 import MessageColorSettings from './MessageColorSettings';
 
+// icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+
+// context
+import { useThemeContext } from '../../context/ThemeContext';
+
 const ThemeSettings = forwardRef((props, ref) => {
-   const { displaySettings, setDisplaySettings } = useThemeContext();
+   const { displaySettings, setDisplaySettings, themeColors, setThemeColors } =
+      useThemeContext();
 
    const handleClose = e => {
       if (!ref.current.contains(e.target)) setDisplaySettings(false);
+   };
+
+   const handleCancelChanges = () => {
+      const backupThemeSettings = JSON.parse(localStorage.getItem('userTheme'));
+      setThemeColors(backupThemeSettings);
    };
 
    useEffect(() => {
@@ -24,12 +36,22 @@ const ThemeSettings = forwardRef((props, ref) => {
       <StyledThemeSettings ref={ref}>
          <RoomColorSettings />
          <MessageColorSettings />
+         <button
+            className="btn-close"
+            onPointerUp={() => setDisplaySettings(false)}
+         >
+            <FontAwesomeIcon icon={solid('xmark')} title="Close Settings" />
+         </button>
 
-         <div>
-            <button onPointerUp={() => setDisplaySettings(false)}>
-               Close settings
+         <div className="btns-wrapper">
+            <button onPointerUp={() => handleCancelChanges()}>Reset</button>
+            <button
+               onPointerUp={() =>
+                  localStorage.setItem('userTheme', JSON.stringify(themeColors))
+               }
+            >
+               Save changes
             </button>
-            <button>Save</button>
          </div>
       </StyledThemeSettings>
    );
