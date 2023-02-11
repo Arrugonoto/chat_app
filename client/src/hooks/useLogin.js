@@ -18,17 +18,17 @@ const useLogin = () => {
          body: JSON.stringify({ email, password }),
       });
 
-      const json = await response.json();
+      const result = await response.json();
 
       if (response.ok) {
-         localStorage.setItem('user', JSON.stringify(json));
+         localStorage.setItem('user', JSON.stringify(result));
 
-         dispatch({ type: ACTIONS.LOGIN, payload: json });
+         dispatch({ type: ACTIONS.LOGIN, payload: result });
          setLoading(false);
       }
       if (!response.ok) {
          setLoading(false);
-         setError(json.error);
+         setError(result.error);
       }
    };
 
