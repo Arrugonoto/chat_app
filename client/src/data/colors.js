@@ -58,11 +58,11 @@ export const messageBgGradient = [
    { id: 10, value: `linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)` },
    {
       id: 11,
-      value: `radial-gradient(circle, rgba(21,194,193,1) 8%, rgba(205,22,166,1) 71%)`,
+      value: `radial-gradient(circle, rgba(20, 161, 161, 1) 8%, rgba(205,22,166,1) 71%)`,
    },
    {
       id: 12,
-      value: `radial-gradient(circle, rgba(21,194,193,1) 8%, rgba(22,205,82,1) 71%)`,
+      value: `radial-gradient(circle, rgba(21, 177, 177, 1) 8%, rgba(21, 179, 74, 1) 71%)`,
    },
    {
       id: 13,
