@@ -28,6 +28,13 @@ body {
    color: #e9e9e9;
 }
 
+button {
+   color: #fafafa;
+   border: none;
+   outline: none;
+   cursor: pointer;
+}
+
 input, textarea {
    color: #e9e9e9;
 }
