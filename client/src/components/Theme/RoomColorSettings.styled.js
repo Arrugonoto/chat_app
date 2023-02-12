@@ -1,10 +1,20 @@
 import styled from 'styled-components';
 
 export const StyledRoomColorSettings = styled.section.attrs({
-   className: 'btn-selected-value',
+   className: 'btn-selected-value, container-btns',
 })`
-   padding: 0.5rem;
+   padding: 0.5rem 0.8rem;
    display: grid;
+   background-color: hsl(0, 0%, 17%);
+   border-radius: 0.5rem;
+   margin-bottom: 1rem;
+
+   .container-btns {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+      gap: 0.5rem;
+   }
+
    button {
       border: none;
       display: inline-block;

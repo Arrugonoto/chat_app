@@ -5,16 +5,47 @@ export const StyledThemeSettings = styled.div.attrs({
 })`
    display: flex;
    position: absolute;
-   right: 0;
+   right: -100%;
    flex-direction: column;
    background-color: rgb(36, 36, 36);
    height: 100vh;
-   width: 30vw;
+   width: 20vw;
    min-width: 20rem;
-   padding: 0.6rem;
-   border-radius: 0.8rem 0 0 0.8rem;
+   padding: 0.6rem 0.8rem;
    z-index: 11;
    overflow-y: scroll;
+   box-shadow: 0 0 1rem 0 rgba(1, 1, 1, 0.4);
+   &.show-settings-enter {
+      right: -100%;
+   }
+   &.show-settings-enter-active {
+      right: 0;
+      transition: all 0.3s;
+   }
+   &.show-settings-enter-done {
+      right: 0;
+   }
+   &.show-settings-exit {
+      right: 0;
+   }
+   &.show-settings-exit-active {
+      right: -100%;
+      transition: all 0.8s;
+   }
+   &.show-settings-exit-done {
+      right: -100%;
+   }
+
+   h1 {
+      font-size: 1.6rem;
+      font-weight: 500;
+   }
+
+   h2 {
+      font-size: 1.3rem;
+      margin: 0.8rem 0 0.2rem 0;
+      font-weight: 400;
+   }
 
    .btn-close {
       position: absolute;
@@ -36,7 +67,7 @@ export const StyledThemeSettings = styled.div.attrs({
       width: 100%;
       justify-content: center;
       align-content: center;
-      padding: 1rem 0.5rem;
+      padding: 1rem 0.1rem;
       gap: 1rem;
       button {
          width: 100%;
