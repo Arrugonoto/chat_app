@@ -39,7 +39,10 @@ const Menu = forwardRef(({ showMenu, setShowMenu, state, menuBtnRef }, ref) => {
             <li>
                <button
                   title="Change colors"
-                  onClick={() => setDisplaySettings(true)}
+                  onClick={() => {
+                     setDisplaySettings(true);
+                     setShowMenu(false);
+                  }}
                >
                   <span>
                      <FontAwesomeIcon icon={solid('palette')} />
@@ -60,7 +63,7 @@ const Menu = forwardRef(({ showMenu, setShowMenu, state, menuBtnRef }, ref) => {
                );
             })}
             <li>
-               <button onClick={logout} title="Logout">
+               <button onPointerUp={logout} title="Logout">
                   <span>
                      <FontAwesomeIcon
                         icon={solid('arrow-right-from-bracket')}

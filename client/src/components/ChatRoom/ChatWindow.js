@@ -25,6 +25,8 @@ const transitionStyles = {
    exited: { opacity: 0, transform: 'scale(0.8)' },
 };
 
+const cssTransitionName = 'show-settings';
+
 const ChatWindow = () => {
    const { openModal } = useModalContext();
    const { displaySettings } = useThemeContext();
@@ -72,7 +74,16 @@ const ChatWindow = () => {
             <MessageForm socket={socket} />
          </StyledChatWindow>
          {openModal && <DeleteModal />}
-         {displaySettings && <ThemeSettings ref={themeRef} />}
+         <CSSTransition
+            nodeRef={themeRef}
+            in={displaySettings}
+            timeout={300}
+            classNames={cssTransitionName}
+            mountOnEnter={true}
+            unmountOnExit={true}
+         >
+            <ThemeSettings ref={themeRef} />
+         </CSSTransition>
       </SectionContainer>
    );
 };
