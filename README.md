@@ -79,6 +79,7 @@ Please at first follow these steps to install necessary tools. If you have alrea
    MONGO_URI=mongodb://myDBReader:D1fficultP%40ssw0rd@mongodb0.example.com:27017/?authSource=admin  // example connection URI string
    SECRET=secret_key_example
    ```
+   Remember! Never upload .env file to repository because it contains important configuration data and exposes them to be exploited.
 5. After finished configuration install necessary packages.
    ```sh
    npm i
