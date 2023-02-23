@@ -175,6 +175,6 @@ Distributed under the GPL3.0 License. See `LICENSE` file for more information.
 
 Krzysztof Klekot - klekot.krzysztof1008@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/Arrugonoto/chat_app](https://github.com/Arrugonoto/chat_app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
