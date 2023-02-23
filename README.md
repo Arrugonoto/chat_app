@@ -37,7 +37,7 @@ To get a local copy up and running follow these simple steps.
 Please at first follow these steps to install necessary tools. If you have already finished them or have already installed necessary tools, skip this step and jump to <a href="#installation">Installation</a>
 
 1. Install latest stable version of node from <a href="https://nodejs.org/en/"> Official Site </a>. It should also install the latest version of npm package manager.
-2. Verify versionos of installed node and package manager
+2. Verify versionos of installed node and package manager.
    ```sh
    node -v
    npm -v
@@ -63,37 +63,50 @@ Please at first follow these steps to install necessary tools. If you have alrea
 
 #### Server:
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone repository.
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Arrugonoto/chat_app.git
    ```
-3. Install NPM packages
+2. Inside of project main directory navigate to `server folder`.
    ```sh
-   npm install
+   cd server/
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Inside of a server directory create `.env` file
+4. Configure .env file with necessary data:
+   ```.env
+   NODE_ENV=production // node development environment, currently set as production
+   PORT=5000 // port on which server will be running
+   MONGO_URI=mongodb://myDBReader:D1fficultP%40ssw0rd@mongodb0.example.com:27017/?authSource=admin  // example connection URI string
+   SECRET=secret_key_example
+   ```
+5. After finished configuration install necessary packages.
+   ```sh
+   npm i
+   ```
+6. Run server.
+   ```sh
+   npm run dev
    ```
 
 #### Client:
 
-1. Inside of main project directory navigate to client folder
+Open another command line/terminal.
+
+1. Inside of main project directory navigate to client folder.
    ```sh
    cd client
    ```
-2. Inside of a client directory install NPM packages
+2. Inside of a client directory install NPM packages.
    ```sh
    npm i
    ```
-3. Wait for the installation to complete
+3. Wait for the installation to complete.
 4. Run client
    ```sh
    npm start
    ```
-   <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+5. Done! Have fun with testing!
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- LICENSE -->
 
 ## License
