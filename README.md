@@ -1,18 +1,17 @@
 <a name="readme-top"></a>
 
-### Basic version of readme file, I will update it as soon as possible.
-
 <div align="center">
 
   <h2 align="center">Chilly talk 🤗 </h2>
   <h4>Chat app / room</h4>
+  <p align="center">Realtime chat app for chilly talking and learning basics of full-stack 📖 </p>
 
   <br>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+<summary> 📜 Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -27,7 +26,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -41,22 +39,35 @@
 ![Chilly talk - main page](/images/Chilly_talk-main_page.png)
 ![Chilly talk - chat room](/images/Chilly_talk-chat_room.png)
 
+I have decided to improve my coding skills to strengthen my fundamentals of front-end, react and styling also with exploring new trails and oh me it was great and horrible idea at same time. So I have decided to get into back-end development.. at least to understand basics. Finally I have decided to build real time chat application which will work like for example `Messenger` or `Telegram`.
+
+This idea allowed me to obtain a huge amount of new knowledge and to spend many hours inside of docs.
+
+Project allows the end User to register account, login, send messages, edit them and delete. Additionally allows user to style chat window uniquely for every logged in user.
+
+### Technologies
+
 //
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
-## Getting Started
+## :running: Getting Started
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
+### :raised_hand: Prerequisites
 
-Please at first follow these steps to install necessary tools. If you have already finished them or have already installed necessary tools, skip this step and jump to <a href="#installation">Installation</a>
+<details>
+   <summary>Necessary tools</summary>
 
-1. Install latest stable version of node from <a href="https://nodejs.org/en/"> Official Site </a>. It should also install the latest version of npm package manager.
-2. Verify versionos of installed node and package manager.
+Please at first follow these steps to install necessary tools. If you have already installed `npm`, `Node` and created free `MongoDB` account with initializing and configuring MongoDB `database` skip this step and jump to <a href="#installation">Installation</a>.
+
+1. Install latest stable version of `node` from <a href="https://nodejs.org/en/"> Official Site </a>. It should also install the latest version of `npm` package manager.
+2. Verify versionos of installed `Node` and `package manager`.
    ```sh
    node -v
    npm -v
@@ -66,19 +77,23 @@ Please at first follow these steps to install necessary tools. If you have alrea
    v18.12.1
    9.1.2
    ```
-3. If npm isn't installed, try to install it manually using the following command in command line:
+3. If npm isn't installed, try to install it manually using the following command inside terminal:
    ```sh
    npm install -g npm
    ```
-4. Create free MongoDB account <a href="https://www.mongodb.com/">here</a>.
-5. Initialize database and save connection URI string for later, for example:
+4. Create free `MongoDB` account <a href="https://www.mongodb.com/">here</a>.
+5. Initialize database and save `connection URI string` for later, for example:
    ```
    mongodb://myDBReader:D1fficultP%40ssw0rd@mongodb0.example.com:27017/?authSource=admin
    (it's just an example of connection string)
    ```
-6. Configure access to database.
+6. Configure access and network connection restrictions to database.
+</details>
 
-### Installation
+### :mage_man: Installation
+
+<details>
+   <summary>Step by step</summary>
 
 #### Server:
 
@@ -127,18 +142,14 @@ Open another command line/terminal.
    ```
 5. Done! Have fun with testing!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+</details>
 <!-- USAGE EXAMPLES -->
-
-## Usage
-
-//
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 
-## Roadmap
+## :motorway: Roadmap
 
 ### Update:
 
@@ -173,7 +184,7 @@ Distributed under the GPL3.0 License. See `LICENSE` file for more information.
 
 ## Contact
 
-Krzysztof Klekot - klekot.krzysztof1008@gmail.com
+Krzysztof Klekot - :email: klekot.krzysztof1008@gmail.com
 
 Project Link: [https://github.com/Arrugonoto/chat_app](https://github.com/Arrugonoto/chat_app)
 
