@@ -45,7 +45,7 @@ This idea allowed me to obtain a huge amount of new knowledge and to spend many 
 
 Project allows the end User to register account, login, send messages, edit them and delete. Additionally allows user to style chat window uniquely for every logged in user.
 
-### Technologies
+## Technologies
 
 //
 
