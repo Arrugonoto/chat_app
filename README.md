@@ -34,9 +34,9 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
-
 <a name="about-the-project"></a>
+
+## About The Project
 
 ![Chilly talk - main page](/images/Chilly_talk-main_page.png)
 ![Chilly talk - chat room](/images/Chilly_talk-chat_room.png)
@@ -47,9 +47,9 @@ This idea allowed me to obtain a huge amount of new knowledge and to spend many 
 
 Project allows the end User to register account, login, send messages, edit them and delete. Additionally allows user to style chat window uniquely for every logged in user.
 
-## Technologies
-
 <a name="technologies"></a>
+
+## Technologies
 
 //
 
@@ -59,15 +59,15 @@ Project allows the end User to register account, login, send messages, edit them
 
 <!-- GETTING STARTED -->
 
-## :running: Getting Started
-
 <a name="getting-started"></a>
+
+## :running: Getting Started
 
 To get a local copy up and running follow these simple steps.
 
-### :raised_hand: Prerequisites
-
 <a name="prerequisites"></a>
+
+### :raised_hand: Prerequisites
 
 <details>
    <summary>Necessary tools</summary>
@@ -98,9 +98,9 @@ Please at first follow these steps to install necessary tools. If you have alrea
 6. Configure access and network connection restrictions to database.
 </details>
 
-### :mage_man: Installation
-
 <a name="installation"></a>
+
+### :mage_man: Installation
 
 <details>
    <summary>Step by step</summary>
@@ -153,15 +153,12 @@ Open another command line/terminal.
 5. Done! Have fun with testing!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 </details>
-<!-- USAGE EXAMPLES -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 
-## :motorway: Roadmap
-
 <a name="roadmap"></a>
+
+## :motorway: Roadmap
 
 ### Update:
 
@@ -186,9 +183,9 @@ Open another command line/terminal.
 
 <!-- LICENSE -->
 
-## License
-
 <a name="license"></a>
+
+## License
 
 Distributed under the GPL3.0 License. See `LICENSE` file for more information.
 
@@ -196,9 +193,9 @@ Distributed under the GPL3.0 License. See `LICENSE` file for more information.
 
 <!-- CONTACT -->
 
-## Contact
-
 <a name="contact"></a>
+
+## Contact
 
 Krzysztof Klekot - :email: klekot.krzysztof1008@gmail.com
 
