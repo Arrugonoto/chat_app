@@ -36,6 +36,8 @@
 
 ## About The Project
 
+<a name="about-the-project"></a>
+
 ![Chilly talk - main page](/images/Chilly_talk-main_page.png)
 ![Chilly talk - chat room](/images/Chilly_talk-chat_room.png)
 
@@ -47,6 +49,8 @@ Project allows the end User to register account, login, send messages, edit them
 
 ## Technologies
 
+<a name="technologies"></a>
+
 //
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -57,9 +61,13 @@ Project allows the end User to register account, login, send messages, edit them
 
 ## :running: Getting Started
 
+<a name="getting-started"></a>
+
 To get a local copy up and running follow these simple steps.
 
 ### :raised_hand: Prerequisites
+
+<a name="prerequisites"></a>
 
 <details>
    <summary>Necessary tools</summary>
@@ -91,6 +99,8 @@ Please at first follow these steps to install necessary tools. If you have alrea
 </details>
 
 ### :mage_man: Installation
+
+<a name="installation"></a>
 
 <details>
    <summary>Step by step</summary>
@@ -151,6 +161,8 @@ Open another command line/terminal.
 
 ## :motorway: Roadmap
 
+<a name="roadmap"></a>
+
 ### Update:
 
 -  [x] Add login and register
@@ -176,6 +188,8 @@ Open another command line/terminal.
 
 ## License
 
+<a name="license"></a>
+
 Distributed under the GPL3.0 License. See `LICENSE` file for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -183,6 +197,8 @@ Distributed under the GPL3.0 License. See `LICENSE` file for more information.
 <!-- CONTACT -->
 
 ## Contact
+
+<a name="contact"></a>
 
 Krzysztof Klekot - :email: klekot.krzysztof1008@gmail.com
 
