@@ -53,7 +53,11 @@ const editMessage = async (req, res, next) => {
          .json({ error: `Message has been deleted or doesn't exist` });
    }
 
-   const message = await Message.findOneAndUpdate({ _id: id }, { text: text });
+   const message = await Message.findOneAndUpdate(
+      { _id: id },
+      { text: text },
+      { new: true }
+   );
 
    if (!message) {
       return res
@@ -62,6 +66,7 @@ const editMessage = async (req, res, next) => {
    }
 
    res.status(200).json(message);
+   global.io.emit('resend_messages', {});
 };
 
 // delete message
