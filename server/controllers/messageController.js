@@ -45,6 +45,7 @@ const createNewMessage = async (req, res, next) => {
 // @access Private
 const editMessage = async (req, res, next) => {
    const { id } = req.params;
+   const { text } = req.body;
 
    if (!mongoose.Types.ObjectId.isValid(id)) {
       return res
@@ -52,7 +53,7 @@ const editMessage = async (req, res, next) => {
          .json({ error: `Message has been deleted or doesn't exist` });
    }
 
-   const message = await Message.findOneAndUpdate({ _id: id }, { ...req.body });
+   const message = await Message.findOneAndUpdate({ _id: id }, { text: text });
 
    if (!message) {
       return res
