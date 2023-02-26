@@ -173,7 +173,7 @@ Open another command line/terminal.
 
 ### Fix:
 
--  [ ] Message editing
+-  [x] Message editing
 -  [ ] Theme font colors
 -  [ ] Bugged display of long message
 
