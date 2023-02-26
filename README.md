@@ -16,7 +16,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#technologies">Built With</a></li>
+        <li><a href="#technologies">Technologies</a></li>
       </ul>
     </li>
     <li>
@@ -49,11 +49,9 @@ Project allows the end User to register account, login, send messages, edit them
 
 <a name="technologies"></a>
 
-## Technologies
+## :toolbox: Technologies
 
 //
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,7 +121,7 @@ Please at first follow these steps to install necessary tools. If you have alrea
    MONGO_URI=mongodb://myDBReader:D1fficultP%40ssw0rd@mongodb0.example.com:27017/?authSource=admin  // example connection URI string
    SECRET=secret_key_example
    ```
-   Remember! Never upload .env file to repository because it contains important configuration data and exposes them to be exploited.
+   :warning: Remember! Never upload .env file to repository because it contains important configuration data and exposes them to be exploited.
 5. After finished configuration install necessary packages.
    ```sh
    npm i
@@ -160,7 +158,7 @@ Open another command line/terminal.
 
 ## :motorway: Roadmap
 
-### Update:
+### :shipit: Update:
 
 -  [x] Add login and register
 -  [x] Add message creation
@@ -185,7 +183,7 @@ Open another command line/terminal.
 
 <a name="license"></a>
 
-## License
+## :placard: License
 
 Distributed under the GPL3.0 License. See `LICENSE` file for more information.
 
@@ -195,7 +193,7 @@ Distributed under the GPL3.0 License. See `LICENSE` file for more information.
 
 <a name="contact"></a>
 
-## Contact
+## :mailbox: Contact
 
 Krzysztof Klekot - :email: klekot.krzysztof1008@gmail.com
 
