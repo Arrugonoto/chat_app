@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useState } from 'react';
+import { createContext, useContext, useReducer, useState, useRef } from 'react';
 
 const MessagesContext = createContext();
 
@@ -18,7 +18,7 @@ export const messagesReducer = (state, action) => {
       case MSG_ACTIONS.CREATE:
          return { messages: [action.payload, ...state.messages] };
       case MSG_ACTIONS.MODIFY:
-         return { messages: action.payload };
+         return { messages: state.messages };
       case MSG_ACTIONS.DELETE:
          return {
             messages: state.messages.filter(
@@ -31,12 +31,25 @@ export const messagesReducer = (state, action) => {
 };
 
 export const MessagesContextProvider = ({ children }) => {
+   const [editFlag, setEditFlag] = useState(false);
    const [messageId, setMessageId] = useState('');
+   const [messageValue, setMessageValue] = useState('');
    const [state, dispatch] = useReducer(messagesReducer, { messages: [] });
+   const messageInputRef = useRef(null);
 
    return (
       <MessagesContext.Provider
-         value={{ ...state, dispatch, messageId, setMessageId }}
+         value={{
+            ...state,
+            dispatch,
+            messageId,
+            setMessageId,
+            editFlag,
+            setEditFlag,
+            messageInputRef,
+            messageValue,
+            setMessageValue,
+         }}
       >
          {children}
       </MessagesContext.Provider>
