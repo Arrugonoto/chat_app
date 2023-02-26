@@ -79,6 +79,9 @@ export const StyledThemeSettings = styled.div.attrs({
          font-weight: 600;
          letter-spacing: 1px;
          transition: all 0.2s linear;
+         &:active {
+            scale: 0.95;
+         }
          &:hover {
             letter-spacing: 2px;
          }
