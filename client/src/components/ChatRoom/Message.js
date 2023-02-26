@@ -63,7 +63,7 @@ const Message = ({ message, nextDay, nextId }) => {
                   <span className="span-username">{message.username}</span>
                )}
                <span className="send-time">
-                  <p>{moment(message.updatedAt).format('HH:mm:ss')}</p>
+                  <p>{moment(message.createdAt).format('HH:mm:ss')}</p>
                </span>
                {user._id === message.user_id && (
                   <MsgOptionsBtn
@@ -79,6 +79,7 @@ const Message = ({ message, nextDay, nextId }) => {
                      displayOptions={displayOptions}
                      setDisplayOptions={setDisplayOptions}
                      id={message._id}
+                     text={message.text}
                   />
                )}
             </div>

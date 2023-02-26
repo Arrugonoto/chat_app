@@ -20,17 +20,27 @@ const REGEX = /^\s*$/;
 
 const MessageForm = ({ socket }) => {
    const { user } = useAuthContext();
-   const { dispatch } = useMessageContext();
+   const {
+      dispatch,
+      messageInputRef,
+      messageId,
+      editFlag,
+      setEditFlag,
+      messageValue,
+      setMessageValue,
+   } = useMessageContext();
    const [text, setText] = useState('');
    const [containsWhitespace, setContainsWhitespace] = useState(true);
 
    const handleChange = e => {
       setText(e.target.value);
+      if (editFlag) setMessageValue(e.target.value);
    };
 
    const handleSubmit = async e => {
       e.preventDefault();
-      try {
+
+      if (!editFlag) {
          const response = await fetch(SEND_URL, {
             method: 'POST',
             body: JSON.stringify({ text }),
@@ -39,14 +49,34 @@ const MessageForm = ({ socket }) => {
                Authorization: `Bearer ${user.token}`,
             },
          });
+
          const result = await response.json();
 
          if (response.ok) {
             dispatch({ type: MSG_ACTIONS.CREATE, payload: result });
             resetForm();
+         } else {
+            console.error(result);
          }
-      } catch (error) {
-         console.error(error);
+      } else if (editFlag) {
+         const response = await fetch(`${SEND_URL}/${messageId}`, {
+            method: 'PATCH',
+            body: JSON.stringify({ text: messageValue }),
+            headers: {
+               'Content-Type': 'application/json',
+               Authorization: `Bearer ${user.token}`,
+            },
+         });
+
+         const result = await response.json();
+
+         if (response.ok) {
+            dispatch({ type: MSG_ACTIONS.MODIFY, payload: result });
+            resetForm();
+            setEditFlag(false);
+         } else {
+            console.error(result);
+         }
       }
    };
 
@@ -72,23 +102,34 @@ const MessageForm = ({ socket }) => {
       }
    };
 
+   const handleCancelEdit = () => {
+      setEditFlag(false);
+      resetForm();
+   };
+
    const resetForm = () => {
       setText('');
    };
 
    return (
       <MessageFormContainer>
+         {editFlag && (
+            <button className="btn-cancel-edit" onPointerUp={handleCancelEdit}>
+               Cancel edit
+            </button>
+         )}
          <StyledMessageForm onSubmit={handleSubmit}>
             <label htmlFor="text" />
             <TextareaAutosize
                type="text"
-               value={text}
+               value={editFlag ? messageValue : text}
                onChange={handleChange}
                id="text"
                name="text"
                onKeyDown={handleKeyDown}
                onKeyUp={handleKeyUp}
                maxRows={4}
+               ref={messageInputRef}
             />
             <SendMessageBtn
                disabled={text && !containsWhitespace ? false : true}
