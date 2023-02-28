@@ -174,8 +174,9 @@ Open another command line/terminal.
 ### Fix:
 
 -  [x] Message editing
+-  [x] Custom color selector for theme
 -  [ ] Theme font colors
--  [ ] Bugged display of long message
+-  [ ] Bugged display of longer message
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
