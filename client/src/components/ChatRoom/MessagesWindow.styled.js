@@ -48,7 +48,7 @@ export const StyledMessage = styled.article.attrs({
       .message-text {
          padding: 0.4rem 0.5rem;
          border-radius: 1rem;
-         word-break: break-all;
+         transition: background-color 0.2s linear;
          background: ${props =>
             props.user ? `${props.messageColor}` : `${props.userColor}`};
          ::selection {
