@@ -69,3 +69,9 @@ export const messageBgGradient = [
       value: `linear-gradient(210deg, #3fdea6 8%, #35d1e6 32%, #ea58e7 59%, #ece549 78%, #ff4747 100%)`,
    },
 ];
+
+export const fontColor = [
+   { id: 1, value: `#e9e9e9` },
+   { id: 2, value: `#373d3f` },
+   { id: 3, value: `#272727` },
+];
