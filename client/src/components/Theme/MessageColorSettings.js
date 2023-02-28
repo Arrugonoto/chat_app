@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { StyledMessageColorSettings } from './MessageColorSettings.styled';
 import { messageBgColor, messageBgGradient } from '../../data/colors';
 
@@ -6,6 +7,8 @@ import { useThemeContext } from '../../context/ThemeContext';
 
 const MessageColorSettings = () => {
    const { themeColors, setThemeColors } = useThemeContext();
+   const [customColor, setCustomColor] = useState('#12d9e3');
+   const [fontColor, setFontColor] = useState('#e9e9e9');
 
    return (
       <StyledMessageColorSettings>
@@ -60,6 +63,29 @@ const MessageColorSettings = () => {
          </div>
          <div>
             <h2>Custom color</h2>
+            <input
+               type="color"
+               id="bg-color"
+               name="bg-color"
+               value={customColor}
+               onChange={e => setCustomColor(e.target.value)}
+            ></input>
+            <button
+               className={`btn-clr-preview ${
+                  themeColors.messageBgId == 14 ? 'btn-selected-value' : null
+               }`}
+               style={{ background: `${customColor}`, color: `${fontColor}` }}
+               id="14"
+               onPointerUp={e =>
+                  setThemeColors(prev => ({
+                     ...prev,
+                     messageBgId: e.target.id,
+                     messageBgColor: customColor,
+                  }))
+               }
+            >
+               Preview
+            </button>
          </div>
          <div>
             <h2>Font color</h2>

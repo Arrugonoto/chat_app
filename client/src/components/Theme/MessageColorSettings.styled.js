@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledMessageColorSettings = styled.section.attrs({
-   className: 'btn-selected-value',
+   className: 'btn-selected-value, btn-clr-preview',
 })`
    padding: 0.5rem 0.8rem;
    display: grid;
@@ -29,6 +29,16 @@ export const StyledMessageColorSettings = styled.section.attrs({
       &:active {
          outline-color: rgb(42, 190, 12);
       }
+   }
+   .btn-clr-preview {
+      width: 100%;
+      height: 3rem;
+      transition: background-color 0.2s linear, outline 0.2s linear;
+      margin-top: 0.6rem;
+      border-radius: 0.2rem;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      padding: 0;
    }
    .btn-selected-value {
       outline-color: rgb(42, 190, 12);
