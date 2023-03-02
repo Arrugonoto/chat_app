@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledMessageColorSettings = styled.section.attrs({
-   className: 'btn-selected-value, btn-clr-preview',
+   className: 'btn-selected-value, btn-clr-preview, .btn-clr-font, btns-font',
 })`
    padding: 0.5rem 0.8rem;
    display: grid;
@@ -12,6 +12,12 @@ export const StyledMessageColorSettings = styled.section.attrs({
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
       gap: 0.5rem;
+   }
+
+   .btns-font {
+      display: flex;
+      gap: 1rem;
+      padding-top: 0.5rem;
    }
 
    button {
@@ -40,6 +46,15 @@ export const StyledMessageColorSettings = styled.section.attrs({
       letter-spacing: 1px;
       padding: 0;
    }
+
+   .btn-clr-font {
+      border-radius: 50%;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      border: 2px solid rgb(197, 197, 197);
+   }
+
    .btn-selected-value {
       outline-color: rgb(42, 190, 12);
    }
