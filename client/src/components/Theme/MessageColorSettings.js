@@ -78,7 +78,10 @@ const MessageColorSettings = () => {
                className={`btn-clr-preview ${
                   themeColors.messageBgId == 14 ? 'btn-selected-value' : null
                }`}
-               style={{ background: `${customColor}`, color: `${fontColor}` }}
+               style={{
+                  background: `${customColor}`,
+                  color: `${themeColors.textColor}`,
+               }}
                id="14"
                onPointerUp={e =>
                   setThemeColors(prev => ({

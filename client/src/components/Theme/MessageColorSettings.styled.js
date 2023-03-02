@@ -39,12 +39,12 @@ export const StyledMessageColorSettings = styled.section.attrs({
    .btn-clr-preview {
       width: 100%;
       height: 3rem;
-      transition: background-color 0.2s linear, outline 0.2s linear;
       margin-top: 0.6rem;
       border-radius: 0.2rem;
       font-size: 1.2rem;
       letter-spacing: 1px;
       padding: 0;
+      transition: all 0.2s linear;
    }
 
    .btn-clr-font {
