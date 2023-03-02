@@ -13,7 +13,7 @@ export const ThemeContextProvider = ({ children }) => {
       roomBgColor: 'hsl(0, 0%, 18%)',
       messageBgId: 1,
       messageBgColor: '#0c8d71',
-      messageTextColor: '#e9e9e9',
+      textColor: '#e9e9e9',
    });
 
    useEffect(() => {
