@@ -1,4 +1,5 @@
 const Message = require('../models/messageModel');
+const { filterText } = require('../utils/profanityFilter');
 const mongoose = require('mongoose');
 
 // get messages
@@ -24,11 +25,13 @@ const createNewMessage = async (req, res, next) => {
    const username = req.user.name;
    const userColor = req.user.color;
 
+   const filteredText = filterText(text);
+
    // create new message / add document to database
    try {
       const message = await Message.create({
          username,
-         text,
+         text: filteredText,
          user_id,
          userColor,
       });
@@ -46,6 +49,7 @@ const createNewMessage = async (req, res, next) => {
 const editMessage = async (req, res, next) => {
    const { id } = req.params;
    const { text } = req.body;
+   const filteredText = filterText(text);
 
    if (!mongoose.Types.ObjectId.isValid(id)) {
       return res
@@ -55,7 +59,7 @@ const editMessage = async (req, res, next) => {
 
    const message = await Message.findOneAndUpdate(
       { _id: id },
-      { text: text },
+      { text: filteredText },
       { new: true }
    );
 
