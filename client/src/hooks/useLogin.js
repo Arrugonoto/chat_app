@@ -24,12 +24,10 @@ const useLogin = () => {
          localStorage.setItem('user', JSON.stringify(result));
 
          dispatch({ type: ACTIONS.LOGIN, payload: result });
-         setLoading(false);
-      }
-      if (!response.ok) {
-         setLoading(false);
+      } else if (!response.ok) {
          setError(result.error);
       }
+      setLoading(false);
    };
 
    return { login, loading, error, setError };
