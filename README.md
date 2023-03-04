@@ -168,7 +168,7 @@ Open another command line/terminal.
 -  [x] Add jump to newest messages
 -  [ ] Implement momentum scrolling
 -  [ ] Implement 'giving likes' system
--  [ ] Add profanity filter
+-  [x] Add profanity filter
 -  [ ] Implement deletion of account after 24h of creation
 
 ### Fix:
