@@ -91,7 +91,7 @@ const MessageColorSettings = () => {
                   }))
                }
             >
-               Preview
+               Set color
             </button>
          </div>
          <div>

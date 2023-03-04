@@ -84,7 +84,9 @@ const RoomColorSettings = () => {
                      roomBgColor: customColor,
                   }))
                }
-            ></button>
+            >
+               Set color
+            </button>
          </div>
       </StyledRoomColorSettings>
    );

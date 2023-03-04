@@ -36,8 +36,10 @@ export const StyledRoomColorSettings = styled.section.attrs({
       width: 100%;
       height: 3rem;
       transition: background-color 0.2s linear, outline 0.2s linear;
+      font-size: 1.2rem;
       margin-top: 0.6rem;
       border-radius: 0.2rem;
+      padding: 0;
    }
    .btn-selected-value {
       outline-color: rgb(42, 190, 12);
