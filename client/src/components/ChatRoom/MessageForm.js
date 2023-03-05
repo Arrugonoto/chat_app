@@ -36,7 +36,6 @@ const MessageForm = ({ socket }) => {
       setText(e.target.value);
       if (editFlag) setMessageValue(e.target.value);
    };
-   // FIXME:refactor sending message with editing
    const handleSubmit = async e => {
       e.preventDefault();
       const requestMethod = editFlag ? 'PATCH' : 'POST';
