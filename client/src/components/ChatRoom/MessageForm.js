@@ -39,44 +39,28 @@ const MessageForm = ({ socket }) => {
    // FIXME:refactor sending message with editing
    const handleSubmit = async e => {
       e.preventDefault();
+      const requestMethod = editFlag ? 'PATCH' : 'POST';
+      const dataToSend = editFlag ? messageValue : text;
+      const url = editFlag ? `${SEND_URL}/${messageId}` : SEND_URL;
+      const dispatchType = editFlag ? MSG_ACTIONS.MODIFY : MSG_ACTIONS.CREATE;
 
-      if (!editFlag) {
-         const response = await fetch(SEND_URL, {
-            method: 'POST',
-            body: JSON.stringify({ text }),
-            headers: {
-               'Content-Type': 'application/json',
-               Authorization: `Bearer ${user.token}`,
-            },
-         });
+      const response = await fetch(url, {
+         method: requestMethod,
+         body: JSON.stringify({ text: dataToSend }),
+         headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${user.token}`,
+         },
+      });
 
-         const result = await response.json();
+      const result = await response.json();
 
-         if (response.ok) {
-            dispatch({ type: MSG_ACTIONS.CREATE, payload: result });
-            resetForm();
-         } else {
-            console.error(result);
-         }
-      } else if (editFlag) {
-         const response = await fetch(`${SEND_URL}/${messageId}`, {
-            method: 'PATCH',
-            body: JSON.stringify({ text: messageValue }),
-            headers: {
-               'Content-Type': 'application/json',
-               Authorization: `Bearer ${user.token}`,
-            },
-         });
-
-         const result = await response.json();
-
-         if (response.ok) {
-            dispatch({ type: MSG_ACTIONS.MODIFY, payload: result });
-            resetForm();
-            setEditFlag(false);
-         } else {
-            console.error(result);
-         }
+      if (response.ok) {
+         dispatch({ type: dispatchType, payload: result });
+         resetForm();
+         if (editFlag) setEditFlag(false);
+      } else {
+         console.error(result);
       }
    };
 
