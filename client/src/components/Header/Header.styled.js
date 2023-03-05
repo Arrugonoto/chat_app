@@ -100,6 +100,7 @@ export const StyledMenu = styled.div`
          rgba(255, 0, 0, 1) 100%
       );
       background-clip: text;
+      -webkit-background-clip: text;
 
       &:hover {
          filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.2));

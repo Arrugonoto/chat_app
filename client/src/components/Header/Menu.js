@@ -55,7 +55,7 @@ const Menu = forwardRef(({ showMenu, setShowMenu, state, menuBtnRef }, ref) => {
                   <li key={i}>
                      <button>
                         <span>
-                           <FontAwesomeIcon icon={solid('toolbox')} />
+                           <FontAwesomeIcon icon={solid('gear')} />
                         </span>
                         <p>Placeholder</p>
                      </button>
