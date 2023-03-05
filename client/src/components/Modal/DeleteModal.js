@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 // components / styles
 import { StyledDeleteModal } from './DeleteModal.styled';
 
@@ -7,10 +8,11 @@ import { useModalContext } from '../../context/ModalContext';
 import { useAuthContext } from '../../context/AuthContext';
 import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
 
+// api
+import { API_URL, METHODS } from '../../services/api';
+
 // icons
 import { FaTrashAlt } from 'react-icons/fa';
-
-const DELETE_URL = 'http://localhost:5000/api/messages/';
 
 const DeleteModal = () => {
    const { openModal, setOpenModal } = useModalContext();
@@ -23,16 +25,18 @@ const DeleteModal = () => {
    };
 
    const handleDelete = async () => {
-      const response = await fetch(DELETE_URL + messageId, {
-         method: 'DELETE',
+      const response = await fetch(API_URL.DELETE_MESSAGE + messageId, {
+         method: METHODS.DELETE,
          headers: { Authorization: `Bearer ${user.token}` },
       });
       const result = await response.json();
 
       if (response.ok) {
          dispatch({ type: MSG_ACTIONS.DELETE, payload: result });
-         setOpenModal(false);
+      } else if (!response.ok) {
+         console.error(result);
       }
+      setOpenModal(false);
    };
 
    useEffect(() => {

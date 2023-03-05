@@ -10,19 +10,20 @@ import { useAuthContext } from '../../context/AuthContext';
 import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
 import { useThemeContext } from '../../context/ThemeContext';
 
-const MESSAGES_URL = 'http://localhost:5000/api/messages';
+// api
+import { API_URL } from '../../services/api';
 
 const MessageWindow = forwardRef(
    ({ socket, setChatWindowHeight, setShowNewestBtn }, ref) => {
       const { user } = useAuthContext();
       const { messages, dispatch } = useMessageContext();
       const { themeColors } = useThemeContext();
-      const [loading, setLoading] = useState(true);
+      const [loading, setLoading] = useState(false);
 
       const fetchMessages = async () => {
          setLoading(true);
 
-         const response = await fetch(MESSAGES_URL, {
+         const response = await fetch(API_URL.GET_MESSAGES, {
             headers: { Authorization: `Bearer ${user.token}` },
          });
          const result = await response.json();
@@ -32,8 +33,10 @@ const MessageWindow = forwardRef(
                type: MSG_ACTIONS.SET,
                payload: result,
             });
-            setLoading(false);
+         } else if (!response.ok) {
+            console.error(result);
          }
+         setLoading(false);
       };
 
       const handleScroll = () => {

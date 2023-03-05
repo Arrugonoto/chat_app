@@ -1,7 +1,10 @@
 import { useState } from 'react';
+
+// context
 import { ACTIONS, useAuthContext } from '../context/AuthContext';
 
-const LOGIN_URL = 'http://localhost:5000/api/users/login';
+// api
+import { API_URL, METHODS } from '../services/api';
 
 const useLogin = () => {
    const [error, setError] = useState(null);
@@ -12,8 +15,8 @@ const useLogin = () => {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(LOGIN_URL, {
-         method: 'POST',
+      const response = await fetch(API_URL.LOGIN_USER, {
+         method: METHODS.POST,
          headers: { 'Content-Type': 'application/json' },
          body: JSON.stringify({ email, password }),
       });
@@ -26,6 +29,7 @@ const useLogin = () => {
          dispatch({ type: ACTIONS.LOGIN, payload: result });
       } else if (!response.ok) {
          setError(result.error);
+         console.error(result);
       }
       setLoading(false);
    };

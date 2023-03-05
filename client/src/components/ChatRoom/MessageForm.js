@@ -15,10 +15,13 @@ import { FaRegPaperPlane } from 'react-icons/fa';
 import { useAuthContext } from '../../context/AuthContext';
 import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
 
+// api
+import { API_URL, METHODS } from '../../services/api';
+
 const SEND_URL = 'http://localhost:5000/api/messages';
 const REGEX = /^\s*$/;
 
-const MessageForm = ({ socket }) => {
+const MessageForm = () => {
    const { user } = useAuthContext();
    const {
       dispatch,
@@ -38,9 +41,11 @@ const MessageForm = ({ socket }) => {
    };
    const handleSubmit = async e => {
       e.preventDefault();
-      const requestMethod = editFlag ? 'PATCH' : 'POST';
+      const requestMethod = editFlag ? METHODS.PATCH : METHODS.POST;
       const dataToSend = editFlag ? messageValue : text;
-      const url = editFlag ? `${SEND_URL}/${messageId}` : SEND_URL;
+      const url = editFlag
+         ? `${API_URL.CREATE_MESSAGE + messageId}`
+         : API_URL.CREATE_MESSAGE;
       const dispatchType = editFlag ? MSG_ACTIONS.MODIFY : MSG_ACTIONS.CREATE;
 
       const response = await fetch(url, {
