@@ -18,7 +18,6 @@ import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
 // api
 import { API_URL, METHODS } from '../../services/api';
 
-const SEND_URL = 'http://localhost:5000/api/messages';
 const REGEX = /^\s*$/;
 
 const MessageForm = () => {
