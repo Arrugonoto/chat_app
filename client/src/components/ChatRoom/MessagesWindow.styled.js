@@ -41,11 +41,12 @@ export const StyledMessage = styled.article.attrs({
       align-items: center;
       justify-content: center;
       align-self: ${props => (props.user ? 'flex-end' : 'initial')};
-      max-width: 65%;
+      max-width: 60%;
       gap: 0.2rem;
       margin-top: ${props => (props.anotherUser ? '0.3rem' : '0px')};
 
       .message-text {
+         display: inline-block;
          padding: 0.4rem 0.5rem;
          border-radius: 1rem;
          transition: background-color 0.2s linear;
@@ -100,11 +101,13 @@ export const StyledMessage = styled.article.attrs({
 
    .username-wrapper {
       display: flex;
-      width: 1.8rem;
+      position: relative;
+      min-width: 2rem;
       justify-content: center;
       align-items: center;
-      position: relative;
+      align-self: start;
       transition: all 0.2s linear;
+      padding-top: 0.1rem;
 
       .username {
          display: flex;
