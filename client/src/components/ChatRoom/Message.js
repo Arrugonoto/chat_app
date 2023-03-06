@@ -65,14 +65,17 @@ const Message = ({ message, nextDay, nextId }) => {
                <span className="send-time">
                   <p>{moment(message.createdAt).format('HH:mm:ss')}</p>
                </span>
-               {user._id === message.user_id && (
-                  <MsgOptionsBtn
-                     ref={optionsBtnRef}
-                     onPointerDown={() => setDisplayOptions(state => !state)}
-                  >
-                     <FaEllipsisV className="options-icon" />
-                  </MsgOptionsBtn>
-               )}
+               <div className="options-btn-wrapper">
+                  {user._id === message.user_id && (
+                     <MsgOptionsBtn
+                        ref={optionsBtnRef}
+                        onPointerDown={() => setDisplayOptions(state => !state)}
+                     >
+                        <FaEllipsisV className="options-icon" />
+                     </MsgOptionsBtn>
+                  )}
+               </div>
+
                {displayOptions && (
                   <MessageOptions
                      user={user._id === message.user_id}
