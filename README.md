@@ -176,7 +176,7 @@ Open another command line/terminal.
 -  [x] Message editing
 -  [x] Custom color selector for theme
 -  [ ] Theme font colors
--  [ ] Bugged display of longer message
+-  [x] Bugged display of longer message
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
