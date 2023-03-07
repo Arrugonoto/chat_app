@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 // components / styles
 import { StyledDeleteModal } from './DeleteModal.styled';
@@ -18,6 +18,7 @@ const DeleteModal = () => {
    const { openModal, setOpenModal } = useModalContext();
    const { messageId, setMessageId, dispatch } = useMessageContext();
    const { user } = useAuthContext();
+   const deleteBtnRef = useRef(null);
 
    const handleCancel = () => {
       setOpenModal(false);
@@ -39,13 +40,13 @@ const DeleteModal = () => {
       setOpenModal(false);
    };
 
-   useEffect(() => {
-      const handleKeyDown = e => {
-         if (e.key === 'Escape') {
-            setOpenModal(false);
-         }
-      };
+   const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+         setOpenModal(false);
+      }
+   };
 
+   useEffect(() => {
       if (openModal) {
          window.addEventListener('keydown', handleKeyDown);
       } else {
@@ -53,7 +54,12 @@ const DeleteModal = () => {
       }
 
       return () => window.removeEventListener('keydown', handleKeyDown);
+      // eslint-disable-next-line
    }, [openModal, setOpenModal]);
+
+   useEffect(() => {
+      deleteBtnRef.current.focus();
+   }, []);
 
    return (
       <StyledDeleteModal>
@@ -64,7 +70,7 @@ const DeleteModal = () => {
             </p>
             <div>
                <button onClick={handleCancel}>Cancel</button>
-               <button onClick={handleDelete}>
+               <button onClick={handleDelete} ref={deleteBtnRef}>
                   Delete <FaTrashAlt />
                </button>
             </div>
