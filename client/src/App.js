@@ -14,33 +14,41 @@ import ChatRoom from './pages/ChatRoom';
 import ROUTES from './routes/routes';
 
 const App = () => {
-  const { user } = useAuthContext();
+   const { user } = useAuthContext();
 
-  return (
-    <>
-      <GlobalStyle />
-      <MainContainer>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path={`${ROUTES.HOME}`}
-              element={
-                user ? <ChatRoom /> : <Navigate to={`${ROUTES.LOGIN}`} />
-              }
-            />
-            <Route
-              path={`${ROUTES.LOGIN}`}
-              element={!user ? <Login /> : <Navigate to={`${ROUTES.HOME}`} />}
-            />
-            <Route
-              path={`${ROUTES.SIGNUP}`}
-              element={!user ? <Signup /> : <Navigate to={`${ROUTES.HOME}`} />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </MainContainer>
-    </>
-  );
+   return (
+      <>
+         <GlobalStyle />
+         <MainContainer>
+            <BrowserRouter>
+               <Routes>
+                  <Route
+                     path={`${ROUTES.HOME}`}
+                     element={
+                        user ? (
+                           <ChatRoom />
+                        ) : (
+                           <Navigate to={`${ROUTES.LOGIN}`} />
+                        )
+                     }
+                  />
+                  <Route
+                     path={`${ROUTES.LOGIN}`}
+                     element={
+                        !user ? <Login /> : <Navigate to={`${ROUTES.HOME}`} />
+                     }
+                  />
+                  <Route
+                     path={`${ROUTES.SIGNUP}`}
+                     element={
+                        !user ? <Signup /> : <Navigate to={`${ROUTES.HOME}`} />
+                     }
+                  />
+               </Routes>
+            </BrowserRouter>
+         </MainContainer>
+      </>
+   );
 };
 
 export default App;

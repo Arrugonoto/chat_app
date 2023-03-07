@@ -5,11 +5,11 @@ const ModalContext = createContext();
 export const useModalContext = () => useContext(ModalContext);
 
 export const ModalContextProvider = ({ children }) => {
-  const [openModal, setOpenModal] = useState(false);
+   const [openModal, setOpenModal] = useState(false);
 
-  return (
-    <ModalContext.Provider value={{ openModal, setOpenModal }}>
-      {children}
-    </ModalContext.Provider>
-  );
+   return (
+      <ModalContext.Provider value={{ openModal, setOpenModal }}>
+         {children}
+      </ModalContext.Provider>
+   );
 };
