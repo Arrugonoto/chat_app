@@ -6,9 +6,13 @@ const filter = new Filter({ replaceRegex: /[A-Za-z0-9_]/gu });
 filter.addWords(...listOfProfanities);
 
 const filterText = text => {
-   const filtered = filter.clean(text);
+   try {
+      const filtered = filter.clean(text);
 
-   return filtered;
+      return filtered;
+   } catch (error) {
+      console.error(error.message);
+   }
 };
 
 module.exports = { filterText };
