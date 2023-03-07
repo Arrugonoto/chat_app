@@ -6,7 +6,7 @@ export const StyledMessageOptions = styled.div`
    flex-direction: column;
    z-index: 20;
    width: 7rem;
-   top: calc(-100% - 2rem);
+   top: calc(0% - 4.7rem);
    left: calc(0% - 2rem);
    border-radius: 0.2rem;
    background-color: rgba(83, 83, 83, 0.8);

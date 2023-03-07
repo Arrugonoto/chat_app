@@ -47,6 +47,9 @@ export const StyledDeleteModal = styled.div`
          border-radius: 0.5rem;
          cursor: pointer;
          transition: all 0.2s linear;
+         &:focus {
+            outline: 3px solid #fafafa;
+         }
          &:nth-child(1) {
             background-color: #4b4b4b;
             border: 2px solid hsl(115, 77%, 30%);

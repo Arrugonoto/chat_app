@@ -16,7 +16,7 @@ export const MessagesContainer = styled.div`
 `;
 export const StyledMessage = styled.article.attrs({
    className:
-      'username, username-wrapper, message-text, send-time, message-wrapper, span-username, date-day',
+      'username, username-wrapper, message-text, send-time, message-wrapper, span-username, date-day, options-btn-wrapper',
 })`
    display: flex;
    position: relative;
@@ -44,7 +44,6 @@ export const StyledMessage = styled.article.attrs({
       max-width: 60%;
       gap: 0.2rem;
       margin-top: ${props => (props.anotherUser ? '0.3rem' : '0px')};
-
       .message-text {
          display: inline-block;
          padding: 0.4rem 0.5rem;
@@ -61,9 +60,9 @@ export const StyledMessage = styled.article.attrs({
          position: absolute;
          z-index: 10;
          ${props => (props.user ? 'left: 0;' : 'right: 0;')}
-         top: 50%;
+         top: 0.2rem;
          translate: ${props =>
-            props.user ? 'calc(-100% - 5px) -50%' : 'calc(100% + 5px) -50%'};
+            props.user ? 'calc(-100% - 5px)' : 'calc(100% + 5px)'};
          font-size: 0.8rem;
          padding: 0.1rem 0.6rem;
          border-radius: 0.4rem;
@@ -81,6 +80,7 @@ export const StyledMessage = styled.article.attrs({
          }
       }
    }
+
    .span-username {
       position: absolute;
       display: none;
@@ -108,7 +108,6 @@ export const StyledMessage = styled.article.attrs({
       align-self: start;
       transition: all 0.2s linear;
       padding-top: 0.1rem;
-
       .username {
          display: flex;
          align-items: center;
@@ -123,6 +122,11 @@ export const StyledMessage = styled.article.attrs({
          border: 2px solid #ffffff;
          user-select: none;
       }
+   }
+
+   .options-btn-wrapper {
+      align-self: start;
+      padding-top: 0.2rem;
    }
 `;
 
