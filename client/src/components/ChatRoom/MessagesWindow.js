@@ -89,6 +89,7 @@ const MessageWindow = forwardRef(
                   </div>
                ))}
             {loading &&
+               messages.length < 1 &&
                [...Array(10).keys()].map(i => {
                   return <MessageLoadingSkeleton key={i} index={i} />;
                })}

@@ -35,6 +35,9 @@ export const StyledMenuButton = styled.button`
    font-size: 1.8rem;
    color: rgba(255, 255, 255, 0.6);
    transition: all 0.2s linear;
+   &:focus {
+      outline-color: transparent;
+   }
    &:hover {
       color: rgba(255, 255, 255, 0.8);
       filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8));

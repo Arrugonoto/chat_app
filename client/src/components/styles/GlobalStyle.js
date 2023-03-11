@@ -31,7 +31,7 @@ body {
 button {
    color: #fafafa;
    border: none;
-   outline-color: transparent;
+   outline: none;
    cursor: pointer;
 }
 
