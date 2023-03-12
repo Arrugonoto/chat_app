@@ -5,7 +5,7 @@
   <h2 align="center">Chilly talk 🤗 </h2>
   <h4>Chat app / room</h4>
   <p align="center">Realtime chat app for chilly talking and learning basics of full-stack 📖 </p>
-
+  <p align="center"><a href='https://chattyapp-79hl.onrender.com/login'>Live demo</a></p>
   <br>
 </div>
 
@@ -170,6 +170,8 @@ Open another command line/terminal.
 -  [ ] Implement 'giving likes' system
 -  [x] Add profanity filter
 -  [ ] Implement deletion of account after 24h of creation
+-  [x] Build production
+-  [x] Host project
 
 ### Fix:
 
