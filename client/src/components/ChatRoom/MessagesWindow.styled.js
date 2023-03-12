@@ -16,7 +16,7 @@ export const MessagesContainer = styled.div`
 `;
 export const StyledMessage = styled.article.attrs({
    className:
-      'username, username-wrapper, message-text, send-time, message-wrapper, span-username, date-day, options-btn-wrapper',
+      'username, username-wrapper, message-text, send-time, message-wrapper, span-username, date-day, options-btn-wrapper, logged-user',
 })`
    display: flex;
    position: relative;
@@ -34,6 +34,7 @@ export const StyledMessage = styled.article.attrs({
       padding: 3rem 0;
    }
 
+   /* nextUser -> nastepny uzytkownik | prevUser -> poprzedni uzytkownik | user -> zalogowany uzytnowki */
    .message-wrapper {
       position: relative;
       display: flex;
@@ -43,11 +44,14 @@ export const StyledMessage = styled.article.attrs({
       align-self: ${props => (props.user ? 'flex-end' : 'initial')};
       max-width: 60%;
       gap: 0.2rem;
-      margin-top: ${props => (props.anotherUser ? '0.3rem' : '0px')};
+      margin-top: ${props => (props.nextUser ? '0.3rem' : '0px')};
       .message-text {
          display: inline-block;
          padding: 0.4rem 0.5rem;
-         border-radius: 1rem;
+         border-top-left-radius: ${props => (props.nextUser ? '1rem' : '0')};
+         border-top-right-radius: 1rem;
+         border-bottom-left-radius: ${props => (props.prevUser ? '1rem' : '0')};
+         border-bottom-right-radius: 1rem;
          transition: background-color 0.2s linear;
          background: ${props =>
             props.user ? `${props.messageColor}` : `${props.userColor}`};
@@ -55,6 +59,10 @@ export const StyledMessage = styled.article.attrs({
             background-color: rgb(34, 34, 34);
          }
       }
+      .logged-user {
+         border-radius: 1rem;
+      }
+
       .send-time {
          display: none;
          position: absolute;

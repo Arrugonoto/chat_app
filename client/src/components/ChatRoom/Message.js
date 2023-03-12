@@ -11,7 +11,7 @@ import { FaEllipsisV } from 'react-icons/fa';
 import { useAuthContext } from '../../context/AuthContext';
 import { useThemeContext } from '../../context/ThemeContext';
 
-const Message = ({ message, nextDay, nextId }) => {
+const Message = ({ message, nextDay, nextId, prevId }) => {
    const { user } = useAuthContext();
    const { themeColors } = useThemeContext();
    const [displayOptions, setDisplayOptions] = useState(false);
@@ -42,7 +42,8 @@ const Message = ({ message, nextDay, nextId }) => {
          <StyledMessage
             user={user._id === message.user_id}
             userColor={message.userColor}
-            anotherUser={nextId !== message.user_id}
+            nextUser={nextId !== message.user_id}
+            prevUser={prevId !== message.user_id}
             messageColor={themeColors.messageBgColor}
          >
             {dayAfter !== sendDate && (
@@ -58,7 +59,13 @@ const Message = ({ message, nextDay, nextId }) => {
                      )}
                   </div>
                )}
-               <p className="message-text">{message.text}</p>
+               <p
+                  className={`message-text ${
+                     user._id === message.user_id && 'logged-user'
+                  }`}
+               >
+                  {message.text}
+               </p>
                {user._id !== message.user_id && (
                   <span className="span-username">{message.username}</span>
                )}

@@ -3,7 +3,7 @@ import { useState, useEffect, forwardRef } from 'react';
 // components
 import { MessagesContainer } from './MessagesWindow.styled';
 import Message from './Message';
-import MessageLoadingSkeleton from '../Loader/MessageLoadingSkeleton';
+import MessageLoadingFrame from '../Loader/MessageLoadingFrame';
 
 // context
 import { useAuthContext } from '../../context/AuthContext';
@@ -33,6 +33,7 @@ const MessageWindow = forwardRef(
                type: MSG_ACTIONS.SET,
                payload: result,
             });
+            console.log(result);
          } else if (!response.ok) {
             console.error(result);
          }
@@ -40,7 +41,7 @@ const MessageWindow = forwardRef(
       };
 
       const handleScroll = () => {
-         if (Math.abs(ref.current.scrollTop) > 2000) {
+         if (Math.abs(ref?.current.scrollTop) > 2000) {
             setShowNewestBtn(true);
          } else {
             setShowNewestBtn(false);
@@ -57,7 +58,9 @@ const MessageWindow = forwardRef(
       useEffect(() => {
          socket.on('resend_messages', () => {
             fetchMessages();
-            setChatWindowHeight(ref.current.scrollHeight);
+            if (ref.current) {
+               setChatWindowHeight(ref.current.scrollHeight);
+            }
          });
          // eslint-disable-next-line
       }, [socket]);
@@ -73,25 +76,28 @@ const MessageWindow = forwardRef(
                   key={message._id}
                   message={message}
                   nextId={array[index + 1]?.user_id ?? false}
+                  prevId={array[index - 1]?.user_id ?? false}
                   nextDay={array[index + 1]?.createdAt ?? false}
                />
-            )) ||
-               (!loading && (
-                  <div
-                     style={{
-                        display: 'flex',
-                        justifySelf: 'end',
-                        alignSelf: 'center',
-                        paddingBottom: '10rem',
-                     }}
-                  >
-                     Actually there aren't any messages for now ¯\_(ツ)_/¯
-                  </div>
-               ))}
+            ))}
+
+            {!loading && messages.length === 0 && (
+               <div
+                  style={{
+                     display: 'flex',
+                     justifySelf: 'end',
+                     alignSelf: 'center',
+                     paddingBottom: '10rem',
+                  }}
+               >
+                  Actually it's awfully quiet for now ¯\_(ツ)_/¯
+               </div>
+            )}
+
             {loading &&
                messages.length < 1 &&
                [...Array(10).keys()].map(i => {
-                  return <MessageLoadingSkeleton key={i} index={i} />;
+                  return <MessageLoadingFrame key={i} index={i} />;
                })}
          </MessagesContainer>
       );
