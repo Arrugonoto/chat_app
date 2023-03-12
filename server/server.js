@@ -45,6 +45,21 @@ connectToDataBase();
 app.use('/api/users', userRoutes);
 app.use('/api/messages', messageRoutes);
 
+// serve static front-end
+// if (process.env.NODE_ENV === 'production') {
+//    app.use(express.static(path.join(__dirname, '../client/build')));
+
+//    app.get('*', (req, res) =>
+//       res.sendFile(
+//          path.resolve(__dirname, '../', 'client', 'build', 'index.html')
+//       )
+//    );
+// } else {
+//    app.get('/', (req, res) =>
+//       res.send('Set working environment to production.')
+//    );
+// }
+
 // start server
 server.listen(PORT, () => {
    console.log(`Server listening at port: ${PORT}`.blue);
