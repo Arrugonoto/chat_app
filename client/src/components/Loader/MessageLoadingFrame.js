@@ -1,8 +1,8 @@
-import { StyledMessageLoadingSkeleton } from './Loader.styled';
+import { StyledMessageLoadingFrame } from './Loader.styled';
 
-const MessageLoadingSkeleton = ({ index }) => {
+const MessageLoadingFrame = ({ index }) => {
    return (
-      <StyledMessageLoadingSkeleton
+      <StyledMessageLoadingFrame
          style={{
             display: 'flex',
             alignSelf: `${index % 2 === 0 ? 'end' : 'start'}`,
@@ -15,8 +15,8 @@ const MessageLoadingSkeleton = ({ index }) => {
             <p></p>
             <p></p>
          </div>
-      </StyledMessageLoadingSkeleton>
+      </StyledMessageLoadingFrame>
    );
 };
 
-export default MessageLoadingSkeleton;
+export default MessageLoadingFrame;
