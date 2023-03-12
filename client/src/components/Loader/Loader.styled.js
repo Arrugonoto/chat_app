@@ -20,7 +20,7 @@ export const StyledSmallerLoader = styled.span`
    }
 `;
 
-export const StyledMessageLoadingSkeleton = styled.section.attrs({
+export const StyledMessageLoadingFrame = styled.section.attrs({
    className: 'user-image, content-wrapper',
 })`
    display: flex;
