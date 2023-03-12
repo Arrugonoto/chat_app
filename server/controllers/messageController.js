@@ -31,7 +31,7 @@ const createNewMessage = async (req, res, next) => {
    try {
       const message = await Message.create({
          username,
-         text: filteredText,
+         text: filteredText || text,
          user_id,
          userColor,
       });
