@@ -45,6 +45,7 @@ connectToDataBase();
 app.use('/api/users', userRoutes);
 app.use('/api/messages', messageRoutes);
 
+// Run production build via server
 // serve static front-end
 // if (process.env.NODE_ENV === 'production') {
 //    app.use(express.static(path.join(__dirname, '../client/build')));
