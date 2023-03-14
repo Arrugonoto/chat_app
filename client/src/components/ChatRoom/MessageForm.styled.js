@@ -31,11 +31,13 @@ export const MessageFormContainer = styled.div.attrs({
    }
 `;
 
-export const StyledMessageForm = styled.form`
+export const StyledMessageForm = styled.form.attrs({
+   className: 'btn-picker, emoji-picker',
+})`
    display: flex;
+   position: relative;
    width: 100%;
    align-items: center;
-   gap: 0.8rem;
 
    textarea {
       font-family: 'Roboto flex';
@@ -49,10 +51,20 @@ export const StyledMessageForm = styled.form`
       transition: all 0.2s linear;
       min-height: 2rem;
       outline: none;
+      margin: 0 0.8rem 0 0.6rem;
       background-color: hsl(0, 0%, 24%);
       &:focus {
          background-color: hsl(0, 0%, 27%);
       }
+   }
+
+   .btn-picker {
+      font-size: 1.4rem;
+   }
+
+   .emoji-picker {
+      position: absolute;
+      background-color: red;
    }
 `;
 

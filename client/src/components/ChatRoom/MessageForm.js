@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
 
 // components
 import {
@@ -33,6 +35,7 @@ const MessageForm = () => {
    } = useMessageContext();
    const [text, setText] = useState('');
    const [containsWhitespace, setContainsWhitespace] = useState(true);
+   const [displayPicker, setDisplayPicker] = useState(false);
 
    const handleChange = e => {
       setText(e.target.value);
@@ -106,6 +109,24 @@ const MessageForm = () => {
             </button>
          )}
          <StyledMessageForm onSubmit={handleSubmit}>
+            <button
+               onPointerDown={() => {
+                  setDisplayPicker(true);
+               }}
+               className="btn-picker"
+            >
+               😆
+            </button>
+            {displayPicker && (
+               <Picker
+                  data={data}
+                  onEmojiSelect={console.log}
+                  previewPosition={'top'}
+                  maxFrequentRows={2}
+                  onClickOutside={() => setDisplayPicker(false)}
+                  className="emoji-picker"
+               />
+            )}
             <label htmlFor="text" />
             <TextareaAutosize
                type="text"
