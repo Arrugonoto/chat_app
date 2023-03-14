@@ -168,10 +168,10 @@ Open another command line/terminal.
 -  [x] Add jump to newest messages
 -  [ ] Implement momentum scrolling
 -  [ ] Implement 'giving likes' system
--  [x] Add profanity filter <a href='https://github.com/web-mech/badwords'>by Michael Price</a>
+-  [x] Add profanity filter - <a href='https://github.com/web-mech/badwords'>by Michael Price</a>
 -  [x] Build production
 -  [x] Host project
--  [x] Add emoji picker - <a href='https://github.com/missive/emoji-mart#-examples'>by Missive team</a>
+-  [x] Add emoji picker - <a href='https://github.com/missive/emoji-mart'>by Missive team</a>
 
 ### Fix:
 
