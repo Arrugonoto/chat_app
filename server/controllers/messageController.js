@@ -31,7 +31,7 @@ const createNewMessage = async (req, res, next) => {
    try {
       const message = await Message.create({
          username,
-         text: filteredText || text,
+         text: filteredText ?? text,
          user_id,
          userColor,
       });
@@ -61,7 +61,7 @@ const editMessage = async (req, res, next) => {
       if (text) {
          const message = await Message.findOneAndUpdate(
             { _id: id },
-            { text: filteredText },
+            { text: filteredText ?? text },
             { new: true }
          );
          if (!message) {
