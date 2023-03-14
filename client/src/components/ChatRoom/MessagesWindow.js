@@ -33,7 +33,6 @@ const MessageWindow = forwardRef(
                type: MSG_ACTIONS.SET,
                payload: result,
             });
-            console.log(result);
          } else if (!response.ok) {
             console.error(result);
          }
