@@ -169,9 +169,9 @@ Open another command line/terminal.
 -  [ ] Implement momentum scrolling
 -  [ ] Implement 'giving likes' system
 -  [x] Add profanity filter
--  [ ] Implement deletion of account after 24h of creation
 -  [x] Build production
 -  [x] Host project
+-  [x] Add emoji picker
 
 ### Fix:
 
@@ -179,6 +179,7 @@ Open another command line/terminal.
 -  [x] Custom color selector for theme
 -  [ ] Theme font colors
 -  [x] Bugged display of longer message
+-  [ ] Selecting emoji doesn't works
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
