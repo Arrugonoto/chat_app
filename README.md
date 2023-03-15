@@ -179,7 +179,11 @@ Open another command line/terminal.
 -  [x] Custom color selector for theme
 -  [ ] Theme font colors
 -  [x] Bugged display of longer message
--  [ ] Selecting emoji doesn't works
+-  [x] Selecting emoji doesn't works
+
+### Demo status:
+
+-  [ ] Updated to latest version
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
