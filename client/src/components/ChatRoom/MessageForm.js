@@ -1,7 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
-import data from '@emoji-mart/data';
-import Picker from '@emoji-mart/react';
 
 // components
 import {
@@ -9,6 +7,7 @@ import {
    StyledMessageForm,
    SendMessageBtn,
 } from './MessageForm.styled';
+import EmojiPicker from './EmojiPicker';
 
 // React icons Font-Awesome
 import { FaRegPaperPlane } from 'react-icons/fa';
@@ -36,6 +35,7 @@ const MessageForm = () => {
    const [text, setText] = useState('');
    const [containsWhitespace, setContainsWhitespace] = useState(true);
    const [displayPicker, setDisplayPicker] = useState(false);
+   const showPickerBtn = useRef(null);
 
    const handleChange = e => {
       setText(e.target.value);
@@ -79,6 +79,7 @@ const MessageForm = () => {
       if (e.key === 'Enter') {
          e.preventDefault();
       }
+      if (e.key === 'Escape') e.target.blur();
       if (!e.shiftKey && !containsWhitespace && e.key === 'Enter') {
          e.preventDefault();
          handleSubmit(e);
@@ -110,21 +111,21 @@ const MessageForm = () => {
          )}
          <StyledMessageForm onSubmit={handleSubmit}>
             <button
+               type="button"
+               ref={showPickerBtn}
                onPointerDown={() => {
-                  setDisplayPicker(true);
+                  setDisplayPicker(prev => !prev);
                }}
                className="btn-picker"
             >
-               😆
+               <p>😆</p>
             </button>
             {displayPicker && (
-               <Picker
-                  data={data}
-                  onEmojiSelect={console.log}
-                  previewPosition={'top'}
-                  maxFrequentRows={2}
-                  onClickOutside={() => setDisplayPicker(false)}
-                  className="emoji-picker"
+               <EmojiPicker
+                  setText={setText}
+                  displayPicker={displayPicker}
+                  setDisplayPicker={setDisplayPicker}
+                  pickerBtn={showPickerBtn}
                />
             )}
             <label htmlFor="text" />
@@ -138,6 +139,7 @@ const MessageForm = () => {
                onKeyUp={handleKeyUp}
                maxRows={4}
                ref={messageInputRef}
+               placeholder="Say hello ^_^"
             />
             <SendMessageBtn
                disabled={text && !containsWhitespace ? false : true}
