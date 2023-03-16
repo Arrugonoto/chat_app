@@ -27,13 +27,13 @@ const MessageOptions = ({ displayOptions, setDisplayOptions, id, text }) => {
       messageInputRef.current.focus();
    };
 
-   useEffect(() => {
-      const handleKeyDown = e => {
-         if (e.key === 'Escape') {
-            setDisplayOptions(false);
-         }
-      };
+   const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+         setDisplayOptions(false);
+      }
+   };
 
+   useEffect(() => {
       if (displayOptions) {
          window.addEventListener('keydown', handleKeyDown);
       } else {
@@ -41,6 +41,7 @@ const MessageOptions = ({ displayOptions, setDisplayOptions, id, text }) => {
       }
 
       return () => window.removeEventListener('keydown', handleKeyDown);
+      // eslint-disable-next-line
    }, [displayOptions, setDisplayOptions]);
 
    return (
