@@ -7,7 +7,7 @@ export const MessageFormContainer = styled.div.attrs({
    flex-direction: column;
    align-content: center;
    width: 100%;
-   padding: 0.6rem 0.6rem 1.2rem 0.6rem;
+   padding: 0.6rem 0.6rem 1rem 0.6rem;
    gap: 0.6rem;
    button {
       background-color: transparent;
@@ -32,7 +32,7 @@ export const MessageFormContainer = styled.div.attrs({
 `;
 
 export const StyledMessageForm = styled.form.attrs({
-   className: 'btn-picker, emoji-picker',
+   className: 'btn-picker, picker-wrapper',
 })`
    display: flex;
    position: relative;
@@ -59,12 +59,23 @@ export const StyledMessageForm = styled.form.attrs({
    }
 
    .btn-picker {
-      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.7rem;
+      border-radius: 1rem;
+      transition: background-color 0.2s linear;
+      padding: 0.15rem;
+      margin-bottom: 0.1rem;
+      &:hover {
+         background-color: hsl(0, 0%, 30%);
+      }
+      p {
+         padding-bottom: 0.1rem;
+      }
    }
-
-   .emoji-picker {
+   .picker-wrapper {
       position: absolute;
-      background-color: red;
+      bottom: 2rem;
    }
 `;
 
@@ -83,4 +94,9 @@ export const SendMessageBtn = styled.button`
       filter: drop-shadow(0 0);
       cursor: not-allowed;
    }
+`;
+
+export const EmojiPickerStyled = styled.div`
+   position: absolute;
+   bottom: 2rem;
 `;
