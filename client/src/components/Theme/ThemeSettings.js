@@ -34,14 +34,16 @@ const ThemeSettings = forwardRef((props, ref) => {
 
    return (
       <StyledThemeSettings ref={ref}>
-         <RoomColorSettings />
-         <MessageColorSettings />
          <button
             className="btn-close"
             onPointerUp={() => setDisplaySettings(false)}
          >
             <FontAwesomeIcon icon={solid('xmark')} title="Close Settings" />
          </button>
+         <div className="settings-container">
+            <RoomColorSettings />
+            <MessageColorSettings />
+         </div>
 
          <div className="btns-wrapper">
             <button onPointerUp={() => handleCancelChanges()}>Reset</button>
