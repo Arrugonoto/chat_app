@@ -6,6 +6,7 @@ export const METHODS = {
 };
 
 export const API_URL = {
+   BASE_URL: `http://localhost:5000`,
    LOGIN_USER: `http://localhost:5000/api/users/login`,
    REGISTER_USER: `http://localhost:5000/api/users/signup`,
    GET_MESSAGES: `http://localhost:5000/api/messages`,

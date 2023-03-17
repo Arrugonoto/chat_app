@@ -14,8 +14,11 @@ import { Transition, CSSTransition } from 'react-transition-group';
 import { useModalContext } from '../../context/ModalContext';
 import { useThemeContext } from '../../context/ThemeContext';
 
+// api
+import { API_URL } from '../../services/api';
+
 // socket
-const socket = io.connect('http://localhost:5000');
+const socket = io.connect(API_URL.BASE_URL);
 
 // transition styles
 const transitionStyles = {
