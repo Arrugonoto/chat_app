@@ -14,10 +14,14 @@ import { API_URL, METHODS } from '../../services/api';
 // icons
 import { FaTrashAlt } from 'react-icons/fa';
 
+// hooks
+import useConditionalListener from '../../hooks/useConditionalListener';
+
 const DeleteModal = () => {
    const { openModal, setOpenModal } = useModalContext();
    const { messageId, setMessageId, dispatch } = useMessageContext();
    const { user } = useAuthContext();
+   const modalRef = useRef(null);
    const deleteBtnRef = useRef(null);
 
    const handleCancel = () => {
@@ -46,16 +50,12 @@ const DeleteModal = () => {
       }
    };
 
-   useEffect(() => {
-      if (openModal) {
-         window.addEventListener('keydown', handleKeyDown);
-      } else {
-         window.removeEventListener('keydown', handleKeyDown);
-      }
+   const handlePointerDown = e => {
+      if (!modalRef.current.contains(e.target)) setOpenModal(false);
+   };
 
-      return () => window.removeEventListener('keydown', handleKeyDown);
-      // eslint-disable-next-line
-   }, [openModal, setOpenModal]);
+   useConditionalListener('keydown', handleKeyDown, openModal);
+   useConditionalListener('pointerdown', handlePointerDown, openModal);
 
    useEffect(() => {
       deleteBtnRef.current.focus();
@@ -63,7 +63,7 @@ const DeleteModal = () => {
 
    return (
       <StyledDeleteModal>
-         <article>
+         <article ref={modalRef}>
             <h1>Delete message</h1>
             <p>
                Are You sure You want to <span>delete </span>this message?
