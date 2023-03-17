@@ -23,7 +23,7 @@ body {
    padding: 0;
    font-family: "Roboto", "Poppins", "Roboto-flex", sans-serif;
    width: 100%;
-   height: 100vh;
+   height: 100dvh;
    background-color: hsl(0, 0%, 15%);
    color: #e9e9e9;
 }

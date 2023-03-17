@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 
 export const StyledThemeSettings = styled.div.attrs({
-   className: 'btns-wraper, btn-close',
+   className: 'btns-wraper, btn-close, settings-container',
 })`
    display: flex;
    position: absolute;
    right: -100%;
    flex-direction: column;
    background-color: rgb(36, 36, 36);
-   height: 100vh;
+   height: 100dvh;
    width: 20vw;
    min-width: 20rem;
-   padding: 0.6rem 0.8rem;
+   padding: 0.6rem 1rem;
    z-index: 11;
-   overflow-y: scroll;
    box-shadow: 0 0 1rem 0 rgba(1, 1, 1, 0.4);
    &.show-settings-enter {
       right: -100%;
@@ -60,6 +59,9 @@ export const StyledThemeSettings = styled.div.attrs({
       &:hover {
          background-color: hsl(0, 0%, 90%);
       }
+   }
+   .settings-container {
+      overflow-y: scroll;
    }
 
    .btns-wrapper {
