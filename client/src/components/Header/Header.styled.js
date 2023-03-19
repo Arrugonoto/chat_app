@@ -65,17 +65,18 @@ export const StyledMenu = styled.div`
       li {
          transition: all 0.2s linear;
          border-radius: 0.5rem;
+         overflow: hidden;
          &:hover {
             background-color: #424242;
          }
       }
       button {
+         position: relative;
          width: 100%;
          background-color: transparent;
          display: flex;
          padding: 0.7rem 0.5rem;
          cursor: pointer;
-         border: none;
          font-size: 1rem;
          color: rgba(216, 216, 216, 1);
          letter-spacing: 1px;
@@ -84,6 +85,19 @@ export const StyledMenu = styled.div`
          &:hover {
             color: rgba(255, 255, 255, 0.8);
             filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.5));
+         }
+         &::before {
+            position: absolute;
+            top: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            transform: scaleX(0);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform-origin: center;
+         }
+         &:focus::before {
+            animation: vanishing-wave 0.35s forwards;
          }
       }
    }
@@ -113,6 +127,16 @@ export const StyledMenu = styled.div`
          p {
             color: transparent;
          }
+      }
+   }
+
+   @keyframes vanishing-wave {
+      0% {
+         transform: scaleX(0);
+      }
+      100% {
+         transform: scaleX(1.4);
+         opacity: 0;
       }
    }
 `;

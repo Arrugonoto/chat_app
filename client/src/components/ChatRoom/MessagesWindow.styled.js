@@ -124,10 +124,10 @@ export const StyledMessage = styled.article.attrs({
          justify-content: center;
          text-transform: capitalize;
          width: 1.7rem;
-         height: 1.7rem;
+         height: 1.8rem;
          background-color: ${props => `${props.userColor}`};
          border-radius: 0.2rem 0.8rem 0.8rem 0.2rem;
-         border: 2px solid #ffffff;
+         border: 2px solid #000000;
          user-select: none;
       }
    }

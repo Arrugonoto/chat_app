@@ -17,6 +17,7 @@ export const StyledMessageOptions = styled.div`
       li {
          width: 100%;
          border-radius: 0.2rem;
+         transition: background-color 0.1s linear;
          &:hover {
             background-color: hsla(0, 0%, 20%, 0.8);
          }

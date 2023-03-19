@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-
 :root {
    font-size: 16px;
 
@@ -31,7 +30,8 @@ body {
 button {
    color: #fafafa;
    border: none;
-   outline: none;
+   outline-color: transparent;
+   background-color: transparent;
    cursor: pointer;
 }
 
