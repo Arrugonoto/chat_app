@@ -1,0 +1,31 @@
+export const darkTheme = {
+   main: `hsl(0, 0%, 12%)`,
+   header: `hsla(0, 0%, 0%, 0.6)`,
+   chatRoom: `hsl(0, 0%, 18%)`,
+   userMessage: `#0c8d71`,
+   formContainer: `hsl(0, 0%, 18%)`,
+   form: ``,
+   menuBtn: ``,
+   menu: ``,
+   menuListBtns: ``,
+   title: `#fafafa`,
+   font: `#e9e9e9`,
+   settings: `hsl(0, 0%, 16%)`,
+   settingsSection: `hsl(0, 0%, 12%)`,
+};
+
+export const lightTheme = {
+   main: `hsl(4, 0%, 94%)`,
+   header: ``,
+   chatRoom: ``,
+   userMessage: ``,
+   formContainer: ``,
+   form: ``,
+   menuBtn: ``,
+   menu: ``,
+   menuListBtns: ``,
+   title: ``,
+   font: ``,
+   themeSettings: ``,
+   settingsSection: ``,
+};
