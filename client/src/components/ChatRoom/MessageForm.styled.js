@@ -9,6 +9,7 @@ export const MessageFormContainer = styled.div.attrs({
    width: 100%;
    padding: 0.6rem 0.6rem 1rem 0.6rem;
    gap: 0.6rem;
+   background: transparent;
    button {
       background-color: transparent;
    }

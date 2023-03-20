@@ -7,7 +7,7 @@ export const StyledThemeSettings = styled.div.attrs({
    position: absolute;
    right: -100%;
    flex-direction: column;
-   background-color: rgb(36, 36, 36);
+   background-color: ${props => props.theme.settings};
    height: 100dvh;
    width: 20vw;
    min-width: 20rem;

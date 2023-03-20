@@ -18,9 +18,12 @@ const ThemeSettings = forwardRef((props, ref) => {
       if (!ref.current.contains(e.target)) setDisplaySettings(false);
    };
 
-   const handleCancelChanges = () => {
-      const backupThemeSettings = JSON.parse(localStorage.getItem('userTheme'));
-      setThemeColors(backupThemeSettings);
+   const handleResetSettings = () => {
+      setThemeColors({
+         roomBgColor: '',
+         messageBgColor: '',
+         textColor: '#e9e9e9',
+      });
    };
 
    useEffect(() => {
@@ -46,7 +49,7 @@ const ThemeSettings = forwardRef((props, ref) => {
          </div>
 
          <div className="btns-wrapper">
-            <button onPointerUp={() => handleCancelChanges()}>Reset</button>
+            <button onPointerUp={() => handleResetSettings()}>Reset</button>
             <button
                onPointerUp={() =>
                   localStorage.setItem('userTheme', JSON.stringify(themeColors))

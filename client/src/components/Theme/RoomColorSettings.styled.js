@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const StyledRoomColorSettings = styled.section.attrs({
    className: 'btn-selected-value, container-btns, btn-clr-preview',
 })`
-   padding: 0.5rem 0.8rem;
+   padding: 1rem 0.8rem;
    display: grid;
-   background-color: hsl(0, 0%, 17%);
+   background-color: ${props => props.theme.settingsSection};
    border-radius: 0.5rem;
    margin-bottom: 1rem;
 

@@ -6,5 +6,7 @@ export const MainContainer = styled.main`
    justify-content: center;
    align-items: center;
    width: 100%;
-   height: 100vh;
+   height: 100dvh;
+   background-color: ${props => props.theme.main};
+   transition: background-color 0.2s linear;
 `;

@@ -6,13 +6,12 @@ export const useThemeContext = () => useContext(ThemeContext);
 
 export const ThemeContextProvider = ({ children }) => {
    const [displaySettings, setDisplaySettings] = useState(false);
+   const [isDarkTheme, setIsDarkTheme] = useState(true);
    const [themeColors, setThemeColors] = useState({
-      themeId: 1,
-      themeMode: 'dark',
       roomBgId: 1,
-      roomBgColor: 'hsl(0, 0%, 18%)',
+      roomBgColor: '',
       messageBgId: 1,
-      messageBgColor: '#0c8d71',
+      messageBgColor: '',
       textColor: '#e9e9e9',
    });
 
@@ -36,6 +35,8 @@ export const ThemeContextProvider = ({ children }) => {
             setDisplaySettings,
             themeColors,
             setThemeColors,
+            isDarkTheme,
+            setIsDarkTheme,
          }}
       >
          {children}

@@ -32,7 +32,7 @@ const cssTransitionName = 'show-settings';
 
 const ChatWindow = () => {
    const { openModal } = useModalContext();
-   const { displaySettings } = useThemeContext();
+   const { displaySettings, themeColors } = useThemeContext();
    const [chatWindowHeight, setChatWindowHeight] = useState(0);
    const [showNewestBtn, setShowNewestBtn] = useState(false);
    const chatWindowRef = useRef(null);
@@ -48,7 +48,7 @@ const ChatWindow = () => {
 
    return (
       <SectionContainer>
-         <StyledChatWindow>
+         <StyledChatWindow roomColor={themeColors.roomBgColor}>
             <Header></Header>
             <MessageWindow
                socket={socket}

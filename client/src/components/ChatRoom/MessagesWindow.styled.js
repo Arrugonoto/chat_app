@@ -12,7 +12,6 @@ export const MessagesContainer = styled.div`
    scrollbar-width: thin;
    scrollbar-color: rgba(86, 204, 255, 0.1) transparent;
    transition: background-color 0.2s linear;
-   background: ${props => `${props.roomColor}`};
 `;
 export const StyledMessage = styled.article.attrs({
    className:
@@ -52,9 +51,14 @@ export const StyledMessage = styled.article.attrs({
          border-top-right-radius: 1rem;
          border-bottom-left-radius: ${props => (props.prevUser ? '1rem' : '0')};
          border-bottom-right-radius: 1rem;
-         transition: background-color 0.2s linear;
+
          background: ${props =>
-            props.user ? `${props.messageColor}` : `${props.userColor}`};
+            props.user
+               ? props.messageColor
+                  ? props.messageColor
+                  : props.theme.userMessage
+               : props.userColor};
+         transition: background-color 0.2s linear;
          ::selection {
             background-color: rgb(34, 34, 34);
          }

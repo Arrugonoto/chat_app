@@ -12,8 +12,9 @@ export const StyledChatWindow = styled.div.attrs({
    height: 100vh;
    width: 100%;
    max-width: 1240px;
-   background-color: hsl(0, 0%, 18%);
-
+   background: ${props =>
+      props.roomColor ? props.roomColor : props.theme.chatRoom};
+   transition: background-color 0.2s linear;
    .btn-scroll-bottom {
       position: absolute;
       bottom: 3rem;

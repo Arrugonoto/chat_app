@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const StyledMessageColorSettings = styled.section.attrs({
    className: 'btn-selected-value, btn-clr-preview, .btn-clr-font, btns-font',
 })`
-   padding: 0.5rem 0.8rem;
+   padding: 1rem 0.8rem;
    display: grid;
-   background-color: hsl(0, 0%, 17%);
+   background-color: ${props => props.theme.settingsSection};
    border-radius: 0.5rem;
 
    .container-btns {

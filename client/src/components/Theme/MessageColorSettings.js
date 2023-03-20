@@ -8,11 +8,13 @@ import {
 
 // theme context
 import { useThemeContext } from '../../context/ThemeContext';
+// theme -> styled-components
+import { useTheme } from 'styled-components';
 
 const MessageColorSettings = () => {
    const { themeColors, setThemeColors } = useThemeContext();
-   const [customColor, setCustomColor] = useState('#12d9e3');
-   const [fontColorValue, setFontColorValue] = useState('#e9e9e9');
+   const [customColor, setCustomColor] = useState('#9a1dd4');
+   const theme = useTheme();
 
    return (
       <StyledMessageColorSettings>
@@ -23,7 +25,8 @@ const MessageColorSettings = () => {
                {messageBgColor.map(el => (
                   <button
                      className={`${
-                        el.id === themeColors.messageBgId
+                        el.value ===
+                        (themeColors.messageBgColor || theme.userMssage)
                            ? 'btn-selected-value'
                            : null
                      }`}
@@ -32,7 +35,6 @@ const MessageColorSettings = () => {
                      onPointerDown={() =>
                         setThemeColors(prev => ({
                            ...prev,
-                           messageBgId: el.id,
                            messageBgColor: el.value,
                         }))
                      }
@@ -76,13 +78,14 @@ const MessageColorSettings = () => {
             ></input>
             <button
                className={`btn-clr-preview ${
-                  themeColors.messageBgId == 14 ? 'btn-selected-value' : null
+                  customColor === themeColors.messageBgColor
+                     ? 'btn-selected-value'
+                     : null
                }`}
                style={{
                   background: `${customColor}`,
                   color: `${themeColors.textColor}`,
                }}
-               id="14"
                onPointerUp={e =>
                   setThemeColors(prev => ({
                      ...prev,

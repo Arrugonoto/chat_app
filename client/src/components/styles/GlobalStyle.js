@@ -23,8 +23,9 @@ body {
    font-family: "Roboto", "Poppins", "Roboto-flex", sans-serif;
    width: 100%;
    height: 100dvh;
-   background-color: hsl(0, 0%, 15%);
+   background-color: ${props => props.theme.main};
    color: #e9e9e9;
+   overflow-x: hidden;
 }
 
 button {
