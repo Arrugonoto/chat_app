@@ -183,7 +183,7 @@ Open another command line/terminal.
 
 ### Demo status:
 
--  [x] Updated to latest version
+-  [ ] Updated to latest version
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
