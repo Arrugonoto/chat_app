@@ -177,7 +177,7 @@ Open another command line/terminal.
 
 -  [x] Message editing
 -  [x] Custom color selector for theme
--  [ ] Theme font colors
+-  [x] Theme font colors
 -  [x] Bugged display of longer message
 -  [x] Selecting emoji doesn't works
 
