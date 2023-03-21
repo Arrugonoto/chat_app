@@ -9,7 +9,6 @@ export const MessageFormContainer = styled.div.attrs({
    width: 100%;
    padding: 0.6rem 0.6rem 1rem 0.6rem;
    gap: 0.6rem;
-   background: transparent;
    button {
       background-color: transparent;
    }
@@ -41,7 +40,7 @@ export const StyledMessageForm = styled.form.attrs({
    align-items: center;
 
    textarea {
-      font-family: 'Roboto flex';
+      font-family: 'Open Sans', sans-serif;
       width: 100%;
       resize: none;
       border-radius: 0.8rem;
@@ -49,13 +48,15 @@ export const StyledMessageForm = styled.form.attrs({
       border: none;
       padding: 0.3rem 0.6rem;
       font-size: 1rem;
-      transition: all 0.2s linear;
       min-height: 2rem;
       outline: none;
       margin: 0 0.8rem 0 0.6rem;
-      background-color: hsl(0, 0%, 24%);
+      outline: 1px solid transparent;
+      background-color: ${props => props.theme.form};
+      transition: all 0.2s linear;
       &:focus {
-         background-color: hsl(0, 0%, 27%);
+         background-color: ${props => props.theme.formHover};
+         outline-color: #949494;
       }
    }
 
@@ -64,11 +65,11 @@ export const StyledMessageForm = styled.form.attrs({
       align-items: center;
       font-size: 1.7rem;
       border-radius: 1rem;
-      transition: background-color 0.2s linear;
       padding: 0.15rem;
       margin-bottom: 0.1rem;
+      transition: background-color 0.2s linear;
       &:hover {
-         background-color: hsl(0, 0%, 30%);
+         background-color: ${props => props.theme.formHover};
       }
       p {
          padding-bottom: 0.1rem;
@@ -84,12 +85,17 @@ export const SendMessageBtn = styled.button`
    display: flex;
    font-weight: 600;
    font-size: 1.4rem;
-   border-radius: 0.2rem;
+   border-radius: 50%;
    border: none;
    cursor: pointer;
    color: #1db4f6;
+   border-radius: 1rem;
+   padding: 0.5rem;
    filter: drop-shadow(0px 0px 3px #1db4f6);
-   border-radius: 50%;
+   transition: all 0.2s linear;
+   &:hover {
+      background-color: ${props => props.theme.formHover};
+   }
    &:disabled {
       color: hsl(0, 0%, 24%);
       filter: drop-shadow(0 0);

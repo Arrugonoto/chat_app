@@ -20,12 +20,12 @@ import ROUTES from './routes/routes';
 
 const App = () => {
    const { user } = useAuthContext();
-   const { isDarkTheme } = useThemeContext();
+   const { isDarkTheme, themeColors } = useThemeContext();
 
    return (
       <>
          <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-            <GlobalStyle />
+            <GlobalStyle fontColor={themeColors.textColor} />
             <MainContainer>
                <BrowserRouter>
                   <Routes>

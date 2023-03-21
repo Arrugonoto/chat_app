@@ -7,6 +7,9 @@ export const StyledMessageColorSettings = styled.section.attrs({
    display: grid;
    background-color: ${props => props.theme.settingsSection};
    border-radius: 0.5rem;
+   h1 {
+      color: ${props => props.theme.title};
+   }
 
    .container-btns {
       display: grid;

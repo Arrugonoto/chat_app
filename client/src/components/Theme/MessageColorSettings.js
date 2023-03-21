@@ -18,7 +18,7 @@ const MessageColorSettings = () => {
 
    return (
       <StyledMessageColorSettings>
-         <h1>Message background</h1>
+         <h1>Message</h1>
          <div>
             <h2>Basic</h2>
             <div className="container-btns">
@@ -26,7 +26,7 @@ const MessageColorSettings = () => {
                   <button
                      className={`${
                         el.value ===
-                        (themeColors.messageBgColor || theme.userMssage)
+                        (themeColors.messageBgColor || theme.userMessage)
                            ? 'btn-selected-value'
                            : null
                      }`}
@@ -48,7 +48,7 @@ const MessageColorSettings = () => {
                {messageBgGradient.map(el => (
                   <button
                      className={`${
-                        el.id === themeColors.messageBgId
+                        el.value === themeColors.messageBgColor
                            ? 'btn-selected-value'
                            : null
                      }`}
@@ -59,7 +59,6 @@ const MessageColorSettings = () => {
                      onPointerDown={() => {
                         setThemeColors(prev => ({
                            ...prev,
-                           messageBgId: el.id,
                            messageBgColor: el.value,
                         }));
                      }}
@@ -89,7 +88,6 @@ const MessageColorSettings = () => {
                onPointerUp={e =>
                   setThemeColors(prev => ({
                      ...prev,
-                     messageBgId: e.target.id,
                      messageBgColor: customColor,
                   }))
                }
@@ -103,7 +101,7 @@ const MessageColorSettings = () => {
                {fontColor.map(el => (
                   <button
                      className={`btn-clr-font ${
-                        el.value === themeColors.textColor
+                        el.value === (themeColors.textColor || theme.font)
                            ? 'btn-selected-value'
                            : null
                      }`}

@@ -24,7 +24,8 @@ body {
    width: 100%;
    height: 100dvh;
    background-color: ${props => props.theme.main};
-   color: #e9e9e9;
+   color: ${props => (props.fontColor ? props.fontColor : props.theme.font)};
+   transition: color .2s linear;
    overflow-x: hidden;
 }
 
