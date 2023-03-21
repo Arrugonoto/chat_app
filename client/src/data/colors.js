@@ -71,7 +71,8 @@ export const messageBgGradient = [
 ];
 
 export const fontColor = [
-   { id: 1, value: `#e9e9e9` },
-   { id: 2, value: `#373d3f` },
-   { id: 3, value: `#272727` },
+   { id: 1, value: `#fcfcfc` },
+   { id: 2, value: `#e9e9e9` },
+   { id: 3, value: `#373d3f` },
+   { id: 4, value: `#272727` },
 ];
