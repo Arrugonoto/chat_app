@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import MessageWindow from './MessagesWindow';
 import MessageForm from './MessageForm';
 import DeleteModal from '../Modal/DeleteModal';
-import ThemeSettings from '../Theme/ThemeSettings';
+import ThemeSettings from '../theme/ThemeSettings';
 import io from 'socket.io-client';
 import { Transition, CSSTransition } from 'react-transition-group';
 

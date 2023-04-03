@@ -134,7 +134,7 @@ const SignupForm = () => {
             error={error}
             showPassword={showPassword}
          >
-            <h1>Welcome</h1>
+            <h1>Welcome 😊</h1>
             <div className="input-group">
                <div className="label-wrapper">
                   <label htmlFor="name">Name</label>

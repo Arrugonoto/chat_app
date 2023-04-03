@@ -13,7 +13,7 @@ import { MainContainer } from './components/styles/MainContainer.styled';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ChatRoom from './pages/ChatRoom';
-import { darkTheme, lightTheme } from './components/Theme/theme';
+import { darkTheme, lightTheme } from './components/theme/theme';
 
 // routes
 import ROUTES from './routes/routes';

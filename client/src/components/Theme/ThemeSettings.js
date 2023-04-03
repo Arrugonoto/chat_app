@@ -10,12 +10,19 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 // context
 import { useThemeContext } from '../../context/ThemeContext';
 
+// hooks
+import useConditionalListener from '../../hooks/useConditionalListener';
+
 const ThemeSettings = forwardRef((props, ref) => {
    const { displaySettings, setDisplaySettings, themeColors, setThemeColors } =
       useThemeContext();
 
    const handleClose = e => {
       if (!ref.current.contains(e.target)) setDisplaySettings(false);
+   };
+
+   const handleKeyDown = e => {
+      if (e.key === 'Escape') setDisplaySettings(false);
    };
 
    const handleResetSettings = () => {
@@ -26,14 +33,8 @@ const ThemeSettings = forwardRef((props, ref) => {
       });
    };
 
-   useEffect(() => {
-      if (displaySettings) {
-         window.addEventListener('pointerup', handleClose);
-      } else window.removeEventListener('pointerup', handleClose);
-
-      return () => window.removeEventListener('pointerup', handleClose);
-      // eslint-disable-next-line
-   }, [displaySettings, setDisplaySettings]);
+   useConditionalListener('pointerup', handleClose, displaySettings);
+   useConditionalListener('keydown', handleKeyDown, displaySettings);
 
    return (
       <StyledThemeSettings ref={ref}>

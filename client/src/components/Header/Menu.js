@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from 'react';
+import { forwardRef } from 'react';
 import { StyledMenu } from './Header.styled';
 
 // icons
@@ -10,6 +10,9 @@ import useLogout from '../../hooks/useLogout';
 
 // context
 import { useThemeContext } from '../../context/ThemeContext';
+
+// hooks
+import useConditionalListener from '../../hooks/useConditionalListener';
 
 const Menu = forwardRef(({ showMenu, setShowMenu, state, menuBtnRef }, ref) => {
    const { setDisplaySettings } = useThemeContext();
@@ -24,14 +27,12 @@ const Menu = forwardRef(({ showMenu, setShowMenu, state, menuBtnRef }, ref) => {
       }
    };
 
-   useEffect(() => {
-      if (showMenu) {
-         window.addEventListener('pointerup', handlePointerUp);
-      } else window.removeEventListener('pointerup', handlePointerUp);
+   const handleKeyDown = e => {
+      if (e.key === 'Escape') setShowMenu(false);
+   };
 
-      return () => window.removeEventListener('pointerup', handlePointerUp);
-      //eslint-disable-next-line
-   }, [showMenu, setShowMenu]);
+   useConditionalListener('pointerup', handlePointerUp, showMenu);
+   useConditionalListener('keydown', handleKeyDown, showMenu);
 
    return (
       <StyledMenu ref={ref} state={state}>

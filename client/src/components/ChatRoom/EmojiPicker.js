@@ -11,13 +11,8 @@ import { useMessageContext } from '../../context/MessagesContext';
 // hooks
 import useConditionalListener from '../../hooks/useConditionalListener';
 
-const EmojiPicker = ({
-   setText,
-   displayPicker,
-   setDisplayPicker,
-   pickerBtn,
-}) => {
-   const { editFlag, setMessageValue } = useMessageContext();
+const EmojiPicker = ({ displayPicker, setDisplayPicker, pickerBtn }) => {
+   const { setMessageValue } = useMessageContext();
    const pickerContainerRef = useRef(null);
 
    const handleKeyDown = e => {
@@ -32,11 +27,7 @@ const EmojiPicker = ({
    };
 
    const handleAddEmoji = e => {
-      if (!editFlag) {
-         setText(prev => prev + e.native);
-      } else {
-         setMessageValue(prev => prev + e.native);
-      }
+      setMessageValue(prev => prev + e.native);
    };
 
    useConditionalListener('keydown', handleKeyDown, displayPicker);
@@ -47,7 +38,7 @@ const EmojiPicker = ({
          <Picker
             data={data}
             onEmojiSelect={handleAddEmoji}
-            previewPosition={'top'}
+            previewPosition={'none'}
             maxFrequentRows={2}
          />
       </EmojiPickerStyled>

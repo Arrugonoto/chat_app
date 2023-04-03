@@ -32,19 +32,16 @@ const MessageForm = () => {
       messageValue,
       setMessageValue,
    } = useMessageContext();
-   const [text, setText] = useState('');
    const [containsWhitespace, setContainsWhitespace] = useState(true);
    const [displayPicker, setDisplayPicker] = useState(false);
    const showPickerBtn = useRef(null);
 
    const handleChange = e => {
-      setText(e.target.value);
-      if (editFlag) setMessageValue(e.target.value);
+      setMessageValue(e.target.value);
    };
    const handleSubmit = async e => {
       e.preventDefault();
       const requestMethod = editFlag ? METHODS.PATCH : METHODS.POST;
-      const dataToSend = editFlag ? messageValue : text;
       const url = editFlag
          ? `${API_URL.CREATE_MESSAGE + messageId}`
          : API_URL.CREATE_MESSAGE;
@@ -52,7 +49,7 @@ const MessageForm = () => {
 
       const response = await fetch(url, {
          method: requestMethod,
-         body: JSON.stringify({ text: dataToSend }),
+         body: JSON.stringify({ text: messageValue }),
          headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${user.token}`,
@@ -71,7 +68,7 @@ const MessageForm = () => {
    };
 
    const handleKeyUp = () => {
-      const whitespaces = REGEX.test(text);
+      const whitespaces = REGEX.test(messageValue);
       setContainsWhitespace(whitespaces);
    };
 
@@ -85,11 +82,11 @@ const MessageForm = () => {
          handleSubmit(e);
       }
       if (e.shiftKey && e.key === 'Enter') {
-         setText(text + '\r\n');
+         setMessageValue(messageValue + '\r\n');
       }
       if (e.key === 'Tab') {
          e.preventDefault();
-         setText(text + '\t');
+         setMessageValue(messageValue + '\t');
       }
    };
 
@@ -99,7 +96,7 @@ const MessageForm = () => {
    };
 
    const resetForm = () => {
-      setText('');
+      setMessageValue('');
    };
 
    return (
@@ -122,7 +119,6 @@ const MessageForm = () => {
             </button>
             {displayPicker && (
                <EmojiPicker
-                  setText={setText}
                   displayPicker={displayPicker}
                   setDisplayPicker={setDisplayPicker}
                   pickerBtn={showPickerBtn}
@@ -131,10 +127,10 @@ const MessageForm = () => {
             <label htmlFor="text" />
             <TextareaAutosize
                type="text"
-               value={editFlag ? messageValue : text}
-               onChange={handleChange}
+               value={messageValue}
                id="text"
                name="text"
+               onChange={handleChange}
                onKeyDown={handleKeyDown}
                onKeyUp={handleKeyUp}
                maxRows={4}
@@ -142,7 +138,7 @@ const MessageForm = () => {
                placeholder="Say hello ^_^"
             />
             <SendMessageBtn
-               disabled={text && !containsWhitespace ? false : true}
+               disabled={messageValue && !containsWhitespace ? false : true}
                title="Send message"
             >
                <FaRegPaperPlane />

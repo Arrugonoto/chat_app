@@ -47,7 +47,7 @@ export const StyledMessageForm = styled.form.attrs({
       line-height: 1.2;
       border: none;
       padding: 0.3rem 0.6rem;
-      font-size: 1rem;
+      font-size: 0.95rem;
       min-height: 2rem;
       outline: none;
       margin: 0 0.8rem 0 0.6rem;
