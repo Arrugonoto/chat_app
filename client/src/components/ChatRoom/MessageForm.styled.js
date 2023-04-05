@@ -8,16 +8,17 @@ export const MessageFormContainer = styled.div.attrs({
    align-content: center;
    width: 100%;
    padding: 0.6rem 0.6rem 1rem 0.6rem;
-   gap: 0.6rem;
+   gap: 0.2rem;
    button {
       background-color: transparent;
    }
    .btn-cancel-edit {
       align-self: flex-start;
+      background-color: rgb(0 0 0 / 0.1);
       border: 0.2rem solid hsl(0, 0%, 30%);
       padding: 0.3rem 0.9rem;
       border-radius: 0.4rem;
-      margin-left: 0.8rem;
+      margin-left: 3.3rem;
       font-size: 0.9rem;
       font-family: 'Roboto';
       letter-spacing: 0.5px;

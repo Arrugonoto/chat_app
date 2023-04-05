@@ -11,7 +11,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledMenuContainer = styled.div.attrs({
-   className: 'header-username',
+   className: 'header-username, header-btns-wrapper, btn-toggle-theme',
 })`
    display: flex;
    position: relative;
@@ -26,10 +26,20 @@ export const StyledMenuContainer = styled.div.attrs({
       filter: drop-shadow(0 0 6px ${props => `${props.userColor}`});
       user-select: none;
    }
+   .header-btns-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      height: 100%;
+      padding: 0 0.2rem;
+   }
+   .btn-toggle-theme {
+   }
 `;
 
 export const StyledMenuButton = styled.button`
    padding: 0.2rem 0.3rem;
+   width: 2rem;
    cursor: pointer;
    background: transparent;
    border: none;

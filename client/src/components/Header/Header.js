@@ -13,9 +13,11 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 // context
 import { useAuthContext } from '../../context/AuthContext';
+import { useThemeContext } from '../../context/ThemeContext';
 
 const Header = () => {
    const { user } = useAuthContext();
+   const { setIsDarkTheme } = useThemeContext();
    const [showMenu, setShowMenu] = useState(false);
    const menuRef = useRef(null);
    const menuBtnRef = useRef(null);
@@ -25,20 +27,29 @@ const Header = () => {
          <StyledMenuContainer userColor={user.color}>
             <p className="header-username">Hi {user.name} 😊</p>
 
-            <StyledMenuButton
-               ref={menuBtnRef}
-               onClick={() => setShowMenu(prev => !prev)}
-            >
-               {showMenu ? (
-                  <FontAwesomeIcon
-                     icon={solid('xmark')}
-                     style={{ fontSize: '2.3rem' }}
-                     title="Close Menu"
-                  />
-               ) : (
-                  <FontAwesomeIcon icon={solid('bars')} title="Open Menu" />
-               )}
-            </StyledMenuButton>
+            <div className="header-btns-wrapper">
+               <button
+                  className="btn-toggle-theme"
+                  onPointerDown={() => setIsDarkTheme(prev => !prev)}
+               >
+                  set theme
+               </button>
+               <StyledMenuButton
+                  ref={menuBtnRef}
+                  onClick={() => setShowMenu(prev => !prev)}
+               >
+                  {showMenu ? (
+                     <FontAwesomeIcon
+                        icon={solid('xmark')}
+                        style={{ fontSize: '2.3rem' }}
+                        title="Close Menu"
+                     />
+                  ) : (
+                     <FontAwesomeIcon icon={solid('bars')} title="Open Menu" />
+                  )}
+               </StyledMenuButton>
+            </div>
+
             <Transition
                nodeRef={menuRef}
                in={showMenu}

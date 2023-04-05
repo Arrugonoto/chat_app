@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from 'react';
+import { forwardRef } from 'react';
 import { StyledThemeSettings } from './ThemeSettings.styled';
 import RoomColorSettings from './RoomColorSettings';
 import MessageColorSettings from './MessageColorSettings';
