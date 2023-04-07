@@ -30,7 +30,7 @@ body {
 }
 
 button {
-   color: #fafafa;
+   color: ${props => props.theme.font};
    border: none;
    outline-color: transparent;
    background-color: transparent;

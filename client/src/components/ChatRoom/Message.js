@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+
 // components
 import { MsgOptionsBtn } from './MessagesWindow.styled';
 import { StyledMessage } from './Message.styled';
@@ -14,7 +15,7 @@ import { useThemeContext } from '../../context/ThemeContext';
 
 const Message = ({ message, nextDay, nextId, prevId }) => {
    const { user } = useAuthContext();
-   const { themeColors } = useThemeContext();
+   const { themeColors, isDarkTheme } = useThemeContext();
    const [displayOptions, setDisplayOptions] = useState(false);
    const optionsBtnRef = useRef(null);
    const dayAfter = moment(nextDay).format('Do MMM YYYY');
@@ -46,6 +47,7 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
             nextUser={nextId !== message.user_id}
             prevUser={prevId !== message.user_id}
             messageColor={themeColors.messageBgColor}
+            darkMode={isDarkTheme}
          >
             {dayAfter !== sendDate && (
                <div className="date-day">

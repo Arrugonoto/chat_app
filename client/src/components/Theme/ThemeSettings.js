@@ -29,7 +29,7 @@ const ThemeSettings = forwardRef((props, ref) => {
       setThemeColors({
          roomBgColor: '',
          messageBgColor: '',
-         textColor: '#e9e9e9',
+         textColor: '',
       });
    };
 

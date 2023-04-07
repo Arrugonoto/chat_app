@@ -6,7 +6,6 @@ export const StyledHeader = styled.header`
    min-height: 2.9rem;
    padding: 0.2rem 0.4rem;
    background: ${props => props.theme.header};
-   /* box-shadow: 0 10px 10px -10px hsla(0, 0%, 18%, 1); */
    z-index: 10;
 `;
 

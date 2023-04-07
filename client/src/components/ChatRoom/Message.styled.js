@@ -20,7 +20,7 @@ export const StyledMessage = styled.article.attrs({
       color: ${props => props.theme.fontDate};
    }
 
-   /* nextUser -> nastepny uzytkownik | prevUser -> poprzedni uzytkownik | user -> zalogowany uzytnowki */
+   /* nextUser -> next user | prevUser -> previous user | user -> logged-in user */
    .message-wrapper {
       position: relative;
       display: flex;
@@ -36,6 +36,7 @@ export const StyledMessage = styled.article.attrs({
          display: inline-block;
          padding: 0.4rem 0.5rem;
          font-weight: 400;
+         color: ${props => (props.user ? '#f1f1f1' : props.theme.font)};
          border-top-left-radius: ${props => (props.nextUser ? '1rem' : '0')};
          border-top-right-radius: 1rem;
          border-bottom-left-radius: ${props => (props.prevUser ? '1rem' : '0')};
@@ -45,7 +46,9 @@ export const StyledMessage = styled.article.attrs({
                ? props.messageColor
                   ? props.messageColor
                   : props.theme.userMessage
-               : props.userColor};
+               : props.darkMode
+               ? props.userColor
+               : props.theme.messageBackground};
          transition: background-color 0.2s linear;
          ::selection {
             background-color: rgb(34, 34, 34);

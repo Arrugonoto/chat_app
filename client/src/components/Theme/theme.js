@@ -3,6 +3,7 @@ export const darkTheme = {
    header: `linear-gradient(180deg, hsla(0, 0%, 18%, 1), hsla(0, 0%, 18%, 0.3) 80%, transparent)`,
    chatRoom: `hsl(0, 0%, 18%)`,
    userMessage: `#0c8d71`,
+   messageButton: ``,
    formContainer: `hsl(0, 0%, 18%)`,
    form: `hsl(0, 0%, 24%)`,
    formHover: `hsl(0, 0%, 29%)`,
@@ -20,10 +21,12 @@ export const darkTheme = {
 };
 
 export const lightTheme = {
-   main: `hsl(20, 21%, 80%)`,
-   header: `linear-gradient(180deg, hsla(0, 0%, 60%, 1), hsla(0, 0%, 60%, 0.3))`,
-   chatRoom: `hsl(0, 0%, 80%)`,
+   main: `hsl(0, 0%, 95%)`,
+   header: `hsl(0, 0%, 85%)`,
+   chatRoom: `hsl(190, 100%, 98%)`,
+   messageButton: ``,
    userMessage: `#0c8d71`,
+   messageBackground: `hsl(0, 0%, 85%)`,
    formContainer: `hsl(0, 0%, 18%)`,
    form: `hsl(0, 0%, 24%)`,
    formHover: `hsl(0, 0%, 45%)`,
@@ -33,7 +36,7 @@ export const lightTheme = {
    menuListBtns: ``,
    menuListBtnsHover: ``,
    title: ``,
-   font: ``,
+   font: `#2a2e30`,
    fontDate: `hsl(0, 0%, 16%)`,
    settings: ``,
    settingsFont: ``,

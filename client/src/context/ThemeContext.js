@@ -10,7 +10,7 @@ export const ThemeContextProvider = ({ children }) => {
    const [themeColors, setThemeColors] = useState({
       roomBgColor: '',
       messageBgColor: '',
-      textColor: '#fcfcfc',
+      textColor: '',
    });
 
    useEffect(() => {
