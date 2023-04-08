@@ -15,6 +15,7 @@ export const ThemeContextProvider = ({ children }) => {
 
    useEffect(() => {
       const userTheme = JSON.parse(localStorage.getItem('userTheme'));
+      const darkMode = JSON.parse(localStorage.getItem('darkMode'));
 
       if (userTheme) {
          setThemeColors({
@@ -22,6 +23,10 @@ export const ThemeContextProvider = ({ children }) => {
          });
       } else {
          localStorage.setItem('userTheme', JSON.stringify(themeColors));
+      }
+
+      if (darkMode) {
+         setIsDarkTheme(darkMode);
       }
       // eslint-disable-next-line
    }, []);
