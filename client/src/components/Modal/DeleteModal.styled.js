@@ -16,7 +16,7 @@ export const StyledDeleteModal = styled.div`
       display: flex;
       position: relative;
       flex-direction: column;
-      background-color: #353535;
+      background-color: ${props => props.theme.modal};
       width: 20%;
       min-width: 24rem;
       padding: 1rem 1.2rem;
@@ -36,6 +36,7 @@ export const StyledDeleteModal = styled.div`
       button {
          display: flex;
          align-items: center;
+         color: #fcfcfc;
          gap: 0.3rem;
          padding: 0.8rem 1.2rem;
          letter-spacing: 1px;

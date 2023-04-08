@@ -66,7 +66,7 @@ const DeleteModal = () => {
          <article ref={modalRef}>
             <h1>Delete message</h1>
             <p>
-               Are You sure You want to <span>delete </span>this message?
+               Are You sure, You want to <span>delete </span>this message?
             </p>
             <div>
                <button onClick={handleCancel}>Cancel</button>

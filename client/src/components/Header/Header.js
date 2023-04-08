@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
    StyledHeader,
    StyledMenuContainer,
@@ -17,10 +17,19 @@ import { useThemeContext } from '../../context/ThemeContext';
 
 const Header = () => {
    const { user } = useAuthContext();
-   const { setIsDarkTheme } = useThemeContext();
+   const { isDarkTheme, setIsDarkTheme } = useThemeContext();
    const [showMenu, setShowMenu] = useState(false);
    const menuRef = useRef(null);
    const menuBtnRef = useRef(null);
+
+   const handlePointerUp = () => {
+      setIsDarkTheme(prev => !prev);
+   };
+
+   useEffect(() => {
+      localStorage.setItem('darkMode', JSON.stringify(isDarkTheme));
+      // eslint-disable-next-line
+   }, [handlePointerUp]);
 
    return (
       <StyledHeader>
@@ -30,7 +39,7 @@ const Header = () => {
             <div className="header-btns-wrapper">
                <button
                   className="btn-toggle-theme"
-                  onPointerDown={() => setIsDarkTheme(prev => !prev)}
+                  onPointerUp={() => handlePointerUp()}
                >
                   set theme
                </button>

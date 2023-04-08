@@ -5,7 +5,7 @@ export const StyledRoomColorSettings = styled.section.attrs({
 })`
    padding: 1rem 0.8rem;
    display: grid;
-   background-color: ${props => props.theme.settingsSection};
+   background-color: ${props => props.theme.section};
    border-radius: 0.5rem;
    margin-bottom: 1rem;
 
@@ -13,6 +13,10 @@ export const StyledRoomColorSettings = styled.section.attrs({
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
       gap: 0.5rem;
+   }
+
+   input[type='color'] {
+      cursor: pointer;
    }
 
    button {

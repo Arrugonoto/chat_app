@@ -5,7 +5,7 @@ export const StyledMessageColorSettings = styled.section.attrs({
 })`
    padding: 1rem 0.8rem;
    display: grid;
-   background-color: ${props => props.theme.settingsSection};
+   background-color: ${props => props.theme.section};
    border-radius: 0.5rem;
    h1 {
       color: ${props => props.theme.title};
@@ -21,6 +21,10 @@ export const StyledMessageColorSettings = styled.section.attrs({
       display: flex;
       gap: 1rem;
       padding-top: 0.5rem;
+   }
+
+   input[type='color'] {
+      cursor: pointer;
    }
 
    button {

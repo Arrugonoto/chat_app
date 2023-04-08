@@ -14,7 +14,7 @@ export const MessageFormContainer = styled.div.attrs({
    }
    .btn-cancel-edit {
       align-self: flex-start;
-      background-color: rgb(0 0 0 / 0.1);
+      background-color: ${props => props.theme.informational};
       border: 0.2rem solid hsl(0, 0%, 30%);
       padding: 0.3rem 0.9rem;
       border-radius: 0.4rem;
@@ -24,7 +24,7 @@ export const MessageFormContainer = styled.div.attrs({
       letter-spacing: 0.5px;
       transition: background-color 0.2s linear, scale 0.1s linear;
       &:hover {
-         background-color: hsl(0, 0%, 30%);
+         background-color: ${props => props.theme.informationalHover};
       }
       &:active {
          scale: 0.96;
@@ -53,6 +53,7 @@ export const StyledMessageForm = styled.form.attrs({
       outline: none;
       margin: 0 0.8rem 0 0.6rem;
       outline: 1px solid transparent;
+      color: ${props => props.theme.font};
       background-color: ${props => props.theme.form};
       transition: all 0.2s linear;
       &:focus {

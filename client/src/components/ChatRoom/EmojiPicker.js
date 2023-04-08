@@ -7,12 +7,14 @@ import Picker from '@emoji-mart/react';
 
 // context
 import { useMessageContext } from '../../context/MessagesContext';
+import { useThemeContext } from '../../context/ThemeContext';
 
 // hooks
 import useConditionalListener from '../../hooks/useConditionalListener';
 
 const EmojiPicker = ({ displayPicker, setDisplayPicker, pickerBtn }) => {
    const { setMessageValue } = useMessageContext();
+   const { isDarkTheme } = useThemeContext();
    const pickerContainerRef = useRef(null);
 
    const handleKeyDown = e => {
@@ -40,6 +42,7 @@ const EmojiPicker = ({ displayPicker, setDisplayPicker, pickerBtn }) => {
             onEmojiSelect={handleAddEmoji}
             previewPosition={'none'}
             maxFrequentRows={2}
+            theme={isDarkTheme ? 'dark' : 'light'}
          />
       </EmojiPickerStyled>
    );

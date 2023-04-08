@@ -69,7 +69,7 @@ export const StyledMessage = styled.article.attrs({
          font-size: 0.8rem;
          padding: 0.1rem 0.6rem;
          border-radius: 0.4rem;
-         background-color: #545454e6;
+         background-color: ${props => props.theme.informational};
          white-space: nowrap;
       }
       &:hover {
@@ -93,10 +93,10 @@ export const StyledMessage = styled.article.attrs({
       top: 0%;
       translate: 0 calc(-100% - 0.2rem);
       z-index: 100;
-      color: #000;
+      color: ${props => props.theme.font};
       border-radius: 0.6rem;
       padding: 0.2rem 0.6rem;
-      background-color: #dfdfdfff;
+      background-color: ${props => props.theme.informational};
       &:hover {
          display: none;
       }
@@ -116,6 +116,7 @@ export const StyledMessage = styled.article.attrs({
          align-items: center;
          font-size: 1rem;
          font-weight: 550;
+         color: #fcfcfc;
          justify-content: center;
          text-transform: capitalize;
          width: 1.7rem;

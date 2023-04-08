@@ -55,7 +55,6 @@ const RoomColorSettings = () => {
                      onPointerUp={() =>
                         setThemeColors(prev => ({
                            ...prev,
-                           roomBgId: el.id,
                            roomBgColor: el.value,
                         }))
                      }
@@ -79,11 +78,9 @@ const RoomColorSettings = () => {
                      : null
                }`}
                style={{ background: `${customColor}` }}
-               id="18"
                onPointerUp={e =>
                   setThemeColors(prev => ({
                      ...prev,
-                     roomBgId: e.target.id,
                      roomBgColor: customColor,
                   }))
                }

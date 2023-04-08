@@ -9,6 +9,7 @@ export const MessagesContainer = styled.div`
    height: 100%;
    padding: 1rem 0.3rem;
    overflow-y: scroll;
+   overflow-x: hidden;
    scrollbar-width: thin;
    scrollbar-color: rgba(86, 204, 255, 0.1) transparent;
    transition: background-color 0.2s linear;
@@ -23,9 +24,9 @@ export const MsgOptionsBtn = styled.button.attrs({
    border: none;
    font-size: 1.7rem;
    cursor: pointer;
-   color: rgba(255, 255, 255, 0.6);
+   color: ${props => props.theme.messageBtn};
    &:hover {
-      color: rgba(255, 255, 255, 0.8);
+      color: ${props => props.theme.messageBtnHover};
    }
    &:focus {
       border: none;

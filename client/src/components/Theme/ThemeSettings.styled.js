@@ -7,7 +7,7 @@ export const StyledThemeSettings = styled.div.attrs({
    position: absolute;
    right: -100%;
    flex-direction: column;
-   background-color: ${props => props.theme.settings};
+   background-color: ${props => props.theme.container};
    height: 100dvh;
    width: 20vw;
    min-width: 20rem;
@@ -71,10 +71,12 @@ export const StyledThemeSettings = styled.div.attrs({
       align-content: center;
       padding: 1rem 0.1rem;
       gap: 1rem;
+
       button {
          width: 100%;
          padding: 0.6rem 0;
          font-size: 1rem;
+         color: #fcfcfc;
          cursor: pointer;
          border-radius: 0.6rem;
          font-family: 'Roboto';
