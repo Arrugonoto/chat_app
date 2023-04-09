@@ -5,7 +5,7 @@ export const StyledDeleteModal = styled.div`
    position: absolute;
    align-items: center;
    justify-content: center;
-   z-index: 1;
+   z-index: 100;
    top: 0;
    left: 0;
    width: 100vw;

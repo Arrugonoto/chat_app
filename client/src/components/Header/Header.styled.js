@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledMenuContainer = styled.div.attrs({
-   className: 'header-username, header-btns-wrapper, btn-toggle-theme',
+   className: 'header-username, header-btns-wrapper',
 })`
    display: flex;
    position: relative;
@@ -32,8 +32,6 @@ export const StyledMenuContainer = styled.div.attrs({
       height: 100%;
       padding: 0 0.2rem;
    }
-   .btn-toggle-theme {
-   }
 `;
 
 export const StyledMenuButton = styled.button`
@@ -43,14 +41,14 @@ export const StyledMenuButton = styled.button`
    background: transparent;
    border: none;
    font-size: 1.8rem;
-   color: rgba(255, 255, 255, 0.6);
+   color: ${props => props.theme.menuBtn};
    transition: all 0.2s linear;
    &:focus {
       outline-color: transparent;
    }
    &:hover {
-      color: rgba(255, 255, 255, 0.8);
-      filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.8));
+      color: ${props => props.theme.menuBtnHover};
+      filter: drop-shadow(0px 0px 2px ${props => props.theme.menuBtnShadow});
    }
 `;
 
@@ -61,10 +59,11 @@ export const StyledMenu = styled.div`
    z-index: 10;
    right: 0;
    top: 2.3rem;
-   background-color: rgb(56, 56, 56);
+   background-color: ${props => props.theme.menu};
    padding: 0.4rem 0.3rem;
    border-radius: 0.3rem;
    transition: all 0.2s linear;
+   box-shadow: 0 0 1rem 0 hsla(0, 0%, 0%, 0.2);
    opacity: ${({ state }) =>
       state === 'entering' || state === 'entered' ? 1 : 0};
    scale: ${({ state }) =>
@@ -77,7 +76,7 @@ export const StyledMenu = styled.div`
          border-radius: 0.5rem;
          overflow: hidden;
          &:hover {
-            background-color: #424242;
+            background-color: ${props => props.theme.menuListBtnsHover};
          }
       }
       button {
@@ -88,12 +87,12 @@ export const StyledMenu = styled.div`
          padding: 0.7rem 0.5rem;
          cursor: pointer;
          font-size: 1rem;
-         color: rgba(216, 216, 216, 1);
+         color: ${props => props.theme.menuFont};
          letter-spacing: 1px;
          gap: 0.5rem;
          transition: all 0.2s linear;
          &:hover {
-            color: rgba(255, 255, 255, 0.8);
+            color: ${props => props.theme.menuFontHover};
             filter: drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.5));
          }
          &::before {
@@ -103,7 +102,7 @@ export const StyledMenu = styled.div`
             width: 100%;
             height: 100%;
             transform: scaleX(0);
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: hsla(0, 0%, 100%, 0.2);
             transform-origin: center;
          }
          &:focus::before {

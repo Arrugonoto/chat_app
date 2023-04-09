@@ -27,8 +27,8 @@ export const StyledRoomColorSettings = styled.section.attrs({
       cursor: pointer;
       transition: all 0.2s linear;
       border-radius: 0.3rem;
-      outline: 0.2rem solid
-         ${props => (props.selectedValue ? 'rgb(42, 190, 12)' : 'transparent')};
+      outline: 0.2rem solid transparent;
+      outline-offset: 0.1rem;
       &:hover {
          outline-color: rgb(20, 159, 201);
       }

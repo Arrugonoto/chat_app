@@ -7,9 +7,6 @@ export const StyledMessageColorSettings = styled.section.attrs({
    display: grid;
    background-color: ${props => props.theme.section};
    border-radius: 0.5rem;
-   h1 {
-      color: ${props => props.theme.title};
-   }
 
    .container-btns {
       display: grid;
@@ -36,6 +33,7 @@ export const StyledMessageColorSettings = styled.section.attrs({
       transition: all 0.2s linear;
       border-radius: 0.3rem;
       outline: 0.2rem solid transparent;
+      outline-offset: 0.1rem;
       &:hover {
          outline-color: rgb(20, 159, 201);
       }
