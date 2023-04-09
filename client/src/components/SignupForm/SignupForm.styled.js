@@ -7,10 +7,12 @@ export const StyledSignupForm = styled.form.attrs({
    flex-direction: column;
    width: 20%;
    min-width: 24rem;
-   box-shadow: 0px 0px 1rem 0 rgba(0, 0, 0, 0.1);
+   box-shadow: 0px 0px 1rem 0
+      ${props => (props.error ? 'rgba(255, 22, 10, 0.5)' : 'transparent')};
    border-radius: 0.4rem;
    padding: 1rem 1.2rem;
-   background-color: hsl(0, 0%, 18%);
+   background-color: ${props => props.theme.loginForm};
+   transition: box-shadow 0.2s linear;
 
    h1 {
       text-align: center;

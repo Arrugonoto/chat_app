@@ -10,6 +10,7 @@ import {
 } from './SignupForm.styled';
 import useSignup from '../../hooks/useSignup';
 import { TooltipName, TooltipPassword } from './Tooltip';
+import ThemeButton from '../theme/ThemeButton';
 
 // icons
 import { FaEye, FaEyeSlash, FaRegQuestionCircle } from 'react-icons/fa';
@@ -19,7 +20,7 @@ import ROUTES from '../../routes/routes';
 
 // Regex
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.*\d).{10,20}$/;
-const NAME_REGEX = /^[A-Z].{5,32}$/;
+const NAME_REGEX = /^[A-Z].{3,32}$/;
 
 const SignupForm = () => {
    const [formData, setFormData] = useState({
@@ -129,6 +130,7 @@ const SignupForm = () => {
 
    return (
       <SectionContainer>
+         <ThemeButton />
          <StyledSignupForm
             onSubmit={handleSubmit}
             error={error}

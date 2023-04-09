@@ -11,7 +11,7 @@ import { FaRegCheckCircle } from 'react-icons/fa';
 // string validation
 // name
 const NAME_REGEX_LETTER = /^[A-Z]/;
-const NAME_REGEX_LENGTH = /^.{6,32}$/;
+const NAME_REGEX_LENGTH = /^.{4,32}$/;
 
 // password
 const PASS_REGEX_LENGTH = /^.{10,20}$/;
@@ -57,7 +57,7 @@ const TooltipName = forwardRef((props, ref) => {
                      className="wrong"
                   />
                )}
-               <p>be atleast 6 characters long, up to 32</p>
+               <p>be atleast 4 characters long, up to 32</p>
             </li>
          </ul>
       </StyledTooltip>
