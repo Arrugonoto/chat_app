@@ -61,7 +61,7 @@ export const StyledLoginForm = styled.form.attrs({
    box-shadow: 0px 0px 1rem 0 rgba(0, 0, 0, 0.1);
    border-radius: 0.4rem;
    padding: 1rem 1.2rem;
-   background-color: hsl(0, 0%, 18%);
+   background-color: ${props => props.theme.loginForm};
 
    h1 {
       text-align: center;

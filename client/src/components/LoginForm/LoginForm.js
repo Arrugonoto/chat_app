@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+
 // components / styled-components
 import { SectionContainer } from '../styles/SectionContainer.styled';
 import {
@@ -8,6 +9,9 @@ import {
    ErrorMessage,
    RegisterLink,
 } from './LoginForm.styled';
+import ThemeButton from '../theme/ThemeButton';
+
+// hooks
 import useLogin from '../../hooks/useLogin';
 
 // icons
@@ -70,6 +74,7 @@ const LoginForm = () => {
 
    return (
       <SectionContainer>
+         <ThemeButton />
          <AnimatedBorder error={error}>
             <StyledLoginForm
                onSubmit={handleSubmit}
