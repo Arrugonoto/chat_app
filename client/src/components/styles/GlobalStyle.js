@@ -38,7 +38,7 @@ button {
 }
 
 input, textarea {
-   color: #e9e9e9;
+   color: ${props => props.theme.font};
 }
 
 h1 {
