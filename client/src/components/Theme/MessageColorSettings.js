@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { StyledMessageColorSettings } from './MessageColorSettings.styled';
-import {
-   messageBgColor,
-   messageBgGradient,
-   fontColor,
-} from '../../data/colors';
+import { messageBgColor, messageBgGradient } from '../../data/colors';
 
 // theme context
 import { useThemeContext } from '../../context/ThemeContext';
@@ -94,30 +90,6 @@ const MessageColorSettings = () => {
             >
                Set color
             </button>
-         </div>
-         <div>
-            <h2>Font color</h2>
-            <div className="container-btns btns-font">
-               {fontColor.map(el => (
-                  <button
-                     className={`btn-clr-font ${
-                        el.value === (themeColors.textColor || theme.font)
-                           ? 'btn-selected-value'
-                           : null
-                     }`}
-                     key={el.id}
-                     style={{
-                        background: `${el.value}`,
-                     }}
-                     onPointerDown={() => {
-                        setThemeColors(prev => ({
-                           ...prev,
-                           textColor: el.value,
-                        }));
-                     }}
-                  ></button>
-               ))}
-            </div>
          </div>
       </StyledMessageColorSettings>
    );
