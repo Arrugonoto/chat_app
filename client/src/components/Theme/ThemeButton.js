@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-
 // components
-import { StyledBtnContainer, StyledThemeButton } from './ThemeButton.styled';
+import { StyledBtnContainer, StyledThemeSwitch } from './ThemeButton.styled';
 
 // context
 import { useThemeContext } from '../../context/ThemeContext';
@@ -11,18 +9,15 @@ const ThemeButton = () => {
 
    const handlePointerUp = () => {
       setIsDarkTheme(prev => !prev);
+      localStorage.setItem('darkMode', JSON.stringify(!isDarkTheme));
    };
-
-   useEffect(() => {
-      localStorage.setItem('darkMode', JSON.stringify(isDarkTheme));
-      // eslint-disable-next-line
-   }, [handlePointerUp]);
 
    return (
       <StyledBtnContainer>
-         <StyledThemeButton onPointerUp={() => handlePointerUp()}>
-            Set theme mode
-         </StyledThemeButton>
+         <StyledThemeSwitch
+            type="checkbox"
+            onPointerUp={() => handlePointerUp()}
+         ></StyledThemeSwitch>
       </StyledBtnContainer>
    );
 };

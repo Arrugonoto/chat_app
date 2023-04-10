@@ -24,8 +24,10 @@ export const ThemeContextProvider = ({ children }) => {
          localStorage.setItem('userTheme', JSON.stringify(themeColors));
       }
 
-      if (darkMode) {
+      if (darkMode !== null) {
          setIsDarkTheme(darkMode);
+      } else {
+         localStorage.setItem('darkMode', JSON.stringify(isDarkTheme));
       }
       // eslint-disable-next-line
    }, []);
