@@ -20,6 +20,8 @@ const MessageWindow = forwardRef(
       const { themeColors } = useThemeContext();
       const [loading, setLoading] = useState(false);
 
+      //
+
       const fetchMessages = async () => {
          setLoading(true);
 
@@ -40,7 +42,7 @@ const MessageWindow = forwardRef(
       };
 
       const handleScroll = () => {
-         if (Math.abs(ref?.current.scrollTop) > 2000) {
+         if (Math.abs(ref?.current?.scrollTop) > 2000) {
             setShowNewestBtn(true);
          } else {
             setShowNewestBtn(false);
@@ -58,7 +60,7 @@ const MessageWindow = forwardRef(
          socket.on('resend_messages', () => {
             fetchMessages();
             if (ref.current) {
-               setChatWindowHeight(ref.current.scrollHeight);
+               setChatWindowHeight(ref?.current?.scrollHeight);
             }
          });
          // eslint-disable-next-line

@@ -7,6 +7,8 @@ import MessageWindow from './MessagesWindow';
 import MessageForm from './MessageForm';
 import DeleteModal from '../Modal/DeleteModal';
 import ThemeSettings from '../theme/ThemeSettings';
+
+// packages
 import io from 'socket.io-client';
 import { Transition, CSSTransition } from 'react-transition-group';
 
@@ -50,12 +52,14 @@ const ChatWindow = () => {
       <SectionContainer>
          <StyledChatWindow roomColor={themeColors.roomBgColor}>
             <Header></Header>
+
             <MessageWindow
                socket={socket}
                ref={chatWindowRef}
                setChatWindowHeight={setChatWindowHeight}
                setShowNewestBtn={setShowNewestBtn}
             />
+
             <Transition
                nodeRef={newestBtnRef}
                in={showNewestBtn}
