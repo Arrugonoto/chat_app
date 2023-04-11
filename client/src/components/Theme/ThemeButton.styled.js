@@ -38,17 +38,7 @@ export const StyledBtnContainer = styled.div`
       justify-content: center;
       filter: drop-shadow(0px 0px 1rem #00b3ff);
       cursor: pointer;
-      animation: 1s ease appear;
       user-select: none;
-   }
-
-   @keyframes appear {
-      0% {
-         opacity: 0;
-      }
-      100% {
-         opacity: 1;
-      }
    }
 `;
 
