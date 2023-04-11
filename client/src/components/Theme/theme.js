@@ -39,7 +39,7 @@ export const lightTheme = {
    form: `hsl(0, 0%, 80%)`,
    formHover: `hsl(0, 0%, 75%)`,
    menuBtn: `hsla(0, 0%, 10%, 0.8)`,
-   menuBtnHover: `hsla(0, 0%, 20%, 0.8)`,
+   menuBtnHover: `hsla(0, 0%, 40%, 0.8)`,
    menuBtnShadow: `transparent`,
    menu: `hsl(0, 0%, 85%)`,
    menuFont: `#2a2e30`,

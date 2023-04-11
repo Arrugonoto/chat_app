@@ -35,12 +35,11 @@ export const StyledMenuContainer = styled.div.attrs({
 `;
 
 export const StyledMenuButton = styled.button`
-   padding: 0.2rem 0.3rem;
    width: 2rem;
    cursor: pointer;
    background: transparent;
    border: none;
-   font-size: 1.8rem;
+   font-size: 1.7rem;
    color: ${props => props.theme.menuBtn};
    transition: all 0.2s linear;
    &:focus {
