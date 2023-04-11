@@ -15,7 +15,7 @@ export const StyledBtnContainer = styled.div`
       height: 1.6rem;
       width: 1.6rem;
       padding: 14px;
-      border: 1px solid
+      border: 2px solid
          ${props =>
             props.darkMode ? 'hsl(286, 100%, 28%)' : 'hsl(59, 100%, 65%)'};
       border-radius: 1rem;
