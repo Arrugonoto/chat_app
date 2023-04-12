@@ -26,7 +26,13 @@ const ThemeButton = () => {
             type="checkbox"
          ></StyledThemeSwitch>
          <div>
-            <span>{isDarkTheme ? <BsMoonStars /> : <BiSun />}</span>
+            <span>
+               {isDarkTheme ? (
+                  <BsMoonStars className="theme-switch-icon" />
+               ) : (
+                  <BiSun className="theme-switch-icon" />
+               )}
+            </span>
          </div>
       </StyledBtnContainer>
    );

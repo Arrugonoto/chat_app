@@ -10,7 +10,7 @@ export const StyledBtnContainer = styled.div`
       justify-content: center;
       top: 50%;
       transform: translateY(-50%);
-      left: ${props => (props.darkMode ? '3%' : 'calc(90% - 1.6rem)')};
+      left: ${props => (props.darkMode ? '3%' : 'calc(89% - 1.6rem)')};
       transition: all 0.5s ease;
       height: 1.6rem;
       width: 1.6rem;

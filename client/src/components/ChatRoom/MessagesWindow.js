@@ -20,8 +20,6 @@ const MessageWindow = forwardRef(
       const { themeColors } = useThemeContext();
       const [loading, setLoading] = useState(false);
 
-      //
-
       const fetchMessages = async () => {
          setLoading(true);
 

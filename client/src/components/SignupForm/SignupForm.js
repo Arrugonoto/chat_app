@@ -113,7 +113,7 @@ const SignupForm = () => {
       }
    };
 
-   const handlePointerOut = e => {
+   const handlePointerOut = () => {
       tooltipNameRef.current.style.display = 'none';
       tooltipPassRef.current.style.display = 'none';
    };

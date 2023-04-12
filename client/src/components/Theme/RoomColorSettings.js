@@ -78,7 +78,7 @@ const RoomColorSettings = () => {
                      : null
                }`}
                style={{ background: `${customColor}` }}
-               onPointerUp={e =>
+               onPointerUp={() =>
                   setThemeColors(prev => ({
                      ...prev,
                      roomBgColor: customColor,

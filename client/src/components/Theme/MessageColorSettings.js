@@ -81,7 +81,7 @@ const MessageColorSettings = () => {
                   background: `${customColor}`,
                   color: `${themeColors.textColor}`,
                }}
-               onPointerUp={e =>
+               onPointerUp={() =>
                   setThemeColors(prev => ({
                      ...prev,
                      messageBgColor: customColor,
