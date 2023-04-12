@@ -165,13 +165,14 @@ Open another command line/terminal.
 -  [x] Add message editing and deletion
 -  [x] Add menu
 -  [x] Add theme settings
--  [x] Add jump to newest messages
--  [ ] Implement momentum scrolling
--  [ ] Implement 'giving likes' system
+-  [x] Add jump to newest messages functionality
+-  [ ] Add momentum scrolling functionality
+-  [ ] Add 'giving likes' system
 -  [x] Add profanity filter - <a href='https://github.com/web-mech/badwords'>by Michael Price</a>
 -  [x] Build production
 -  [x] Host project
 -  [x] Add emoji picker - <a href='https://github.com/missive/emoji-mart'>by Missive team</a>
+-  [x] Add light/dark mode
 
 ### Fix:
 
