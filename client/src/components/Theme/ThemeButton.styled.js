@@ -12,8 +12,8 @@ export const StyledBtnContainer = styled.div`
       transform: translateY(-50%);
       left: ${props => (props.darkMode ? '3%' : 'calc(89% - 1.6rem)')};
       transition: all 0.5s ease;
-      height: 1.6rem;
-      width: 1.6rem;
+      height: 1rem;
+      width: 1rem;
       padding: 14px;
       border: 2px solid
          ${props =>
@@ -21,9 +21,9 @@ export const StyledBtnContainer = styled.div`
       border-radius: 1rem;
       font-size: 1.2rem;
       background-color: ${props =>
-         props.darkMode ? 'hsl(0, 0%, 85%)' : 'hsl(0, 0%, 25%)'};
-      color: ${props =>
          props.darkMode ? 'hsl(286, 100%, 28%)' : 'hsl(59, 100%, 65%)'};
+      color: ${props =>
+         props.darkMode ? 'hsl(0, 0%, 90%)' : 'hsl(0, 0%, 10%)'};
 
       box-shadow: 0 0 1rem 0
          ${props =>
@@ -43,10 +43,10 @@ export const StyledBtnContainer = styled.div`
 `;
 
 export const StyledThemeSwitch = styled.input`
-   width: 4rem;
-   height: 2rem;
+   width: 4.3rem;
+   height: 1.4rem;
    background-color: ${props =>
-      props.darkMode ? 'hsl(0, 0%, 90%)' : 'hsl(0, 0%, 10%)'};
+      props.darkMode ? 'hsl(0, 0%, 10%)' : 'hsl(0, 0%, 95%)'};
    appearance: none;
    -webkit-appearance: none;
    border-radius: 1rem;
