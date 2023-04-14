@@ -28,9 +28,15 @@ const ThemeButton = () => {
          <div>
             <span>
                {isDarkTheme ? (
-                  <BsMoonStars className="theme-switch-icon" />
+                  <BsMoonStars
+                     className="theme-switch-icon"
+                     title="Toggle to light mode"
+                  />
                ) : (
-                  <BiSun className="theme-switch-icon" />
+                  <BiSun
+                     className="theme-switch-icon"
+                     title="Toggle to dark mode"
+                  />
                )}
             </span>
          </div>
