@@ -43,10 +43,10 @@ const createNewMessage = async (req, res, next) => {
    }
 };
 
-// edit message
-// @route PATCH /api/messages/:id
+// edit message text
+// @route PATCH /api/messages/:id/text
 // @access Private
-const editMessage = async (req, res, next) => {
+const editMessageText = async (req, res, next) => {
    const { id } = req.params;
    const { text } = req.body;
    const filteredText = filterText(text);
@@ -72,6 +72,37 @@ const editMessage = async (req, res, next) => {
          res.status(200).json(message);
          global.io.emit('resend_messages', {});
       }
+   } catch (error) {
+      res.status(400).json({ error: error.message });
+   }
+};
+
+// edit message reactions
+// @route PATCH /api/messages/:id/reactions
+// @access Private
+const editMessageReactions = async (req, res, next) => {
+   const { id } = req.params;
+   const { reactions } = req.body;
+
+   if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res
+         .status(404)
+         .json({ error: `Message has been deleted or doesn't exist` });
+   }
+
+   try {
+      const message = await Message.findOneAndUpdate(
+         { _id: id },
+         { reactions: reactions },
+         { new: true }
+      );
+      if (!message) {
+         return res
+            .status(400)
+            .json({ error: `Message has been deleted or doesn't exist` });
+      }
+      res.status(200).json(message);
+      global.io.emit('resend_messages', {});
    } catch (error) {
       res.status(400).json({ error: error.message });
    }
@@ -104,6 +135,7 @@ const deleteMessage = async (req, res, next) => {
 module.exports = {
    getMessages,
    createNewMessage,
-   editMessage,
+   editMessageText,
+   editMessageReactions,
    deleteMessage,
 };

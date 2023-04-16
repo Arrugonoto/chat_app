@@ -19,6 +19,13 @@ const messageSchema = new Schema(
          type: String,
          required: true,
       },
+      reactions: {
+         like: String,
+         funny: String,
+         wholesome: String,
+         fear: String,
+         astonished: String,
+      },
    },
    {
       timestamps: true,

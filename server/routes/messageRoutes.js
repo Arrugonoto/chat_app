@@ -5,7 +5,8 @@ const requireAuth = require('../middleware/authMiddleware');
 const {
    getMessages,
    createNewMessage,
-   editMessage,
+   editMessageText,
+   editMessageReactions,
    deleteMessage,
 } = require('../controllers/messageController');
 
@@ -18,7 +19,9 @@ router.get('/', getMessages);
 
 router.post('/', createNewMessage);
 
-router.patch('/:id', editMessage);
+router.patch('/:id/text', editMessageText);
+
+router.patch('/:id/reactions', editMessageReactions);
 
 router.delete('/:id', deleteMessage);
 
