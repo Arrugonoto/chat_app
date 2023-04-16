@@ -10,11 +10,11 @@ export const StyledBtnContainer = styled.div`
       justify-content: center;
       top: 50%;
       transform: translateY(-50%);
-      left: ${props => (props.darkMode ? '3%' : 'calc(89% - 1.6rem)')};
+      left: ${props => (props.darkMode ? '4%' : 'calc(94% - 1.5rem)')};
       transition: all 0.5s ease;
-      height: 1rem;
-      width: 1rem;
-      padding: 14px;
+      height: 1.5rem;
+      width: 1.5rem;
+      padding: 0.75rem;
       border: 2px solid
          ${props =>
             props.darkMode ? 'hsl(286, 100%, 28%)' : 'hsl(59, 100%, 65%)'};
@@ -43,8 +43,8 @@ export const StyledBtnContainer = styled.div`
 `;
 
 export const StyledThemeSwitch = styled.input`
-   width: 4.3rem;
-   height: 1.4rem;
+   width: 4rem;
+   height: 1.2rem;
    background-color: ${props =>
       props.darkMode ? 'hsl(0, 0%, 10%)' : 'hsl(0, 0%, 95%)'};
    appearance: none;

@@ -43,7 +43,7 @@ const MessageForm = () => {
       e.preventDefault();
       const requestMethod = editFlag ? METHODS.PATCH : METHODS.POST;
       const url = editFlag
-         ? `${API_URL.CREATE_MESSAGE + messageId}`
+         ? `${API_URL.CREATE_MESSAGE + messageId}/text`
          : API_URL.CREATE_MESSAGE;
       const dispatchType = editFlag ? MSG_ACTIONS.MODIFY : MSG_ACTIONS.CREATE;
 

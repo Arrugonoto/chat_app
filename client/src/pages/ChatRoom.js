@@ -1,4 +1,4 @@
-import ChatWidnow from '../components/ChatRoom/ChatWindow';
+import ChatWidnow from '../components/chat_room/ChatWindow';
 
 const ChatRoom = () => {
    return <ChatWidnow></ChatWidnow>;

@@ -1,11 +1,11 @@
 import { useState, useRef } from 'react';
 // components / styled
 import { SectionContainer } from '../styles/SectionContainer.styled';
-import { StyledChatWindow } from '../ChatRoom/ChatWindow.styled';
-import Header from '../Header/Header';
+import { StyledChatWindow } from './ChatWindow.styled';
+import Header from '../header/Header';
 import MessageWindow from './MessagesWindow';
 import MessageForm from './MessageForm';
-import DeleteModal from '../Modal/DeleteModal';
+import DeleteModal from '../modal/DeleteModal';
 import ThemeSettings from '../theme/ThemeSettings';
 
 // packages
