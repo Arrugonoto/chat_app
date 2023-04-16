@@ -20,11 +20,12 @@ const messageSchema = new Schema(
          required: true,
       },
       reactions: {
-         like: String,
-         funny: String,
-         wholesome: String,
-         fear: String,
-         astonished: String,
+         like: Array,
+         funny: Array,
+         wholesome: Array,
+         fear: Array,
+         astonished: Array,
+         angry: Array,
       },
    },
    {
