@@ -18,7 +18,11 @@ export const messagesReducer = (state, action) => {
       case MSG_ACTIONS.CREATE:
          return { messages: [action.payload, ...state.messages] };
       case MSG_ACTIONS.MODIFY:
-         return { messages: state.messages };
+         return {
+            messages: state.messages.map(el =>
+               el._id !== action.payload._id ? el : action.payload
+            ),
+         };
       case MSG_ACTIONS.DELETE:
          return {
             messages: state.messages.filter(
