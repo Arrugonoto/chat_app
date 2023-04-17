@@ -2,7 +2,7 @@ import { useState, useEffect, forwardRef } from 'react';
 
 // components
 import { MessagesContainer } from './MessagesWindow.styled';
-import Message from './Message';
+import Message from '../message/Message';
 import MessageLoadingFrame from '../loader/MessageLoadingFrame';
 
 // context
@@ -80,7 +80,7 @@ const MessageWindow = forwardRef(
                />
             ))}
 
-            {!loading && messages.length === 0 && (
+            {!loading && messages?.length === 0 && (
                <div
                   style={{
                      display: 'flex',
@@ -94,7 +94,7 @@ const MessageWindow = forwardRef(
             )}
 
             {loading &&
-               messages.length < 1 &&
+               messages?.length < 1 &&
                [...Array(10).keys()].map(i => {
                   return <MessageLoadingFrame key={i} index={i} />;
                })}
