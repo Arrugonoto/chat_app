@@ -18,14 +18,13 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
    const { user } = useAuthContext();
    const { themeColors, isDarkTheme } = useThemeContext();
    const [displayOptions, setDisplayOptions] = useState(false);
-   // eslint-disable-next-line no-unused-vars
    const [reactions, setReactions] = useState({
-      like: [],
-      funny: [],
-      wholesome: [],
-      fear: [],
-      astonished: [],
-      angry: [],
+      like: ['user1'],
+      funny: ['t.hanks', 'Sung-Jin-Woo'],
+      wholesome: ['user4'],
+      fear: ['maxkolonko'],
+      astonished: ['stefan'],
+      angry: ['heniek'],
    });
    const optionsBtnRef = useRef(null);
    const reactionBtnsRef = useRef(null);
@@ -117,7 +116,12 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
                   />
                )}
                {offlineUser && (
-                  <ReactionButtons user={loggedUser} ref={reactionBtnsRef} />
+                  <ReactionButtons
+                     ref={reactionBtnsRef}
+                     loggedUser={loggedUser}
+                     reactions={reactions}
+                     setReactions={setReactions}
+                  />
                )}
             </div>
          </StyledMessage>
