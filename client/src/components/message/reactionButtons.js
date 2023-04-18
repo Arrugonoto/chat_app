@@ -38,7 +38,6 @@ const ReactionButtons = forwardRef(
          } else {
             newReactions[e.target.title].push(user.name);
          }
-         console.log('after push', newReactions);
          setReactions(newReactions);
 
          console.log(reactions);

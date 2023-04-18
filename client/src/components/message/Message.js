@@ -19,12 +19,12 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
    const { themeColors, isDarkTheme } = useThemeContext();
    const [displayOptions, setDisplayOptions] = useState(false);
    const [reactions, setReactions] = useState({
-      like: ['user1'],
-      funny: ['t.hanks', 'Sung-Jin-Woo'],
-      wholesome: ['user4'],
-      fear: ['maxkolonko'],
-      astonished: ['stefan'],
-      angry: ['heniek'],
+      like: [],
+      funny: [],
+      wholesome: [],
+      fear: [],
+      astonished: [],
+      angry: [],
    });
    const optionsBtnRef = useRef(null);
    const reactionBtnsRef = useRef(null);
