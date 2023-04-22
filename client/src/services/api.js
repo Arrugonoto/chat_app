@@ -11,5 +11,6 @@ export const API_URL = {
    REGISTER_USER: `http://localhost:5000/api/users/signup`,
    GET_MESSAGES: `http://localhost:5000/api/messages`,
    CREATE_MESSAGE: `http://localhost:5000/api/messages/`,
+   EDIT_MESSAGE: `http://localhost:5000/api/messages/`,
    DELETE_MESSAGE: `http://localhost:5000/api/messages/`,
 };
