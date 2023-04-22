@@ -4,10 +4,14 @@ import { StyledReactionButtons } from './messageReactions.styled';
 import { emojiReactions } from '../../data/reactions';
 
 import { useAuthContext } from '../../context/AuthContext';
+import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
+
+import { API_URL, METHODS } from '../../services/api';
 
 const ReactionButtons = forwardRef(
-   ({ loggedUser, reactions, setReactions }, ref) => {
+   ({ loggedUser, reactions, setReactions, id }, ref) => {
       const { user } = useAuthContext();
+      const { dispatch, messageId, setMessageId } = useMessageContext();
 
       const handleClick = e => {
          const newReactions = { ...reactions };
@@ -39,8 +43,32 @@ const ReactionButtons = forwardRef(
             newReactions[e.target.title].push(user.name);
          }
          setReactions(newReactions);
+         setMessageId(id);
 
-         console.log(reactions);
+         handleFetch();
+         ref.current.style.display = 'none';
+      };
+
+      const handleFetch = async () => {
+         const response = await fetch(
+            `${API_URL.EDIT_MESSAGE + messageId}/reactions`,
+            {
+               method: METHODS.PATCH,
+               body: JSON.stringify({ reactions }),
+               headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${user.token}`,
+               },
+            }
+         );
+
+         const result = await response.json();
+
+         if (response.ok) {
+            dispatch({ type: MSG_ACTIONS.MODIFY, payload: result });
+         } else {
+            console.error(result);
+         }
       };
 
       return (
