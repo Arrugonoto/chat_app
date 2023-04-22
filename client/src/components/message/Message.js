@@ -5,6 +5,7 @@ import { MsgOptionsBtn } from '../chat_room/MessagesWindow.styled';
 import { StyledMessage } from './Message.styled';
 import MessageOptions from './MessageOptions';
 import ReactionButtons from './reactionButtons';
+import MessageReactions from './messageReactions';
 
 // libraries
 import moment from 'moment';
@@ -28,10 +29,12 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
    });
    const optionsBtnRef = useRef(null);
    const reactionBtnsRef = useRef(null);
+   const msgContainerRef = useRef(null);
    const dayAfter = moment(nextDay).format('Do MMM YYYY');
    const sendDate = moment(message.createdAt).format('Do MMM YYYY');
    const offlineUser = user._id !== message.user_id;
    const loggedUser = user._id === message.user_id;
+   const numOfReactions = Object.values(reactions)?.flat().length;
 
    const handlePointerDown = e => {
       if (!optionsBtnRef.current.contains(e.target)) {
@@ -59,6 +62,13 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
       };
    }, [displayOptions, setDisplayOptions]);
 
+   useEffect(() => {
+      setReactions(prev => ({
+         ...prev,
+         ...message.reactions,
+      }));
+   }, []);
+
    return (
       <>
          <StyledMessage
@@ -74,11 +84,7 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
                   <p>{sendDate}</p>
                </div>
             )}
-            <div
-               className="message-wrapper"
-               onPointerOver={() => handlePointerOver()}
-               onPointerOut={() => handlePointerOut()}
-            >
+            <div className="message-container" ref={msgContainerRef}>
                {offlineUser && (
                   <div className="username-wrapper">
                      {(nextId !== message.user_id || dayAfter !== sendDate) && (
@@ -86,9 +92,33 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
                      )}
                   </div>
                )}
-               <p className={`message-text ${loggedUser && 'logged-user'}`}>
-                  {message.text}
-               </p>
+               <div
+                  className="message-wrapper"
+                  onPointerOver={() => handlePointerOver()}
+                  onPointerOut={() => handlePointerOut()}
+               >
+                  <p className={`message-text ${loggedUser && 'logged-user'}`}>
+                     {message.text}
+                  </p>
+
+                  {offlineUser && (
+                     <ReactionButtons
+                        ref={reactionBtnsRef}
+                        loggedUser={loggedUser}
+                        reactions={reactions}
+                        setReactions={setReactions}
+                        numOfReactions={numOfReactions}
+                        id={message._id}
+                     />
+                  )}
+               </div>
+               {numOfReactions > 0 && (
+                  <MessageReactions
+                     reactions={reactions}
+                     numOfReactions={numOfReactions}
+                     msgContainerRef={msgContainerRef}
+                  />
+               )}
                {user._id !== message.user_id && (
                   <span className="span-username">{message.username}</span>
                )}
@@ -113,14 +143,6 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
                      setDisplayOptions={setDisplayOptions}
                      id={message._id}
                      text={message.text}
-                  />
-               )}
-               {offlineUser && (
-                  <ReactionButtons
-                     ref={reactionBtnsRef}
-                     loggedUser={loggedUser}
-                     reactions={reactions}
-                     setReactions={setReactions}
                   />
                )}
             </div>
