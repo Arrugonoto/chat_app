@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledMessage = styled.article.attrs({
    className:
-      'username, username-wrapper, message-text, send-time, message-wrapper, span-username, date-day, options-btn-wrapper, logged-user',
+      'username, username-wrapper, message-text, message-wrapper, send-time, message-container, span-username, date-day, options-btn-wrapper, logged-user',
 })`
    display: flex;
    position: relative;
@@ -21,7 +21,7 @@ export const StyledMessage = styled.article.attrs({
    }
 
    /* nextUser -> next user | prevUser -> previous user | user -> logged-in user */
-   .message-wrapper {
+   .message-container {
       position: relative;
       display: flex;
       flex-direction: ${props => (props.user ? 'row-reverse' : 'row')};
@@ -37,10 +37,6 @@ export const StyledMessage = styled.article.attrs({
          padding: 0.4rem 0.5rem;
          font-weight: 400;
          color: ${props => (props.user ? '#f1f1f1' : props.theme.font)};
-         border-top-left-radius: ${props => (props.nextUser ? '1rem' : '0')};
-         border-top-right-radius: 1rem;
-         border-bottom-left-radius: ${props => (props.prevUser ? '1rem' : '0')};
-         border-bottom-right-radius: 1rem;
          background: ${props =>
             props.user
                ? props.messageColor
@@ -82,6 +78,14 @@ export const StyledMessage = styled.article.attrs({
             display: block;
          }
       }
+   }
+
+   .message-wrapper {
+      border-top-left-radius: ${props => (props.nextUser ? '1rem' : '0')};
+      border-top-right-radius: 1rem;
+      border-bottom-left-radius: ${props => (props.prevUser ? '1rem' : '0')};
+      border-bottom-right-radius: 1rem;
+      overflow: hidden;
    }
 
    .span-username {
