@@ -1,4 +1,4 @@
-import { StyledMessageReactions } from './messageReactions.styled';
+import { StyledMessageReactions } from './MessageReactions.styled';
 import { emojiReactions } from '../../data/reactions';
 import { useThemeContext } from '../../context/ThemeContext';
 
