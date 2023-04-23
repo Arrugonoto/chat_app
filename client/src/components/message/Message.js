@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 import { MsgOptionsBtn } from '../chat_room/MessagesWindow.styled';
 import { StyledMessage } from './Message.styled';
 import MessageOptions from './MessageOptions';
-import ReactionButtons from './reactionButtons';
-import MessageReactions from './messageReactions';
+import ReactionButtons from './ReactionButtons';
+import MessageReactions from './MessageReactions';
 
 // libraries
 import moment from 'moment';
@@ -117,6 +117,7 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
                      reactions={reactions}
                      numOfReactions={numOfReactions}
                      msgContainerRef={msgContainerRef}
+                     user={loggedUser}
                   />
                )}
                {user._id !== message.user_id && (
