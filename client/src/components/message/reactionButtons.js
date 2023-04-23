@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { StyledReactionButtons } from './messageReactions.styled';
+import { StyledReactionButtons } from './MessageReactions.styled';
 
 import { emojiReactions } from '../../data/reactions';
 
@@ -11,10 +11,11 @@ import { API_URL, METHODS } from '../../services/api';
 const ReactionButtons = forwardRef(
    ({ loggedUser, reactions, setReactions, id }, ref) => {
       const { user } = useAuthContext();
-      const { dispatch, messageId, setMessageId } = useMessageContext();
+      const { dispatch, setMessageId } = useMessageContext();
 
       const handleClick = e => {
          const newReactions = { ...reactions };
+         const selectedMessageId = id;
 
          if (
             Object.values(newReactions).some(array =>
@@ -43,15 +44,15 @@ const ReactionButtons = forwardRef(
             newReactions[e.target.title].push(user.name);
          }
          setReactions(newReactions);
-         setMessageId(id);
+         setMessageId(selectedMessageId);
 
-         handleFetch();
+         handleFetch(selectedMessageId);
          ref.current.style.display = 'none';
       };
 
-      const handleFetch = async () => {
+      const handleFetch = async id => {
          const response = await fetch(
-            `${API_URL.EDIT_MESSAGE + messageId}/reactions`,
+            `${API_URL.EDIT_MESSAGE + id}/reactions`,
             {
                method: METHODS.PATCH,
                body: JSON.stringify({ reactions }),
