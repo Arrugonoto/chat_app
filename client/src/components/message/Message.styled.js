@@ -47,7 +47,8 @@ export const StyledMessage = styled.article.attrs({
                : props.theme.messageBackground};
          transition: background-color 0.2s linear;
          ::selection {
-            background-color: rgb(34, 34, 34);
+            background-color: ${props =>
+               props.darkMode ? 'rgb(34, 34, 34)' : 'rgb(125, 206, 78)'};
          }
       }
       .logged-user {
