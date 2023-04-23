@@ -167,7 +167,7 @@ Open another command line/terminal.
 -  [x] Add theme settings
 -  [x] Add jump to newest messages functionality
 -  [ ] Add momentum scrolling functionality
--  [ ] Add 'giving likes' system
+-  [x] Add 'giving likes' functionality / implemented reaction functionality
 -  [x] Add profanity filter - <a href='https://github.com/web-mech/badwords'>by Michael Price</a>
 -  [x] Build production
 -  [x] Host project
@@ -181,6 +181,7 @@ Open another command line/terminal.
 -  [x] Theme font colors
 -  [x] Bugged display of longer message
 -  [x] Selecting emoji doesn't works
+-  [x] Reactions are added to wrong message
 
 ### Demo status:
 
