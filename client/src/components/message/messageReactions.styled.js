@@ -3,10 +3,12 @@ import styled from 'styled-components';
 export const StyledMessageReactions = styled.div`
    position: absolute;
    display: flex;
-   padding: 0.1rem 0.5rem;
+   padding: 0.1rem 0.2rem;
    background-color: rgb(124, 124, 124);
-   bottom: -16px;
-   left: calc(${props => `${props.parentWidth}px`} - 1rem);
+   bottom: ${props => (props.user ? '-1rem' : '-0.8rem')};
+   ${props =>
+      props.user ? 'right: 0;' : `left: calc(${props.parentWidth}px - 1rem);`}
+
    border-radius: 3rem;
    font-size: 0.9rem;
    white-space: nowrap;
