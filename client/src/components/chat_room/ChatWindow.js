@@ -35,17 +35,17 @@ const cssTransitionName = 'show-settings';
 const ChatWindow = () => {
    const { openModal } = useModalContext();
    const { displaySettings, themeColors } = useThemeContext();
+   // eslint-disable-next-line
    const [chatWindowHeight, setChatWindowHeight] = useState(0);
    const [showNewestBtn, setShowNewestBtn] = useState(false);
-   const chatWindowRef = useRef(null);
+   const scrollbarRef = useRef(null);
    const newestBtnRef = useRef(null);
    const themeRef = useRef(null);
 
    const handleClick = () => {
-      chatWindowRef.current.scrollTo({
-         top: chatWindowHeight,
-         behavior: 'smooth',
-      });
+      console.log('clicked');
+      console.log(chatWindowHeight);
+      scrollbarRef.current.scrollTo(0, chatWindowHeight);
    };
 
    return (
@@ -55,7 +55,7 @@ const ChatWindow = () => {
 
             <MessageWindow
                socket={socket}
-               ref={chatWindowRef}
+               ref={scrollbarRef}
                setChatWindowHeight={setChatWindowHeight}
                setShowNewestBtn={setShowNewestBtn}
             />

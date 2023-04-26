@@ -1,4 +1,6 @@
 import { useState, useEffect, forwardRef } from 'react';
+import Scrollbar from 'smooth-scrollbar';
+import OverscrollPlugin from 'smooth-scrollbar/plugins/overscroll';
 
 // components
 import { MessagesContainer } from './MessagesWindow.styled';
@@ -39,8 +41,11 @@ const MessageWindow = forwardRef(
          setLoading(false);
       };
 
-      const handleScroll = () => {
-         if (Math.abs(ref?.current?.scrollTop) > 2000) {
+      const handleScroll = scrollbar => {
+         if (
+            Math.abs(scrollbar.scrollTop) <
+            ref?.current?.scrollHeight - 2000
+         ) {
             setShowNewestBtn(true);
          } else {
             setShowNewestBtn(false);
@@ -52,6 +57,7 @@ const MessageWindow = forwardRef(
             fetchMessages();
          }
          // eslint-disable-next-line
+         console.log(ref.current);
       }, [user, dispatch]);
 
       useEffect(() => {
@@ -64,40 +70,68 @@ const MessageWindow = forwardRef(
          // eslint-disable-next-line
       }, [socket]);
 
+      useEffect(() => {
+         Scrollbar.use(OverscrollPlugin);
+         const scrollbar = Scrollbar.init(ref.current, {
+            damping: 0.08,
+            plugins: {
+               overscroll: {
+                  effect: 'bounce',
+                  damping: 0.3,
+                  maxOverscroll: 150,
+               },
+            },
+         });
+
+         if (scrollbar) {
+            scrollbar.addListener(() => handleScroll(scrollbar));
+            setTimeout(() => {
+               scrollbar.setPosition(0, ref?.current?.scrollHeight);
+            }, 300);
+         }
+
+         return () => {
+            if (scrollbar) {
+               scrollbar.destroy();
+               scrollbar.removeListener(handleScroll);
+            }
+         };
+      }, []);
+
       return (
-         <MessagesContainer
-            ref={ref}
-            roomColor={themeColors.roomBgColor}
-            onScroll={() => handleScroll()}
-         >
-            {messages?.map((message, index, array) => (
-               <Message
-                  key={message._id}
-                  message={message}
-                  nextId={array[index + 1]?.user_id ?? false}
-                  prevId={array[index - 1]?.user_id ?? false}
-                  nextDay={array[index + 1]?.createdAt ?? false}
-               />
-            ))}
+         <MessagesContainer roomColor={themeColors.roomBgColor}>
+            <div ref={ref} className="scrollbar-container">
+               <div className="messages-wrapper">
+                  {messages?.map((message, index, array) => (
+                     <Message
+                        key={message._id}
+                        message={message}
+                        nextId={array[index + 1]?.user_id ?? false}
+                        prevId={array[index - 1]?.user_id ?? false}
+                        nextDay={array[index + 1]?.createdAt ?? false}
+                     />
+                  ))}
 
-            {!loading && messages?.length === 0 && (
-               <div
-                  style={{
-                     display: 'flex',
-                     justifySelf: 'end',
-                     alignSelf: 'center',
-                     paddingBottom: '10rem',
-                  }}
-               >
-                  Actually it's awfully quiet for now ¯\_(ツ)_/¯
+                  {!loading && messages?.length === 0 && (
+                     <div
+                        style={{
+                           display: 'flex',
+                           justifySelf: 'end',
+                           alignSelf: 'center',
+                           paddingBottom: '10rem',
+                        }}
+                     >
+                        Actually it's awfully quiet for now ¯\_(ツ)_/¯
+                     </div>
+                  )}
+
+                  {loading &&
+                     messages?.length < 1 &&
+                     [...Array(10).keys()].map(i => {
+                        return <MessageLoadingFrame key={i} index={i} />;
+                     })}
                </div>
-            )}
-
-            {loading &&
-               messages?.length < 1 &&
-               [...Array(10).keys()].map(i => {
-                  return <MessageLoadingFrame key={i} index={i} />;
-               })}
+            </div>
          </MessagesContainer>
       );
    }
