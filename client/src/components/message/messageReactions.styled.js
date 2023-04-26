@@ -20,7 +20,7 @@ export const StyledMessageReactions = styled.div`
    span:nth-child(1) {
       background-color: ${props =>
          props.darkMode ? 'rgb(19, 116, 146)' : 'rgb(27, 163, 204)'};
-      padding: 0 0.4rem;
+      padding: 0 0.3rem;
       border-radius: 1rem;
    }
 
