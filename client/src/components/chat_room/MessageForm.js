@@ -19,12 +19,14 @@ import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
 // api
 import { API_URL, METHODS } from '../../services/api';
 
+// hooks
+import useFetch from '../../hooks/useFetch';
+
 const REGEX = /^\s*$/;
 
 const MessageForm = () => {
    const { user } = useAuthContext();
    const {
-      dispatch,
       messageInputRef,
       messageId,
       editFlag,
@@ -32,6 +34,7 @@ const MessageForm = () => {
       messageValue,
       setMessageValue,
    } = useMessageContext();
+   const { fetchData } = useFetch();
    const [containsWhitespace, setContainsWhitespace] = useState(true);
    const [displayPicker, setDisplayPicker] = useState(false);
    const showPickerBtn = useRef(null);
@@ -39,6 +42,7 @@ const MessageForm = () => {
    const handleChange = e => {
       setMessageValue(e.target.value);
    };
+
    const handleSubmit = async e => {
       e.preventDefault();
       const requestMethod = editFlag ? METHODS.PATCH : METHODS.POST;
@@ -46,25 +50,23 @@ const MessageForm = () => {
          ? `${API_URL.EDIT_MESSAGE + messageId}/text`
          : API_URL.CREATE_MESSAGE;
       const dispatchType = editFlag ? MSG_ACTIONS.MODIFY : MSG_ACTIONS.CREATE;
-
-      const response = await fetch(url, {
+      const options = {
          method: requestMethod,
          body: JSON.stringify({ text: messageValue }),
          headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${user.token}`,
          },
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-         dispatch({ type: dispatchType, payload: result });
+      };
+      const onSuccess = () => {
          resetForm();
          if (editFlag) setEditFlag(false);
-      } else {
-         console.error(result);
-      }
+      };
+
+      await fetchData(url, options, {
+         dispatchMsgType: dispatchType,
+         onSuccess,
+      });
    };
 
    const handleKeyUp = () => {

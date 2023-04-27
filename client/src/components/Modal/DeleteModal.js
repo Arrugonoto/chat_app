@@ -16,11 +16,13 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 // hooks
 import useConditionalListener from '../../hooks/useConditionalListener';
+import useFetch from '../../hooks/useFetch';
 
 const DeleteModal = () => {
    const { openModal, setOpenModal } = useModalContext();
-   const { messageId, setMessageId, dispatch } = useMessageContext();
+   const { messageId, setMessageId } = useMessageContext();
    const { user } = useAuthContext();
+   const { fetchData } = useFetch();
    const modalRef = useRef(null);
    const deleteBtnRef = useRef(null);
 
@@ -30,17 +32,15 @@ const DeleteModal = () => {
    };
 
    const handleDelete = async () => {
-      const response = await fetch(API_URL.DELETE_MESSAGE + messageId, {
+      const options = {
          method: METHODS.DELETE,
          headers: { Authorization: `Bearer ${user.token}` },
-      });
-      const result = await response.json();
+      };
 
-      if (response.ok) {
-         dispatch({ type: MSG_ACTIONS.DELETE, payload: result });
-      } else if (!response.ok) {
-         console.error(result);
-      }
+      await fetchData(API_URL.DELETE_MESSAGE + messageId, options, {
+         dispatchMsgType: MSG_ACTIONS.DELETE,
+      });
+
       setOpenModal(false);
    };
 

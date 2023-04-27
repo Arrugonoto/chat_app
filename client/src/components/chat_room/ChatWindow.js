@@ -43,8 +43,6 @@ const ChatWindow = () => {
    const themeRef = useRef(null);
 
    const handleClick = () => {
-      console.log('clicked');
-      console.log(chatWindowHeight);
       msgContainerRef.current.scrollTo({
          top: msgContainerRef.current.scrollHeight,
          behavior: 'smooth',

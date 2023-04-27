@@ -1,4 +1,4 @@
-import { useState, useEffect, forwardRef } from 'react';
+import { useEffect, forwardRef } from 'react';
 
 // components
 import { MessagesContainer } from './MessagesWindow.styled';
@@ -13,30 +13,24 @@ import { useThemeContext } from '../../context/ThemeContext';
 // api
 import { API_URL } from '../../services/api';
 
+// hooks
+import useFetch from '../../hooks/useFetch';
+
 const MessageWindow = forwardRef(
    ({ socket, setChatWindowHeight, setShowNewestBtn }, ref) => {
       const { user } = useAuthContext();
       const { messages, dispatch } = useMessageContext();
       const { themeColors } = useThemeContext();
-      const [loading, setLoading] = useState(false);
+      const { fetchData, loading, errorMessage } = useFetch();
 
       const fetchMessages = async () => {
-         setLoading(true);
+         const options = {
+            headers: { Authorization: `Bearer ${user.token} ` },
+         };
 
-         const response = await fetch(API_URL.GET_MESSAGES, {
-            headers: { Authorization: `Bearer ${user.token}` },
+         await fetchData(API_URL.GET_MESSAGES, options, {
+            dispatchMsgType: MSG_ACTIONS.SET,
          });
-         const result = await response.json();
-
-         if (response.ok) {
-            dispatch({
-               type: MSG_ACTIONS.SET,
-               payload: result,
-            });
-         } else if (!response.ok) {
-            console.error(result);
-         }
-         setLoading(false);
       };
 
       const handleScroll = () => {
@@ -52,7 +46,6 @@ const MessageWindow = forwardRef(
             fetchMessages();
          }
          // eslint-disable-next-line
-         console.log(ref.current);
       }, [user, dispatch]);
 
       useEffect(() => {
@@ -90,7 +83,11 @@ const MessageWindow = forwardRef(
                      paddingBottom: '10rem',
                   }}
                >
-                  Actually it's awfully quiet for now ¯\_(ツ)_/¯
+                  {errorMessage ? (
+                     <p>{errorMessage.error}</p>
+                  ) : (
+                     <p>Actually it's awfully quiet for now ¯\_(ツ)_/¯</p>
+                  )}
                </div>
             )}
 
