@@ -38,14 +38,17 @@ const ChatWindow = () => {
    // eslint-disable-next-line
    const [chatWindowHeight, setChatWindowHeight] = useState(0);
    const [showNewestBtn, setShowNewestBtn] = useState(false);
-   const scrollbarRef = useRef(null);
+   const msgContainerRef = useRef(null);
    const newestBtnRef = useRef(null);
    const themeRef = useRef(null);
 
    const handleClick = () => {
       console.log('clicked');
       console.log(chatWindowHeight);
-      scrollbarRef.current.scrollTo(0, chatWindowHeight);
+      msgContainerRef.current.scrollTo({
+         top: msgContainerRef.current.scrollHeight,
+         behavior: 'smooth',
+      });
    };
 
    return (
@@ -55,7 +58,7 @@ const ChatWindow = () => {
 
             <MessageWindow
                socket={socket}
-               ref={scrollbarRef}
+               ref={msgContainerRef}
                setChatWindowHeight={setChatWindowHeight}
                setShowNewestBtn={setShowNewestBtn}
             />
