@@ -166,7 +166,7 @@ Open another command line/terminal.
 -  [x] Add menu
 -  [x] Add theme settings
 -  [x] Add jump to newest messages functionality
--  [x] Add momentum scrolling functionality - <a href='https://github.com/idiotWu/smooth-scrollbar'>by idiotWu </a>
+-  [x] ~~Add momentum scrolling functionality~~
 -  [x] Add 'giving likes' functionality / implemented reaction functionality
 -  [x] Add profanity filter - <a href='https://github.com/web-mech/badwords'>by Michael Price</a>
 -  [x] Build production
