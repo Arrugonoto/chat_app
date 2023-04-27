@@ -1,13 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+// eslint-disable-next-line
+import { useMessageContext } from '../context/MessagesContext';
+import { useAuthContext } from '../context/AuthContext';
 
 const useFetch = () => {
+   const { dispatch } = useMessageContext();
+   const { dispatch: dispatchAuth } = useAuthContext();
    const [data, setData] = useState(null);
    const [loading, setLoading] = useState(false);
-   const [error, setError] = useState(null);
+   const [errorMessage, setErrorMessage] = useState(null);
 
-   const fetchData = async (url, options) => {
+   // eslint-disable-next-line
+   const fetchData = async (
+      url,
+      options,
+      {
+         dispatchMsgType = undefined,
+         dispatchAuthType = undefined,
+         localStorageKey = undefined,
+         onSuccess = undefined,
+      }
+   ) => {
       setLoading(true);
-      setError(null);
+      setErrorMessage(null);
 
       const response = await fetch(url, {
          ...options,
@@ -17,18 +32,29 @@ const useFetch = () => {
 
       if (response.ok) {
          setData(result);
+         if (localStorageKey) {
+            localStorage.setItem(localStorageKey, JSON.stringify(result));
+         }
+         if (dispatchAuthType) {
+            dispatchAuth({ type: dispatchAuthType, payload: result });
+         }
+         if (dispatchMsgType) {
+            dispatch({
+               type: dispatchMsgType,
+               payload: result,
+            });
+         }
+         if (onSuccess) {
+            onSuccess();
+         }
       } else if (!response.ok) {
-         setError(result);
+         setErrorMessage(result);
          console.error(result);
       }
       setLoading(false);
    };
 
-   useEffect(() => {
-      fetchData();
-   }, []);
-
-   return { fetchData, data, loading, error };
+   return { fetchData, data, loading, errorMessage };
 };
 
 export default useFetch;
