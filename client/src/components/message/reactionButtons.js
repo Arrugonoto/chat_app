@@ -8,10 +8,14 @@ import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
 
 import { API_URL, METHODS } from '../../services/api';
 
+// hooks
+import useFetch from '../../hooks/useFetch';
+
 const ReactionButtons = forwardRef(
    ({ loggedUser, reactions, setReactions, id }, ref) => {
       const { user } = useAuthContext();
-      const { dispatch, setMessageId } = useMessageContext();
+      const { setMessageId } = useMessageContext();
+      const { fetchData } = useFetch();
 
       const handleClick = e => {
          const newReactions = { ...reactions };
@@ -51,25 +55,18 @@ const ReactionButtons = forwardRef(
       };
 
       const handleFetch = async id => {
-         const response = await fetch(
-            `${API_URL.EDIT_MESSAGE + id}/reactions`,
-            {
-               method: METHODS.PATCH,
-               body: JSON.stringify({ reactions }),
-               headers: {
-                  'Content-Type': 'application/json',
-                  Authorization: `Bearer ${user.token}`,
-               },
-            }
-         );
+         const options = {
+            method: METHODS.PATCH,
+            body: JSON.stringify({ reactions }),
+            headers: {
+               'Content-Type': 'application/json',
+               Authorization: `Bearer ${user.token}`,
+            },
+         };
 
-         const result = await response.json();
-
-         if (response.ok) {
-            dispatch({ type: MSG_ACTIONS.MODIFY, payload: result });
-         } else {
-            console.error(result);
-         }
+         await fetchData(`${API_URL.EDIT_MESSAGE + id}/reactions`, options, {
+            dispatchMsgType: MSG_ACTIONS.MODIFY,
+         });
       };
 
       return (
