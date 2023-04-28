@@ -4,7 +4,8 @@ export const StyledMessageReactions = styled.div`
    position: absolute;
    display: flex;
    padding: 0.1rem 0.2rem;
-   background-color: rgb(124, 124, 124);
+   background-color: ${props =>
+      props.darkMode ? 'rgb(141, 141, 141)' : 'rgb(120, 120, 120)'};
    bottom: ${props => (props.user ? '-1rem' : '-0.8rem')};
    ${props =>
       props.user ? 'right: 0;' : `left: calc(${props.parentWidth}px - 1rem);`}

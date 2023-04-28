@@ -8,6 +8,7 @@ export const MessagesContainer = styled.div.attrs({
    flex-direction: column-reverse;
    width: 100%;
    height: 100%;
+   padding: 1rem 0.1rem 1.5rem 0.1rem;
    overflow-y: scroll;
    overflow-x: hidden;
    scrollbar-width: thin;
