@@ -48,13 +48,13 @@ const useFetch = () => {
             onSuccess();
          }
       } else if (!response.ok) {
-         setErrorMessage(result);
+         setErrorMessage(result.error);
          console.error(result);
       }
       setLoading(false);
    };
 
-   return { fetchData, data, loading, errorMessage };
+   return { fetchData, data, loading, errorMessage, setErrorMessage };
 };
 
 export default useFetch;
