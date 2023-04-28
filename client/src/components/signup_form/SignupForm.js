@@ -29,7 +29,7 @@ const SignupForm = () => {
       password: '',
       confirmPassword: '',
    });
-   const { signUp, error, setError } = useSignup();
+   const { signUp, errorMessage, setErrorMessage } = useSignup();
    const { name, email, password, confirmPassword } = formData;
    const [showPassword, setShowPassword] = useState(false);
    const [correctPassword, setCorrectPassword] = useState(false);
@@ -47,13 +47,13 @@ const SignupForm = () => {
       e.preventDefault();
 
       if (!name || !email || !password || !confirmPassword) {
-         setError('Please fill all fields');
+         setErrorMessage('Please fill all fields');
       } else if (!correctName) {
-         setError(`Invalid name syntax`);
+         setErrorMessage(`Invalid name syntax`);
       } else if (!correctPassword) {
-         setError(`Invalid password syntax`);
+         setErrorMessage(`Invalid password syntax`);
       } else if (password !== confirmPassword) {
-         setError(`Passwords doesn't match`);
+         setErrorMessage(`Passwords doesn't match`);
       } else await signUp(name, email, password);
    };
 
@@ -87,7 +87,7 @@ const SignupForm = () => {
          [e.target.name]: e.target.value,
       }));
 
-      setError(null);
+      setErrorMessage(null);
    };
 
    const handlePointerDown = e => {
@@ -133,7 +133,7 @@ const SignupForm = () => {
          <ThemeButton />
          <StyledSignupForm
             onSubmit={handleSubmit}
-            error={error}
+            error={errorMessage}
             showPassword={showPassword}
          >
             <h1>Welcome 😊</h1>
@@ -221,7 +221,7 @@ const SignupForm = () => {
             </div>
             <SignupButton>Sign Up</SignupButton>
             <div className="err-msg-container">
-               {error && <ErrorMessage>{error}</ErrorMessage>}
+               {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
             </div>
             <LoginLink>
                <p>

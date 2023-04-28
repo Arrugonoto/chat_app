@@ -25,7 +25,7 @@ const LoginForm = () => {
       email: '',
       password: '',
    });
-   const { login, error, setError } = useLogin();
+   const { login, errorMessage, setErrorMessage } = useLogin();
    const { email, password } = formData;
    const [showPassword, setShowPassword] = useState(false);
    const passwordInput = useRef(null);
@@ -47,7 +47,7 @@ const LoginForm = () => {
          ...prev,
          [e.target.name]: e.target.value,
       }));
-      setError(null);
+      setErrorMessage(null);
    };
 
    const handlePointerDown = e => {
@@ -75,11 +75,11 @@ const LoginForm = () => {
    return (
       <SectionContainer>
          <ThemeButton />
-         <AnimatedBorder error={error}>
+         <AnimatedBorder error={errorMessage}>
             <StyledLoginForm
                onSubmit={handleSubmit}
                onKeyUp={handleKeyUp}
-               error={error}
+               error={errorMessage}
                showPassword={showPassword}
             >
                <h1>Chilly talk 🤗</h1>
@@ -116,7 +116,7 @@ const LoginForm = () => {
                </div>
                <LoginButton>Log In</LoginButton>
                <div className="err-msg-container">
-                  {error && <ErrorMessage>{error}</ErrorMessage>}
+                  {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
                </div>
                <RegisterLink>
                   <p>
