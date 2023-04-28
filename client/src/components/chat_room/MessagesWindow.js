@@ -84,7 +84,7 @@ const MessageWindow = forwardRef(
                   }}
                >
                   {errorMessage ? (
-                     <p>{errorMessage.error}</p>
+                     <p>{errorMessage}</p>
                   ) : (
                      <p>Actually it's awfully quiet for now ¯\_(ツ)_/¯</p>
                   )}
