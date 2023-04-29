@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-vars */
 const dotenv = require('dotenv').config();
 const colors = require('colors');
+/* eslint-enable no-unused-vars */
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 const credentialsMiddleware = require('./middleware/credentialsMiddleware');
-const { Server } = require('socket.io');
 const { createSocketServer } = require('./config/socket');
 const connectToDataBase = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
@@ -45,7 +46,7 @@ connectToDataBase();
 app.use('/api/users', userRoutes);
 app.use('/api/messages', messageRoutes);
 
-// Run production build via server
+// Run production build via server-side
 // serve static front-end
 // if (process.env.NODE_ENV === 'production') {
 //    app.use(express.static(path.join(__dirname, '../client/build')));

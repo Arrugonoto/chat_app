@@ -6,12 +6,7 @@ const mongoose = require('mongoose');
 // @route GET /api/messages
 // @access Private
 const getMessages = async (req, res, next) => {
-   // const pageNumber = req.query.page || 0;
-   // const resultsPerPage = 30;
-
    const messages = await Message.find().sort({ createdAt: -1 });
-   // .skip(pageNumber * resultsPerPage)
-   // .limit(resultsPerPage);
 
    res.status(200).json(messages);
 };
@@ -120,16 +115,20 @@ const deleteMessage = async (req, res, next) => {
          .json({ error: `Message has been deleted or doesn't exist` });
    }
 
-   const message = await Message.findOneAndDelete({ _id: id });
+   try {
+      const message = await Message.findOneAndDelete({ _id: id });
 
-   if (!message) {
-      return res
-         .status(400)
-         .json({ error: `Message has been deleted or doesn't exist` });
+      if (!message) {
+         return res
+            .status(400)
+            .json({ error: `Message has been deleted or doesn't exist` });
+      }
+
+      res.status(200).json(message);
+      global.io.emit('resend_messages', {});
+   } catch (error) {
+      res.status(400).json({ error: error.message });
    }
-
-   res.status(200).json(message);
-   global.io.emit('resend_messages', {});
 };
 
 module.exports = {
