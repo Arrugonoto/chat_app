@@ -1,4 +1,6 @@
 import { useState, useRef } from 'react';
+
+// packages
 import TextareaAutosize from 'react-textarea-autosize';
 
 // components
@@ -9,7 +11,7 @@ import {
 } from './MessageForm.styled';
 import EmojiPicker from './EmojiPicker';
 
-// React icons Font-Awesome
+// icons
 import { FaRegPaperPlane } from 'react-icons/fa';
 
 // context

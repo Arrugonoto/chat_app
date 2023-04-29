@@ -4,7 +4,7 @@ import { StyledBtnContainer, StyledThemeSwitch } from './ThemeButton.styled';
 // context
 import { useThemeContext } from '../../context/ThemeContext';
 
-// packages
+// icons
 import { BiSun } from 'react-icons/bi';
 import { BsMoonStars } from 'react-icons/bs';
 

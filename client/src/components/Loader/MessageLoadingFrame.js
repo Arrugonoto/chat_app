@@ -1,3 +1,4 @@
+// components
 import { StyledMessageLoadingFrame } from './Loader.styled';
 
 const MessageLoadingFrame = ({ index }) => {

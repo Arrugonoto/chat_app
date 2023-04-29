@@ -1,18 +1,18 @@
 import { forwardRef } from 'react';
+
+// components
 import { StyledMenu } from './Header.styled';
 
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-// logout function
-import useLogout from '../../hooks/useLogout';
-
 // context
 import { useThemeContext } from '../../context/ThemeContext';
 
 // hooks
 import useConditionalListener from '../../hooks/useConditionalListener';
+import useLogout from '../../hooks/useLogout';
 
 const Menu = forwardRef(({ showMenu, setShowMenu, state, menuBtnRef }, ref) => {
    const { setDisplaySettings } = useThemeContext();

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-// components / styles
+// components
 import { StyledDeleteModal } from './DeleteModal.styled';
 
 // context

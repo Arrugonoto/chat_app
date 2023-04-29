@@ -1,9 +1,12 @@
 import { useState } from 'react';
+
+// components
 import { StyledMessageColorSettings } from './MessageColorSettings.styled';
 import { messageBgColor, messageBgGradient } from '../../data/colors';
 
 // theme context
 import { useThemeContext } from '../../context/ThemeContext';
+
 // theme -> styled-components
 import { useTheme } from 'styled-components';
 

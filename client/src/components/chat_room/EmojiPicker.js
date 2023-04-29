@@ -1,7 +1,9 @@
 import { useRef } from 'react';
+
+// components
 import { EmojiPickerStyled } from './MessageForm.styled';
 
-// emoji mart component
+// packages
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 

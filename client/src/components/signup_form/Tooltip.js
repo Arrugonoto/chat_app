@@ -8,12 +8,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { regular } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { FaRegCheckCircle } from 'react-icons/fa';
 
-// string validation
+// Regex - string validation
 // name
 const NAME_REGEX_LETTER = /^[A-Z]/;
 const NAME_REGEX_LENGTH = /^.{4,32}$/;
 
-// password
+// Regex - password
 const PASS_REGEX_LENGTH = /^.{10,20}$/;
 const PASS_REGEX_LETTER = /^.*(?=.*[a-z])(?=.*[A-Z]).*$/;
 const PASS_REGEX_DIGIT = /^(?=.*\d).*$/;

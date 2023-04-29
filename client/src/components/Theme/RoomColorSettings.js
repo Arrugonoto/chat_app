@@ -1,4 +1,6 @@
 import { useState } from 'react';
+
+// components
 import { StyledRoomColorSettings } from './RoomColorSettings.styled';
 import { roomBgColor, roomBgGradient } from '../../data/colors';
 

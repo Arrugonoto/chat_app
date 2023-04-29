@@ -1,3 +1,4 @@
+// components
 import { StyledSmallerLoader } from './Loader.styled';
 
 const SmallerLoader = () => {

@@ -1,4 +1,6 @@
 import { forwardRef } from 'react';
+
+// cmponents
 import { StyledThemeSettings } from './ThemeSettings.styled';
 import RoomColorSettings from './RoomColorSettings';
 import MessageColorSettings from './MessageColorSettings';

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-// eslint-disable-next-line
+
+// context
 import { useMessageContext } from '../context/MessagesContext';
 import { useAuthContext } from '../context/AuthContext';
 
@@ -10,7 +11,6 @@ const useFetch = () => {
    const [loading, setLoading] = useState(false);
    const [errorMessage, setErrorMessage] = useState(null);
 
-   // eslint-disable-next-line
    const fetchData = async (
       url,
       options,

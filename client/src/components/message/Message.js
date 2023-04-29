@@ -7,8 +7,10 @@ import MessageOptions from './MessageOptions';
 import ReactionButtons from './ReactionButtons';
 import MessageReactions from './MessageReactions';
 
-// libraries
+// packages
 import moment from 'moment';
+
+// icons
 import { FaEllipsisV } from 'react-icons/fa';
 
 // context

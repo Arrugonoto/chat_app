@@ -3,12 +3,10 @@ import { ACTIONS } from '../context/AuthContext';
 
 // hooks
 import useRandomColor from './useRandomColor';
+import useFetch from './useFetch';
 
 // api
 import { API_URL, METHODS } from '../services/api';
-
-// hooks
-import useFetch from './useFetch';
 
 const useSignup = () => {
    const { generateColor } = useRandomColor();

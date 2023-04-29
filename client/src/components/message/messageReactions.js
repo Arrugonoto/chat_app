@@ -1,5 +1,8 @@
+// components
 import { StyledMessageReactions } from './MessageReactions.styled';
 import { emojiReactions } from '../../data/reactions';
+
+// context
 import { useThemeContext } from '../../context/ThemeContext';
 
 const MessageReactions = ({

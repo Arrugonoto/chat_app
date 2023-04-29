@@ -1,11 +1,14 @@
 import { forwardRef } from 'react';
-import { StyledReactionButtons } from './MessageReactions.styled';
 
+// components
+import { StyledReactionButtons } from './MessageReactions.styled';
 import { emojiReactions } from '../../data/reactions';
 
+// context
 import { useAuthContext } from '../../context/AuthContext';
 import { useMessageContext, MSG_ACTIONS } from '../../context/MessagesContext';
 
+// api
 import { API_URL, METHODS } from '../../services/api';
 
 // hooks
