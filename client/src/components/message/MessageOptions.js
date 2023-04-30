@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 // components
 import { StyledMessageOptions } from './MessageOptions.styled';
 
@@ -9,6 +7,9 @@ import { useModalContext } from '../../context/ModalContext';
 
 // icons
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+
+// hooks
+import useConditionalListener from '../../hooks/useConditionalListener';
 
 const MessageOptions = ({ displayOptions, setDisplayOptions, id, text }) => {
    const { setOpenModal } = useModalContext();
@@ -34,16 +35,7 @@ const MessageOptions = ({ displayOptions, setDisplayOptions, id, text }) => {
       }
    };
 
-   useEffect(() => {
-      if (displayOptions) {
-         window.addEventListener('keydown', handleKeyDown);
-      } else {
-         window.removeEventListener('keydown', handleKeyDown);
-      }
-
-      return () => window.removeEventListener('keydown', handleKeyDown);
-      // eslint-disable-next-line
-   }, [displayOptions, setDisplayOptions]);
+   useConditionalListener('keydown', handleKeyDown, displayOptions);
 
    return (
       <StyledMessageOptions>

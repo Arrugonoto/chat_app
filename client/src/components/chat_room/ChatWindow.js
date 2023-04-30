@@ -37,7 +37,6 @@ const ChatWindow = () => {
    const { openModal } = useModalContext();
    const { displaySettings, themeColors } = useThemeContext();
    // eslint-disable-next-line
-   const [chatWindowHeight, setChatWindowHeight] = useState(0);
    const [showNewestBtn, setShowNewestBtn] = useState(false);
    const msgContainerRef = useRef(null);
    const newestBtnRef = useRef(null);
@@ -58,7 +57,6 @@ const ChatWindow = () => {
             <MessageWindow
                socket={socket}
                ref={msgContainerRef}
-               setChatWindowHeight={setChatWindowHeight}
                setShowNewestBtn={setShowNewestBtn}
             />
 

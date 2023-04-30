@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 // components / styled-components
 import { SectionContainer } from '../styles/SectionContainer.styled';
@@ -13,6 +13,7 @@ import ThemeButton from '../theme/ThemeButton';
 
 // hooks
 import useLogin from '../../hooks/useLogin';
+import useConditionalListener from '../../hooks/useConditionalListener';
 
 // icons
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -62,15 +63,7 @@ const LoginForm = () => {
       passwordInput.current.type = 'password';
    };
 
-   useEffect(() => {
-      if (showPassword) {
-         window.addEventListener('pointerup', handlePointerUp);
-      } else {
-         window.removeEventListener('pointerup', handlePointerUp);
-      }
-
-      return () => window.removeEventListener('pointerup', handlePointerUp);
-   }, [showPassword, setShowPassword]);
+   useConditionalListener('pointerup', handlePointerUp, showPassword);
 
    return (
       <SectionContainer>

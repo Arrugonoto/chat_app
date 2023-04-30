@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 // components / styled-components
 import { SectionContainer } from '../styles/SectionContainer.styled';
@@ -21,6 +21,9 @@ import ROUTES from '../../routes/routes';
 // Regex
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.*\d).{10,20}$/;
 const NAME_REGEX = /^[A-Z].{3,32}$/;
+
+// hooks
+import useConditionalListener from '../../hooks/useConditionalListener';
 
 const SignupForm = () => {
    const [formData, setFormData] = useState({
@@ -118,15 +121,7 @@ const SignupForm = () => {
       tooltipPassRef.current.style.display = 'none';
    };
 
-   useEffect(() => {
-      if (showPassword) {
-         window.addEventListener('pointerup', handlePointerUp);
-      } else {
-         window.removeEventListener('pointerup', handlePointerUp);
-      }
-
-      return () => window.removeEventListener('pointerup', handlePointerUp);
-   }, [showPassword, setShowPassword]);
+   useConditionalListener('pointerup', handlePointerUp, showPassword);
 
    return (
       <SectionContainer>

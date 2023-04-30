@@ -17,6 +17,9 @@ import { FaEllipsisV } from 'react-icons/fa';
 import { useAuthContext } from '../../context/AuthContext';
 import { useThemeContext } from '../../context/ThemeContext';
 
+// hooks
+import useConditionalListener from '../../hooks/useConditionalListener';
+
 const Message = ({ message, nextDay, nextId, prevId }) => {
    const { user } = useAuthContext();
    const { themeColors, isDarkTheme } = useThemeContext();
@@ -52,17 +55,7 @@ const Message = ({ message, nextDay, nextId, prevId }) => {
       if (offlineUser) reactionBtnsRef.current.style.display = 'none';
    };
 
-   useEffect(() => {
-      if (displayOptions) {
-         window.addEventListener('click', handlePointerDown);
-      } else {
-         window.removeEventListener('click', handlePointerDown);
-      }
-
-      return () => {
-         window.removeEventListener('click', handlePointerDown);
-      };
-   }, [displayOptions, setDisplayOptions]);
+   useConditionalListener('click', handlePointerDown, displayOptions);
 
    useEffect(() => {
       setReactions(prev => ({
