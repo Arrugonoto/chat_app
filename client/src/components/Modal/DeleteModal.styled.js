@@ -17,8 +17,8 @@ export const StyledDeleteModal = styled.div`
       position: relative;
       flex-direction: column;
       background-color: ${props => props.theme.modal};
-      width: 20%;
-      min-width: 24rem;
+      width: 25%;
+      min-width: 22rem;
       padding: 1rem 1.2rem;
       border-radius: 0.4rem;
       gap: 1rem;

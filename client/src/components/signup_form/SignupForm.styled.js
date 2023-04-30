@@ -5,8 +5,8 @@ export const StyledSignupForm = styled.form.attrs({
 })`
    display: flex;
    flex-direction: column;
-   width: 20%;
-   min-width: 24rem;
+   width: 24%;
+   min-width: 22rem;
    box-shadow: 0px 0px 1rem 0
       ${props => (props.error ? 'rgba(255, 22, 10, 0.5)' : 'transparent')};
    border-radius: 0.4rem;
@@ -177,7 +177,7 @@ export const StyledTooltip = styled.div.attrs({
    top: 50%;
    left: 0;
    translate: calc(-100% - 18px) -50%;
-   width: fit-content;
+   width: 18rem;
    flex-direction: column;
    background-color: hsl(0, 0%, 18%);
    padding: 0.3rem 0.5rem;
@@ -186,7 +186,6 @@ export const StyledTooltip = styled.div.attrs({
    border: 1px solid hsl(0, 0%, 28%);
    font-size: 0.9rem;
    z-index: 10;
-   white-space: nowrap;
    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
    &::before {
       content: '';
@@ -210,6 +209,7 @@ export const StyledTooltip = styled.div.attrs({
          display: flex;
          gap: 0.3rem;
          padding: 0.3rem 0;
+         line-height: 1;
       }
    }
 

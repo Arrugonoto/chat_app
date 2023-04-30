@@ -28,9 +28,9 @@ export const StyledMessage = styled.article.attrs({
       align-items: center;
       justify-content: center;
       align-self: ${props => (props.user ? 'flex-end' : 'initial')};
-      max-width: 60%;
+      max-width: 65%;
       gap: 0.2rem;
-      margin-top: ${props => (props.nextUser ? '0.3rem' : '0px')};
+      margin-top: ${props => (props.nextUser ? '0.5rem' : '0px')};
       .message-text {
          font-family: 'Open Sans', sans-serif;
          display: inline-block;
@@ -136,5 +136,11 @@ export const StyledMessage = styled.article.attrs({
    .options-btn-wrapper {
       align-self: start;
       padding-top: 0.2rem;
+   }
+
+   @media only screen and (max-width: 800px) {
+      .message-container {
+         max-width: 82%;
+      }
    }
 `;

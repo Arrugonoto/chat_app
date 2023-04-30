@@ -4,8 +4,8 @@ export const AnimatedBorder = styled.div`
    display: flex;
    position: relative;
    overflow: hidden;
-   width: 20%;
-   min-width: 25rem;
+   width: 24%;
+   min-width: 22rem;
    border-radius: 0.4rem;
    transition: all 0.3s linear;
    &::before {
