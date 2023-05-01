@@ -73,8 +73,8 @@ Project allows the end User to register account, login, send messages, edit them
 [![Socket.IO logo](https://img.shields.io/badge/SOCKET.IO-23272f?style=for-the-badge&logo=socketdotio&logoColor=#010101)](https://socket.io/)
 [![MongoDB logo](https://img.shields.io/badge/MONGODB-23272f?style=for-the-badge&logo=mongodb&logoColor=#47A248)](https://www.mongodb.com/)
 
-[![React.js logo](https://img.shields.io/badge/React-050505?style=for-the-badge&logo=react&logoColor=#61DAFB)](https://react.dev/)
-[![Styled-components logo](https://img.shields.io/badge/STYLED--COMPONENTS-050505?style=for-the-badge&logo=styledcomponents&logoColor=)](https://styled-components.com/)
+[![React.js logo](https://img.shields.io/badge/React-174c5c?style=for-the-badge&logo=react&logoColor=#61DAFB)](https://react.dev/)
+[![Styled-components logo](https://img.shields.io/badge/STYLED--COMPONENTS-804256?style=for-the-badge&logo=styledcomponents&logoColor=)](https://styled-components.com/)
 
 </div>
 
