@@ -1,10 +1,19 @@
 <a name="readme-top"></a>
 
+<div align='center'>
+
+![GitHub](https://img.shields.io/github/license/Arrugonoto/chat_app?color=informational)
+![GitHub Repo stars](https://img.shields.io/github/stars/Arrugonoto/chat_app)
+![GitHub top language](https://img.shields.io/github/languages/top/Arrugonoto/chat_app?color=yellow)
+![GitHub repo size](https://img.shields.io/github/repo-size/Arrugonoto/chat_app?label=size)
+
+</div>
+
 <div align="center">
 
   <h2 align="center">Chilly talk 🤗 </h2>
   <h4>Chat app / room</h4>
-  <p align="center">Realtime chat app for chilly talking and learning basics of full-stack 📖 </p>
+  <p align="center">Realtime chat app for chilly talking, made for learning basics of full-stack 📖 </p>
   <p align="center"><a href='https://chattyapp-79hl.onrender.com/login'>Live demo</a></p>
   <br>
 </div>
@@ -38,8 +47,9 @@
 
 ## About The Project
 
-![Chilly talk - main page](/images/Chilly_talk-main_page.png)
-![Chilly talk - chat room](/images/Chilly_talk-chat_room.png)
+![Chilly talk - main page](/images/login_page.png)
+![Chilly talk - chat room dark theme](/images/chat_room-dark.png)
+![Chilly talk - chat room light theme](/images/chat_room-light.png)
 
 I have decided to improve my coding skills to strengthen my fundamentals of front-end, react and styling also with exploring new trails and oh me it was great and horrible idea at same time. So I have decided to get into back-end development.. at least to understand basics. Finally I have decided to build real time chat application which will work like for example `Messenger` or `Telegram`.
 
@@ -51,7 +61,22 @@ Project allows the end User to register account, login, send messages, edit them
 
 ## :toolbox: Technologies
 
-//
+<div align='center'>
+   <div>
+
+[![Node.js logo](https://img.shields.io/badge/NODE-383838?style=for-the-badge&logo=nodedotjs&logoColor=#61DAFB)](https://nodejs.org/en)
+[![JavaScript logo](https://img.shields.io/badge/JS-383838?style=for-the-badge&logo=javascript&logoColor=#F7DF1E)](https://www.javascripttutorial.net/es-next/)
+[![Express logo](https://img.shields.io/badge/EXPRESS-383838?style=for-the-badge&logo=express&logoColor=#61DAFB)](https://expressjs.com/)
+
+   </div>
+
+[![Socket.IO logo](https://img.shields.io/badge/SOCKET.IO-23272f?style=for-the-badge&logo=socketdotio&logoColor=#010101)](https://socket.io/)
+[![MongoDB logo](https://img.shields.io/badge/MONGODB-23272f?style=for-the-badge&logo=mongodb&logoColor=#47A248)](https://www.mongodb.com/)
+
+[![React.js logo](https://img.shields.io/badge/React-050505?style=for-the-badge&logo=react&logoColor=#61DAFB)](https://react.dev/)
+[![Styled-components logo](https://img.shields.io/badge/STYLED--COMPONENTS-050505?style=for-the-badge&logo=styledcomponents&logoColor=)](https://styled-components.com/)
+
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
